@@ -117,10 +117,12 @@ El desarrollo de un programa no consiste solo en escribir código. Se siguen dis
 
    * **Análisis**: identificar los requisitos del cliente.
    * **Diseño**: definir cómo se resolverá el problema.
+
 2. **Implementación**
 
    * **Codificación**: escribir el código en un lenguaje.
    * **Pruebas y validación**: comprobar que funciona correctamente.
+
 3. **Explotación y mantenimiento**
 
    * Uso en producción.
