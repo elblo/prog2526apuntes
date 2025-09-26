@@ -1,7 +1,7 @@
-# Desarrollo Web en Entorno Servidor
+# Programación
 
 ??? info "Apuntes en construcción"
-    Estos apuntes se están elaborando por [*Eladio Blanco*](https://x.com/eladioblanco) durante el curso 25/26*.
+    Estos apuntes se están elaborando por [*Eladio Blanco*](https://x.com/eladioblanco) durante el curso 25/26.
 
 Aquí puedes encontrar los apuntes del módulo de ***Programación***, que se imparte en el primero curso del ciclo formativo de grado superior de *Desarrollo de Aplicaciones Web*.
 

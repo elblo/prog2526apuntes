@@ -6,7 +6,7 @@
 
     <hr />
 
-    Resultado de aprendizaje:
+    Resultados de aprendizaje:
 
     1. Comprende los conceptos fundamentales de la programación, sus paradigmas y fases de desarrollo.
     2. Conoce los distintos tipos de lenguajes de programación y su evolución histórica.
