@@ -73,6 +73,7 @@ Existen distintas técnicas para plasmar un algoritmo antes de programarlo:
 
 !!! example "Ejemplo de algoritmo cotidiano"
     Piensa en la receta de cocinar pasta:
+
     - Poner agua a hervir.
     - Añadir sal y pasta.
     - Esperar 10 minutos.
@@ -98,10 +99,30 @@ Los **paradigmas** son formas de clasificar los lenguajes de programación segú
 
 ### Subtipos de paradigmas
 
-* **Estructurada**: basada en secuencias, decisiones y bucles.
-* **Orientada a objetos**: basada en clases, objetos, herencia y polimorfismo.
-* **Funcional**: utiliza funciones matemáticas puras y evita estados cambiantes.
-* **Lógica**: se centra en relaciones y reglas (ejemplo: Prolog).
+- **Imperativo** (cómo se hace, secuencia de instrucciones)  
+  - **Convencional (no estructurada)**  
+    - Basada en `GOTO`, poco mantenible  
+  - **Estructurada**  
+    - Uso de funciones, bucles, condicionales, modularidad  
+  - **Orientado a Objetos (subtipo imperativo)**  
+    - Objetos con atributos y métodos, herencia, polimorfismo  
+
+- **Declarativo** (qué se quiere lograr, sin detallar el cómo)  
+  - **Funcional**  
+    - Basado en funciones matemáticas, sin estado mutable  
+  - **Lógico**  
+    - Basado en reglas y deducción lógica (ej. Prolog)  
+
+- **Orientado a Eventos / Visual**  
+  - Flujo guiado por eventos externos (clics, señales, GUI)  
+
+- **Orientado a Aspectos (AOP)**  
+  - Manejo de elementos transversales (logging, seguridad, etc.)
+
+??? info "Notas sobre paradigmas visual, orientados a eventos y a aspectos"
+    Se suele considerar la orientación a eventos más bien un estilo de programación que puede coexistir con POO o estructurada. Se pone aparte en muchas clasificaciones porque cambia la forma mental de diseñar: pasas de pensar en “qué pasos sigue mi programa” a “qué debe hacer mi programa cuando ocurra X”.
+    
+    La programación orientada a aspectos complementa a la POO. Mientras la POO organiza el software en objetos, la AOP organiza el software en objetos + aspectos transversales que se aplican de manera automática allí donde se necesitan.
 
 ### Lenguajes multiparadigma
 
