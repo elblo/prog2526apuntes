@@ -228,8 +228,9 @@ Los lenguajes han evolucionado mucho desde los inicios de la informática.
 * Requiere gran conocimiento del hardware.
 
 !!! info "Ejemplo en vídeo"
-- [Lenguaje ensamblador (YouTube 1)](https://www.youtube.com/embed/GmtenWqfIaI)
-- [Lenguaje ensamblador (YouTube 2)](https://www.youtube.com/embed/wQf0u8cTAcg)
+
+    - [Lenguaje ensamblador (YouTube 1)](https://www.youtube.com/embed/GmtenWqfIaI)
+    - [Lenguaje ensamblador (YouTube 2)](https://www.youtube.com/embed/wQf0u8cTAcg)
 
 ### 3. Lenguajes compilados
 
