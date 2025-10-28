@@ -23,8 +23,6 @@
     6. Se ha explicado el funcionamiento de Java y su máquina virtual.
     7. Se han creado programas en Java utilizando un IDE de desarrollo.
 
----
-
 ## 1.1 Introducción
 
 Vivimos rodeados de tecnología. Muchas de las acciones que realizamos a diario son posibles gracias a **programas informáticos**:
@@ -39,8 +37,6 @@ Detrás de todo ello hay personas que diseñan, programan y mantienen el softwar
 
 !!! tip "Reflexiona"
     Intenta pensar cuántas veces al día interactúas con un programa. Te sorprenderá ver hasta qué punto dependemos de ellos.
-
----
 
 ## 1.2 Programas y Programación
 
@@ -80,8 +76,6 @@ Existen distintas técnicas para plasmar un algoritmo antes de programarlo:
     - Escurrir y servir.
 
     Este conjunto de pasos claros y ordenados es un **algoritmo**.
-
----
 
 ## 1.3 Paradigmas de Programación
 
@@ -127,8 +121,6 @@ Los **paradigmas** son formas de clasificar los lenguajes de programación segú
 ### Lenguajes multiparadigma
 
 Hoy en día, la mayoría de los lenguajes son multiparadigma. Ejemplo: **Java**, que es estructurado, orientado a objetos y funcional.
-
----
 
 ## 1.4 Fases de la Programación
 
@@ -209,8 +201,6 @@ public class Main {
 
 * Cuando el software se usa en la práctica, se corrigen errores y se actualiza.
 
----
-
 ## 1.5 Lenguajes de Programación
 
 Los lenguajes han evolucionado mucho desde los inicios de la informática.
@@ -265,8 +255,6 @@ elif operacion == "multiplicación":
 * Ejecutado por la **Máquina Virtual de Java (JVM)**.
 * Permite portabilidad entre sistemas.
 
----
-
 ## 1.6 Programas en Java
 
 Java es uno de los lenguajes más utilizados en el mundo. Sus características:
@@ -301,8 +289,6 @@ Tipos de programas en Java:
 * Servlets
 * Midlets
 
----
-
 ## 1.7 Entornos de Desarrollo Integrado (IDE)
 
 Un IDE integra editor, compilador, depurador y otras herramientas.
@@ -314,8 +300,6 @@ Los más conocidos para Java son:
 
 !!! tip "Consejo"
     Empieza con un IDE sencillo, pero no olvides aprender también a compilar desde la terminal. Eso te ayudará a entender mejor cómo funciona Java.
-
----
 
 ## 1.8 Actividades
 
