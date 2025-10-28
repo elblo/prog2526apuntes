@@ -24,16 +24,12 @@
     5. Se realizan pruebas que comprueban casos límite, se documentan los supuestos y se corrige con pruebas simples.
     6. Los ejercicios propuestos incluyen comentarios explicativos y manejo básico de errores de entrada.
 
----
-
 ## 2.1 Introducción
 
 En este tema vamos a trabajar las *bases* de la programación imperativa con Java: cómo representar información (tipos y variables), cómo comunicarnos con el usuario (entrada y salida), y cómo controlar el flujo del programa (condicionales y bucles). Estos conceptos son claves porque, una vez dominados, permiten construir cualquier algoritmo y entender mejor paradigmas superiores (POO, concurrencia, etc.).
 
 !!! tip "Lectura previa recomendada"
     Repasa el Tema 1 (Introducción a la programación) para recordar conceptos como algoritmo, pseudocódigo y diagrama de flujo —estos siguen siendo útiles cuando traduzcas la lógica a Java.
-
----
 
 ## 2.2 Salida de datos por pantalla
 
@@ -110,8 +106,6 @@ public class SalidaFormateada {
   <figcaption>Salida de datos y ejemplos en consola</figcaption>
 </figure>
 
----
-
 ## 2.3 Variables e identificadores
 
 ### Identificadores
@@ -177,8 +171,6 @@ public class TiposVariables {
     }
 }
 ```
-
----
 
 ## 2.4 Tipos de datos
 
@@ -271,8 +263,6 @@ if (adulto) {
 }
 ```
 
----
-
 ## 2.5 Depuración y herramientas
 
 Depurar es una habilidad esencial. Aprender a usar el *debugger* del IDE (breakpoints, inspección de variables, paso a paso) ayuda a entender el estado del programa y detectar errores lógicos.
@@ -286,8 +276,6 @@ Depurar es una habilidad esencial. Aprender a usar el *debugger* del IDE (breakp
     - Añade `System.out.printf` para inspecciones rápidas.  
     - Usa breakpoints para detener la ejecución y examinar variables.  
     - Escribe pruebas con datos límite para descubrir comportamientos inesperados.
-
----
 
 ## 2.6 Tipos referenciados
 
@@ -305,8 +293,6 @@ public class Main {
     }
 }
 ```
-
----
 
 ## 2.7 Lectura de datos desde teclado
 
@@ -371,8 +357,6 @@ String nombre = s.nextLine();
 
 !!! example "Patrón seguro"
     Para lecturas mixtas: lee siempre con `nextLine()` y parsea manualmente (`Integer.parseInt(...)`) para evitar efectos secundarios del buffer.
-
----
 
 ## 2.8 Operadores y expresiones
 
@@ -461,8 +445,6 @@ System.out.println(cad1.substring(6));
 !!! tip "Precedencia y paréntesis"
     Si una expresión te resulta ambigua o depende del tipo de los operandos, usa paréntesis para dejar claro el orden de evaluación y evitar errores por coerción de tipos.
 
----
-
 ## 2.9 Conversión de tipo (cast)
 
 La conversión entre tipos numéricos puede ser **implícita** (cuando el compilador lo permite sin pérdida aparente) o **explícita** (cuando el programador fuerza la conversión con cast).
@@ -513,8 +495,6 @@ System.out.printf("Media: %.2f", media);
 !!! tip "Evita pérdida silenciosa"
     Antes de castear, cuestiona si la pérdida de información es aceptable. Añade comentarios que justifiquen el cast si es deliberado.
 
----
-
 ## 2.10 Comentarios
 
 Los comentarios facilitan la comprensión del código y la colaboración. Tipos en Java:
@@ -540,8 +520,6 @@ public int suma(int a, int b){ return a + b; }
 
 !!! tip "Javadoc"
     Documenta parámetros y valores de retorno en métodos públicos. Facilita la generación automática de documentación.
-
----
 
 ## 2.11 Estructuras selectivas
 
@@ -645,8 +623,6 @@ System.out.println("Trimestre número " + trimestre);
     System.out.println("Mes " + mes + ": " + nombreDelMes);
     ```
 
----
-
 ## 2.12 Estructuras repetitivas
 
 Las estructuras repetitivas permiten ejecutar una o varias sentencias varias veces hasta que se cumpla una condición.
@@ -749,9 +725,22 @@ do {
   <figcaption>Diagrama y ejemplos de bucles</figcaption>
 </figure>
 
----
+## 2.13 Recomendaciones
 
-## 2.13 Ejercicios propuestos (ampliados)
+- **Documenta** funciones públicas con Javadoc.  
+- **Nombres significativos** para variables, métodos y clases.  
+- **Evita magia**: no uses números mágicos (constantes sin nombre).  
+- **Comprueba entradas**: valida datos del usuario antes de parsear.  
+- **Pruebas simples**: prueba con casos límite y nulos.  
+- **Formato y estilo**: sigue una guía de estilo y mantén indentación consistente.
+
+## 2.14 Referencias
+
+- Guía de estilo Java (Google Java Style Guide).  
+- Documentación oficial Oracle/OpenJDK.  
+- Tutoriales y recursos sobre `Scanner`, `String`, `Math`, y debugging en tu IDE preferido.
+
+## 2.15 Actividades
 
 A continuación encontrarás ejercicios con distintos niveles y sugerencias de mejora o ampliación.
 
@@ -805,28 +794,4 @@ A continuación encontrarás ejercicios con distintos niveles y sugerencias de m
     }
     ```
 
----
-
-## 2.14 Recomendaciones y buenas prácticas (resumen extendido)
-
-- **Documenta** funciones públicas con Javadoc.  
-- **Nombres significativos** para variables, métodos y clases.  
-- **Evita magia**: no uses números mágicos (constantes sin nombre).  
-- **Comprueba entradas**: valida datos del usuario antes de parsear.  
-- **Pruebas simples**: prueba con casos límite y nulos.  
-- **Formato y estilo**: sigue una guía de estilo y mantén indentación consistente.
-
----
-
-## Referencias y recursos adicionales
-
-- Guía de estilo Java (Google Java Style Guide).  
-- Documentación oficial Oracle/OpenJDK.  
-- Tutoriales y recursos sobre `Scanner`, `String`, `Math`, y debugging en tu IDE preferido.
-
----
-
-## Notas finales
-
-Este documento replica y **amplía** la presentación original: mantiene todos los ejemplos en Java, preserva las rutas a las imágenes para su integración con tu sitio, y añade explicaciones, advertencias y ampliaciones donde procede. Si quieres que genere versiones alternativas (p. ej. con soluciones completas para todos los ejercicios dentro de `??? info "Solución"`), puedo hacerlo en una siguiente iteración.
 
