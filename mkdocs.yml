@@ -5,6 +5,7 @@ use_directory_urls: false
 nav:
   - "Inicio": "index.md"
   - "1.- Introducción": "01introduccion.md"
+  - "2.- Fundamentos básicos de la programación": "02fundamentos.md"
   #- "Actividades resueltas": # Importante al ser categoría, NO enlazar a ningún md
   #  - "Tema 8": "08actividadesResueltas.md"
   #  - "Tema 9": "09actividadesResueltas.md"
