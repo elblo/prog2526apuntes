@@ -140,13 +140,13 @@ int contador = 0;  // declaración e inicialización
 
 Tipos y ámbitos:
 
-- **Locales**: declaradas dentro de métodos, visibles solo allí.
-- **Miembro (field)**: declaradas en la clase, visibles para instancias o `static` para la clase.
-- **Parámetros**: variables que reciben métodos al invocarlos.
+- **Locales**: declaradas dentro de funciones, visibles solo allí.
+- **Miembro**: declaradas en la clase, visibles para instancias o `static` para la clase (Se ven en temas posteriores).
+- **Parámetros**: variables que se pasan a las funcinoes al llamarlas.
 
 ### Tipos de variables (clasificación conceptual)
 
-- **Primitivas vs Referenciadas**: las primitivas contienen el valor (ej. `int`), las referenciadas contienen una referencia a un objeto (`String`, `Persona`, arrays).
+- **Primitivas vs Referenciadas**: las primitivas contienen el valor (ej. `int`), las referenciadas contienen una referencia (dirección de memoria) a un objeto (`String`, `Persona`, arrays).
 - **Variables vs Constantes**: constantes se declaran con `final`.
 - **Miembro vs Local**: ámbito y ciclo de vida diferentes.
 
@@ -187,7 +187,7 @@ Los tipos describen qué valores puede contener una variable y qué operaciones 
 | `short`  | 16    | -32.768 a 32.767             |
 | `int`    | 32    | -2^31 ... 2^31-1             |
 | `long`   | 64    | números grandes, añade `L`   |
-| `float`  | 32    | punto flotante simple, `f`   |
+| `float`  | 32    | punto flotante simple, añade `f`   |
 | `double` | 64    | punto flotante doble (por defecto) |
 | `char`   | 16    | carácter Unicode             |
 | `boolean`| 1 (conceptual) | `true` o `false`    |
@@ -240,7 +240,7 @@ Un `char` puede asignarse de tres maneras:
 
 - Directamente: `char c = 'A';`
 - Por código Unicode: `char c = '\u0040';`
-- Por entero (valor ASCII/Unicode): `char c = 63;  // '?'`
+- Por entero (valor ASCII/Unicode): `char c = 63;  // caracter '?'`
 
 ```java
 char simbolo1 = '&';
@@ -279,7 +279,7 @@ Depurar es una habilidad esencial. Aprender a usar el *debugger* del IDE (breakp
 
 ## 2.6 Tipos referenciados
 
-Los tipos referenciados no almacenan el valor directamente sino una referencia (puntero) a un objeto en memoria:
+Los tipos referenciados no almacenan el valor directamente, sino una referencia (puntero) a un objeto en memoria:
 
 - Arrays: `int[] vector = new int[10];`
 - Clases: `Persona usuario = new Persona();`
@@ -293,6 +293,11 @@ public class Main {
     }
 }
 ```
+
+??? tip "Pool de cadenas"
+
+    Un "pool de cadenas" (o string pool) es un área de memoria donde se almacenan las cadenas de texto únicas para optimizar el uso de la memoria en lenguajes de programación como Java y C#. Cuando se crea un literal de cadena, el sistema primero verifica si ya existe en el pool; si es así, reutiliza la referencia existente en lugar de crear una nueva instancia, lo que hace que dos cadenas con el mismo valor apunten a la misma dirección de memoria. Este proceso mejora la eficiencia, especialmente cuando la misma cadena se utiliza en múltiples lugares. 
+
 
 ## 2.7 Lectura de datos desde teclado
 
@@ -345,7 +350,7 @@ int edad = s.nextInt();
 float estatura = s.nextFloat();
 ```
 
-### Combinar `nextLine()` con `nextInt()` — cuidado frecuente
+### Combinar `nextLine()` con `nextInt()` — ojo!
 
 Si usas `nextInt()` y después `nextLine()`, la segunda puede leer el salto de línea sobrante. Solución típica: consumir el salto con un `nextLine()` extra.
 
@@ -625,7 +630,12 @@ System.out.println("Trimestre número " + trimestre);
 
 ## 2.12 Estructuras repetitivas
 
-Las estructuras repetitivas permiten ejecutar una o varias sentencias varias veces hasta que se cumpla una condición.
+Las estructuras repetitivas permiten ejecutar una o varias sentencias varias veces mientras se cumpla una condición.
+
+<figure>
+  <img src="imagenes/02/progt02-40.png" />
+  <figcaption>Diagrama y ejemplos de bucles</figcaption>
+</figure>
 
 ### `for` clásico
 
@@ -652,7 +662,7 @@ for (int i = 10; i >= 0; i--) {
 }
 ```
 
-### `for-each` (enhanced for)
+### `for-each`
 
 Para recorrer arrays y colecciones de manera segura y sin índices:
 
@@ -720,16 +730,10 @@ do {
     - Usa `while` cuando la condición se evalúa antes y puede no ejecutarse ninguna vez.  
     - Usa `do-while` cuando la condición se evalúa después y necesitas asegurar una ejecución inicial.
 
-<figure>
-  <img src="imagenes/02/progt02-40.png" />
-  <figcaption>Diagrama y ejemplos de bucles</figcaption>
-</figure>
-
 ## 2.13 Recomendaciones
 
 - **Documenta** funciones públicas con Javadoc.  
 - **Nombres significativos** para variables, métodos y clases.  
-- **Evita magia**: no uses números mágicos (constantes sin nombre).  
 - **Comprueba entradas**: valida datos del usuario antes de parsear.  
 - **Pruebas simples**: prueba con casos límite y nulos.  
 - **Formato y estilo**: sigue una guía de estilo y mantén indentación consistente.
@@ -738,7 +742,7 @@ do {
 
 - Guía de estilo Java (Google Java Style Guide).  
 - Documentación oficial Oracle/OpenJDK.  
-- Tutoriales y recursos sobre `Scanner`, `String`, `Math`, y debugging en tu IDE preferido.
+- Tutoriales y recursos sobre `Scanner`, `String`, `Math`, y debugging en IntelliJ IDEA.
 
 ## 2.15 Actividades
 
@@ -777,21 +781,5 @@ A continuación encontrarás ejercicios con distintos niveles y sugerencias de m
 209. **Conversión y media**  
     Programa que lea tres notas enteras, calcule la media y muestre con 2 decimales. Prueba con entradas que muestren pérdida por conversión y explica cómo evitarla.
 
-??? info "Solución ejercicio 203"
-    ```java
-    import java.util.Scanner;
-    public class ParImpar {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Introduce un número: ");
-            int num = sc.nextInt();
-            if (num % 2 == 0) {
-                System.out.println("Es par");
-            } else {
-                System.out.println("Es impar");
-            }
-        }
-    }
-    ```
 
 
