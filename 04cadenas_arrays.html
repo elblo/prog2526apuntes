@@ -1,0 +1,1044 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/04cadenas_arrays.html">
+      
+      
+        <link rel="prev" href="03aleatorios_funciones.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>4.- Arrays estáticos y cadenas - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-4-cadenas-y-arrays-estaticos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.- Arrays estáticos y cadenas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02fundamentos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- Fundamentos básicos de la programación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03aleatorios_funciones.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- Aleatorios y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Arrays estáticos y cadenas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="04cadenas_arrays.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Arrays estáticos y cadenas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-cadenas-de-caracteres-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Cadenas de caracteres en Java
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-operaciones-basicas-con-cadenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Operaciones básicas con cadenas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Operaciones básicas con cadenas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-longitud-y-acceso-a-caracteres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Longitud y acceso a caracteres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-subcadenas-y-busqueda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Subcadenas y búsqueda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-comparacion-de-cadenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Comparación de cadenas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-conversion-entre-cadenas-y-tipos-numericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Conversión entre cadenas y tipos numéricos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-concatenacion-y-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Concatenación y rendimiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Concatenación y rendimiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-de-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa de métodos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-metodos-avanzados-de-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Métodos avanzados de String
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-expresiones-regulares-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Expresiones regulares (regex)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-arrays-estaticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Arrays estáticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-recorrer-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 Recorrer arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.9 Recorrer arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#491-bucle-clasico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.1 Bucle clásico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#492-bucle-mejorado-foreach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.2 Bucle mejorado (foreach)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410-copia-de-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 Copia de arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-utilidades-de-la-clase-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 Utilidades de la clase Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#412-ordenacion-metodo-de-la-burbuja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 Ordenación: método de la burbuja
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#413-arrays-bidimensionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.13 Arrays bidimensionales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#414-bonus-argumentos-al-programa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14 Bonus: argumentos al programa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#415-ejercicios-propuestos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.15 Ejercicios propuestos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416-recursos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.16 Recursos adicionales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#417-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.17 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-4-cadenas-y-arrays-estaticos">Tema 4: Cadenas y arrays estáticos<a class="headerlink" href="#tema-4-cadenas-y-arrays-estaticos" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 12 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Comprender y aplicar las operaciones fundamentales y avanzadas sobre cadenas (<code>String</code>) en Java.  </li>
+<li>Declarar, inicializar, recorrer y manipular arrays estáticos unidimensionales y bidimensionales.  </li>
+<li>Utilizar métodos de la clase <code>Arrays</code> para tareas comunes (ordenación, copia, búsqueda, conversión).  </li>
+<li>Comprender conceptos de rendimiento asociados a cadenas y arrays.  </li>
+<li>Resolver ejercicios prácticos y documentar soluciones correctas.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se han utilizado correctamente los métodos de la clase <code>String</code>.  </li>
+<li>Se han implementado recorridos y manipulaciones de arrays estáticos.  </li>
+<li>Se han aplicado algoritmos de búsqueda y ordenación.  </li>
+<li>El código Java es claro, legible y documentado.  </li>
+<li>Las soluciones propuestas a los ejercicios están justificadas y probadas.</li>
+</ol>
+</details>
+<h2 id="41-introduccion">4.1 Introducción<a class="headerlink" href="#41-introduccion" title="Permanent link">&para;</a></h2>
+<p>Hasta ahora has aprendido variables simples y estructuras básicas de control. Sin embargo, en muchos programas necesitas trabajar con <strong>textos largos</strong> y con <strong>conjuntos de datos relacionados</strong>. Para ello:</p>
+<ul>
+<li>Las <strong>cadenas de caracteres (<code>String</code>)</strong> permiten representar y procesar texto de forma flexible y expresiva.  </li>
+<li>Los <strong>arrays estáticos</strong> permiten agrupar múltiples valores del mismo tipo bajo un solo identificador y acceder a ellos mediante índices.</li>
+</ul>
+<p>Estas dos estructuras constituyen la base para casi cualquier programa no trivial.</p>
+<h2 id="42-cadenas-de-caracteres-en-java">4.2 Cadenas de caracteres en Java<a class="headerlink" href="#42-cadenas-de-caracteres-en-java" title="Permanent link">&para;</a></h2>
+<p>En Java, las cadenas se representan mediante la clase <strong><code>String</code></strong>. Aunque su sintaxis puede parecer primitiva, <code>String</code> es un objeto que encapsula una secuencia de caracteres y provee métodos para manipular ese texto.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">saludo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hola mundo&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="w"> </span><span class="n">copia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hola mundo&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Java internamente gestiona un <em>String Pool</em>, que permite reutilizar literales idénticos y ahorrar memoria.</p>
+<div class="admonition info">
+<p class="admonition-title">Inmutabilidad</p>
+<p>Los objetos de tipo <code>String</code> son <strong>inmutables</strong>, lo que significa que una vez creados no pueden modificarse. Cada vez que realizas una operación que “cambia” una cadena, Java crea un nuevo objeto en memoria.</p>
+</div>
+<h2 id="43-operaciones-basicas-con-cadenas">4.3 Operaciones básicas con cadenas<a class="headerlink" href="#43-operaciones-basicas-con-cadenas" title="Permanent link">&para;</a></h2>
+<h3 id="431-longitud-y-acceso-a-caracteres">4.3.1 Longitud y acceso a caracteres<a class="headerlink" href="#431-longitud-y-acceso-a-caracteres" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>length()</code> devuelve el número de caracteres de la cadena.  </li>
+<li><code>charAt(index)</code> devuelve el carácter en la posición <code>index</code> (base 0).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">texto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Programación&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">int</span><span class="w"> </span><span class="n">longitud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texto</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w">   </span><span class="c1">// 12</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">char</span><span class="w"> </span><span class="n">primera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texto</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// &#39;P&#39;</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/05/progt05-01.png" />
+  <figcaption>Uso del método <code>length()</code></figcaption>
+</figure>
+
+<h3 id="432-subcadenas-y-busqueda">4.3.2 Subcadenas y búsqueda<a class="headerlink" href="#432-subcadenas-y-busqueda" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>substring(inicio, fin)</code> devuelve parte de la cadena desde <code>inicio</code> hasta <code>fin - 1</code>.  </li>
+<li><code>indexOf(...)</code> devuelve la primera posición de aparición de una subcadena.  </li>
+<li><code>lastIndexOf(...)</code> devuelve la última posición de aparición.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">palabra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Programación&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">palabra</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w">     </span><span class="c1">// &quot;Programa&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">int</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">palabra</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;ción&quot;</span><span class="p">);</span><span class="w">         </span><span class="c1">// posición donde empieza &quot;ción&quot;</span>
+</code></pre></div>
+<h3 id="433-comparacion-de-cadenas">4.3.3 Comparación de cadenas<a class="headerlink" href="#433-comparacion-de-cadenas" title="Permanent link">&para;</a></h3>
+<p>Para comparar el <strong>contenido</strong> de dos cadenas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w">              </span><span class="c1">// sensibilidad a mayúsculas</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="c1">// ignora mayúsculas/minúsculas</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Error común</p>
+<p>El operador <code>==</code> <strong>no</strong> debe usarse para comparar texto en Java, ya que compara referencias a objetos, no contenido.</p>
+</div>
+<h2 id="44-conversion-entre-cadenas-y-tipos-numericos">4.4 Conversión entre cadenas y tipos numéricos<a class="headerlink" href="#44-conversion-entre-cadenas-y-tipos-numericos" title="Permanent link">&para;</a></h2>
+<p>Para convertir cadenas numéricas a tipos primitivos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;1234&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">parseDouble</span><span class="p">(</span><span class="s">&quot;3.14&quot;</span><span class="p">);</span>
+</code></pre></div>
+<details class="tip">
+<summary>Comprabación de errores (avanzado)</summary>
+<p>Es recomendable capturar posibles errores de conversión mediante excepciones (se estudian en temas posteriores):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Formato inválido&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<h2 id="45-concatenacion-y-rendimiento">4.5 Concatenación y rendimiento<a class="headerlink" href="#45-concatenacion-y-rendimiento" title="Permanent link">&para;</a></h2>
+<p>Concatenar muchas cadenas con <code>+</code> dentro de bucles genera objetos temporales innecesarios debido a la inmutabilidad de <code>String</code>. Para concatenaciones repetidas es mejor usar <code>StringBuilder</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">String</span><span class="w"> </span><span class="n">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+</code></pre></div>
+<h3 id="comparativa-de-metodos">Comparativa de métodos<a class="headerlink" href="#comparativa-de-metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Uso ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Concatenaciones simples</td>
+</tr>
+<tr>
+<td><code>StringBuilder</code></td>
+<td>Concatenaciones repetidas o en bucles</td>
+</tr>
+<tr>
+<td><code>StringBuffer</code></td>
+<td>Igual que StringBuilder pero <em>thread-safe</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="46-metodos-avanzados-de-string">4.6 Métodos avanzados de <code>String</code><a class="headerlink" href="#46-metodos-avanzados-de-string" title="Permanent link">&para;</a></h2>
+<p>La clase <code>String</code> ofrece métodos útiles:</p>
+<ul>
+<li><code>toUpperCase()</code> / <code>toLowerCase()</code>  </li>
+<li><code>replace(old, new)</code>  </li>
+<li><code>split(regex)</code>  </li>
+<li><code>contains(sub)</code>  </li>
+<li><code>startsWith(prefix)</code>, <code>endsWith(suffix)</code>  </li>
+<li><code>trim()</code> elimina espacios antes y después del texto</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;manzana,pera,uva&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">frutas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/05/progt05-06.png" />
+  <figcaption>Métodos habituales de <code>String</code></figcaption>
+</figure>
+
+<h2 id="47-expresiones-regulares-regex">4.7 Expresiones regulares (regex)<a class="headerlink" href="#47-expresiones-regulares-regex" title="Permanent link">&para;</a></h2>
+<p>Las expresiones regulares permiten buscar patrones complejos en texto. Java soporta regex con <code>Pattern</code> y <code>Matcher</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.regex.*</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="n">Pattern</span><span class="w"> </span><span class="n">patron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">&quot;\\d{4}-\\d{2}-\\d{2}&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">Matcher</span><span class="w"> </span><span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">patron</span><span class="p">.</span><span class="na">matcher</span><span class="p">(</span><span class="s">&quot;2025-12-15&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matcher</span><span class="p">.</span><span class="na">matches</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Formato válido de fecha&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="48-arrays-estaticos">4.8 Arrays estáticos<a class="headerlink" href="#48-arrays-estaticos" title="Permanent link">&para;</a></h2>
+<p>Un <strong>array estático</strong> almacena múltiples valores del mismo tipo en posiciones indexadas. Su tamaño se define al crear el array y no cambia durante la ejecución.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Ana&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luis&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;María&quot;</span><span class="p">};</span>
+</code></pre></div>
+<p>La propiedad <code>.length</code> indica el tamaño.</p>
+<figure>
+  <img src="imagenes/05/progt05-09.png" />
+  <figcaption>Creación de arrays</figcaption>
+</figure>
+
+<h2 id="49-recorrer-arrays">4.9 Recorrer arrays<a class="headerlink" href="#49-recorrer-arrays" title="Permanent link">&para;</a></h2>
+<h3 id="491-bucle-clasico">4.9.1 Bucle clásico<a class="headerlink" href="#491-bucle-clasico" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numeros</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numeros</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="492-bucle-mejorado-foreach">4.9.2 Bucle mejorado (<code>foreach</code>)<a class="headerlink" href="#492-bucle-mejorado-foreach" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">numeros</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">valor</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="410-copia-de-arrays">4.10 Copia de arrays<a class="headerlink" href="#410-copia-de-arrays" title="Permanent link">&para;</a></h2>
+<p>Asignar un array a otro solo duplica la referencia:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// ambos apuntan al mismo array</span>
+</code></pre></div>
+<p>Para duplicar correctamente los valores:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="411-utilidades-de-la-clase-arrays">4.11 Utilidades de la clase <code>Arrays</code><a class="headerlink" href="#411-utilidades-de-la-clase-arrays" title="Permanent link">&para;</a></h2>
+<p>La clase <code>java.util.Arrays</code> ofrece métodos estáticos útiles:</p>
+<ul>
+<li><code>Arrays.sort(array)</code> → ordena un array  </li>
+<li><code>Arrays.toString(array)</code> → representación en texto  </li>
+<li><code>Arrays.copyOf(array, newSize)</code> → copia/redimensiona arrays  </li>
+<li><code>Arrays.equals(a, b)</code> → compara contenido</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">a</span><span class="p">));</span><span class="w">  </span><span class="c1">// [3, 5, 9]</span>
+</code></pre></div>
+<h2 id="412-ordenacion-metodo-de-la-burbuja">4.12 Ordenación: método de la burbuja<a class="headerlink" href="#412-ordenacion-metodo-de-la-burbuja" title="Permanent link">&para;</a></h2>
+<p>La ordenación por burbuja compara elementos adyacentes y los intercambia si están desordenados. Es sencillo pero costoso (O(n²)):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">burbuja</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">                </span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">                </span><span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">            </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/05/progt05-17.png" />
+  <figcaption>Ordenación por burbuja</figcaption>
+</figure>
+
+<h2 id="413-arrays-bidimensionales">4.13 Arrays bidimensionales<a class="headerlink" href="#413-arrays-bidimensionales" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matriz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div>
+<p>Recorrer filas y columnas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">matriz</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/05/progt05-21.png" />
+  <figcaption>Array bidimensional</figcaption>
+</figure>
+
+<h2 id="414-bonus-argumentos-al-programa">4.14 Bonus: argumentos al programa<a class="headerlink" href="#414-bonus-argumentos-al-programa" title="Permanent link">&para;</a></h2>
+<p>El método <code>main</code> recibe parámetros en <code>args</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">arg</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecución desde la consola:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>java<span class="w"> </span>Programa<span class="w"> </span>uno<span class="w"> </span>dos<span class="w"> </span>tres
+</code></pre></div>
+<h2 id="415-ejercicios-propuestos">4.15 Ejercicios propuestos<a class="headerlink" href="#415-ejercicios-propuestos" title="Permanent link">&para;</a></h2>
+<ol start="401">
+<li><strong>Contar vocales</strong> en una cadena.  </li>
+<li><strong>Separar nombre y apellidos</strong> desde una cadena.  </li>
+<li><strong>Calcular la media</strong> de un array de números.  </li>
+<li><strong>Ordenar un array</strong> con burbuja y explicar su coste.  </li>
+<li><strong>Buscar un valor</strong> en un array y devolver su índice.  </li>
+<li><strong>Mostrar una matriz</strong> bidimensional por pantalla.</li>
+</ol>
+<h2 id="416-recursos-adicionales">4.16 Recursos adicionales<a class="headerlink" href="#416-recursos-adicionales" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Documentación oficial de <code>String</code> y <code>Arrays</code> (Oracle).  </li>
+<li>Ejercicios prácticos y retos online (Codingame, LeetCode).  </li>
+<li>Tutoriales de métodos avanzados y patrones de diseño relacionados.</li>
+</ul>
+<h2 id="417-buenas-practicas">4.17 Buenas prácticas<a class="headerlink" href="#417-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Valida índices</strong> antes de acceder a arrays.  </li>
+<li>Usa <strong>StringBuilder</strong> para concatenaciones intensivas.  </li>
+<li><strong>Maneja excepciones</strong> en conversiones de tipo.  </li>
+<li>Prefiere utilidades como <strong><code>Arrays.sort()</code></strong> en producción.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1791 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/02fundamentos.html">
+      
+      
+        <link rel="prev" href="01introduccion.html">
+      
+      
+        <link rel="next" href="03aleatorios_funciones.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>2.- Fundamentos básicos de la programación - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-2-fundamentos-basicos-de-la-programacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.- Fundamentos básicos de la programación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- Fundamentos básicos de la programación
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02fundamentos.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- Fundamentos básicos de la programación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-salida-de-datos-por-pantalla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Salida de datos por pantalla
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Salida de datos por pantalla">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funciones-basicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funciones básicas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorear-texto-codigo-ansi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Colorear texto (código ANSI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteres-especiales-unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caracteres especiales (Unicode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatear-la-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatear la salida
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-variables-e-identificadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Variables e identificadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Variables e identificadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identificadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-variables-clasificacion-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de variables (clasificación conceptual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-tipos-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Tipos de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Tipos de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitivos-y-referenciados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitivos y referenciados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rangos-y-valores-por-defecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rangos y valores por defecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaracion-e-inicializacion-ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaración e inicialización: ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#var-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        var en Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#char-formas-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        char: formas de asignación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean-expresiones-logicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        boolean: expresiones lógicas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-depuracion-y-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Depuración y herramientas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-tipos-referenciados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Tipos referenciados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-lectura-de-datos-desde-teclado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 Lectura de datos desde teclado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 Lectura de datos desde teclado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clase-scanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clase Scanner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-de-datos-leidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversión de datos leídos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leer-varios-datos-con-metodos-especificos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leer varios datos con métodos específicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combinar-nextline-con-nextint-ojo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinar nextLine() con nextInt() — ojo!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-operadores-y-expresiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Operadores y expresiones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 Operadores y expresiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aritmeticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aritméticos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignacion-combinada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asignación combinada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incrementodecremento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremento/decremento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relacionales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-ternario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador ternario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajo-con-cadenas-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajo con cadenas (String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-conversion-de-tipo-cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 Conversión de tipo (cast)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 Conversión de tipo (cast)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-implicita-promocion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversión implícita (promoción)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-explicita-casting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversión explícita (casting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-de-conversion-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla de conversión (resumen)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-comentarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 Comentarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-estructuras-selectivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.11 Estructuras selectivas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11 Estructuras selectivas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-simple-y-if-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        if simple y if-else
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-clasico-y-switch-expression-java-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        switch clásico y switch expression (Java 12+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-estructuras-repetitivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.12 Estructuras repetitivas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.12 Estructuras repetitivas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-clasico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        for clásico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        for-each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        while
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        do-while
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-recomendaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.13 Recomendaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#214-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.14 Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#215-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.15 Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03aleatorios_funciones.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- Aleatorios y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04cadenas_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Arrays estáticos y cadenas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-2-fundamentos-basicos-de-la-programacion">Tema 2: Fundamentos básicos de la programación<a class="headerlink" href="#tema-2-fundamentos-basicos-de-la-programacion" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 10 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Comprender los conceptos fundamentales del lenguaje Java relacionados con tipos de datos, variables y estructuras de control.</li>
+<li>Saber leer y escribir datos por consola y formatear la salida.</li>
+<li>Identificar y utilizar operadores y expresiones conociendo su precedencia y efectos.</li>
+<li>Aplicar conversiones de tipo (implícitas y explícitas) y prever pérdida de información.</li>
+<li>Implementar estructuras selectivas y repetitivas para resolver problemas básicos.</li>
+<li>Documentar y depurar programas sencillos en Java.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>El alumno utiliza correctamente las funciones de entrada/salida (<code>Scanner</code>, <code>System.out</code>) y elige la más adecuada según la tarea.</li>
+<li>Se declaran variables con tipado adecuado, incluyendo constantes <code>final</code> cuando corresponde.</li>
+<li>Se aplican operadores correctamente y se demuestra conocimiento de su precedencia y efectos sobre tipos.</li>
+<li>Se implementan estructuras <code>if</code>, <code>switch</code>, <code>for</code>, <code>while</code> y <code>do-while</code> para solucionar problemas concretos.</li>
+<li>Se realizan pruebas que comprueban casos límite, se documentan los supuestos y se corrige con pruebas simples.</li>
+<li>Los ejercicios propuestos incluyen comentarios explicativos y manejo básico de errores de entrada.</li>
+</ol>
+</details>
+<h2 id="21-introduccion">2.1 Introducción<a class="headerlink" href="#21-introduccion" title="Permanent link">&para;</a></h2>
+<p>En este tema vamos a trabajar las <em>bases</em> de la programación imperativa con Java: cómo representar información (tipos y variables), cómo comunicarnos con el usuario (entrada y salida), y cómo controlar el flujo del programa (condicionales y bucles). Estos conceptos son claves porque, una vez dominados, permiten construir cualquier algoritmo y entender mejor paradigmas superiores (POO, concurrencia, etc.).</p>
+<div class="admonition tip">
+<p class="admonition-title">Lectura previa recomendada</p>
+<p>Repasa el Tema 1 (Introducción a la programación) para recordar conceptos como algoritmo, pseudocódigo y diagrama de flujo —estos siguen siendo útiles cuando traduzcas la lógica a Java.</p>
+</div>
+<h2 id="22-salida-de-datos-por-pantalla">2.2 Salida de datos por pantalla<a class="headerlink" href="#22-salida-de-datos-por-pantalla" title="Permanent link">&para;</a></h2>
+<h3 id="funciones-basicas">Funciones básicas<a class="headerlink" href="#funciones-basicas" title="Permanent link">&para;</a></h3>
+<p>En Java, la salida por consola se realiza fundamentalmente con la clase <code>System.out</code>. Las funciones más habituales son:</p>
+<ul>
+<li><code>System.out.print("texto");</code> → imprime sin salto de línea.</li>
+<li><code>System.out.println("texto");</code> → imprime y añade salto de línea.</li>
+<li><code>System.out.printf("formato %args", arg1, arg2);</code> → imprime con formato (similar a <code>printf</code> en C).</li>
+</ul>
+<p>Estas funciones pertenecen al <em>stream</em> estándar de salida (<code>stdout</code>) y son útiles para depuración y programas de consola.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Hola&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; Mundo&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Número: %d, texto: %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ejemplo&quot;</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Uso didáctico</p>
+<p>Usa <code>println</code> cuando quieras mostrar líneas completas y <code>print</code> para construir la salida de forma progresiva. Emplea <code>printf</code> cuando necesites controlar el formato (ancho, decimales, justificación).</p>
+</div>
+<h3 id="colorear-texto-codigo-ansi">Colorear texto (código ANSI)<a class="headerlink" href="#colorear-texto-codigo-ansi" title="Permanent link">&para;</a></h3>
+<p>En terminales compatibles, se pueden imprimir códigos de escape ANSI para cambiar color y estilo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Colores</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\033[33m mandarina&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\033[32m hierba&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\033[31m tomate&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;\033[0m\n&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// reset</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Nota importante:</strong> No todas las consolas (especialmente emuladores de Windows antiguos) interpretan estos códigos por defecto. En Windows moderno (PowerShell, Windows Terminal) suelen funcionar; en algunos casos necesitarás librerías o configurar la consola.</p>
+</blockquote>
+<h3 id="caracteres-especiales-unicode">Caracteres especiales (Unicode)<a class="headerlink" href="#caracteres-especiales-unicode" title="Permanent link">&para;</a></h3>
+<p>Puedes usar secuencias <code>\uXXXX</code> para imprimir caracteres Unicode por su código hexadecimal:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaracteresEspeciales</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Corchea: \u266A&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; Doble corchea: \u266B&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Consulta tablas Unicode para encontrar símbolos útiles (p. ej. <code>\u266A</code> = ♪).</p>
+<h3 id="formatear-la-salida">Formatear la salida<a class="headerlink" href="#formatear-la-salida" title="Permanent link">&para;</a></h3>
+<p><code>printf</code> permite máscaras como <code>%s</code>, <code>%d</code>, <code>%f</code> y especificadores de precisión y ancho:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SalidaFormateada</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;El número %d no tiene decimales.\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;El número %.3f sale con 3 decimales.\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">21.0</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Soy %s y tengo %d años.\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Eladio&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Formato y localización</p>
+<p>Ten en cuenta que el separador decimal depende del <em>locale</em> en algunos métodos. <code>printf</code> en Java usa <code>.</code> como separador decimal a menos que cambies el <code>Locale</code>. Para salidas localizadas usa <code>String.format(Locale, ...)</code> o controla el <code>Locale</code> de <code>Formatter</code>.</p>
+</div>
+<figure>
+  <img src="imagenes/02/progt02-01.png" />
+  <figcaption>Salida de datos y ejemplos en consola</figcaption>
+</figure>
+
+<h2 id="23-variables-e-identificadores">2.3 Variables e identificadores<a class="headerlink" href="#23-variables-e-identificadores" title="Permanent link">&para;</a></h2>
+<h3 id="identificadores">Identificadores<a class="headerlink" href="#identificadores" title="Permanent link">&para;</a></h3>
+<p>Un <strong>identificador</strong> es el nombre que damos a variables, métodos, clases o paquetes. Reglas y recomendaciones importantes:</p>
+<ul>
+<li>Java distingue entre mayúsculas y minúsculas: <code>num</code> ≠ <code>Num</code>.</li>
+<li>Convención de nombres: <code>lowerCamelCase</code> para variables y métodos, <code>UpperCamelCase</code> para clases.</li>
+<li>El primer carácter debe ser una letra, <code>$</code> o <code>_</code> (aunque <code>$</code> y <code>_</code> no se recomiendan).</li>
+<li>Evita palabras reservadas (p. ej. <code>class</code>, <code>int</code>, <code>if</code>...).</li>
+</ul>
+<p>En equipos, seguir una guía de estilo (por ejemplo la de Google para Java) mejora la legibilidad.</p>
+<div class="admonition tip">
+<p class="admonition-title">Nombres descriptivos</p>
+<p>Prefiere nombres descriptivos: <code>int numeroAlumnos</code> es más claro que <code>int n</code>.</p>
+</div>
+<figure>
+  <img src="imagenes/02/progt02-01.png" />
+  <figcaption>Identificadores: convención lowerCamelCase</figcaption>
+</figure>
+
+<h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<p>Una <strong>variable</strong> es una zona de memoria con nombre y tipo. Su tipo determina qué valores puede almacenar y qué operaciones admite.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span><span class="w">        </span><span class="c1">// declaración</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">        </span><span class="c1">// asignación</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">int</span><span class="w"> </span><span class="n">contador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// declaración e inicialización</span>
+</code></pre></div>
+<p>Tipos y ámbitos:</p>
+<ul>
+<li><strong>Locales</strong>: declaradas dentro de funciones, visibles solo allí.</li>
+<li><strong>Miembro</strong>: declaradas en la clase, visibles para instancias o <code>static</code> para la clase (Se ven en temas posteriores).</li>
+<li><strong>Parámetros</strong>: variables que se pasan a las funcinoes al llamarlas.</li>
+</ul>
+<h3 id="tipos-de-variables-clasificacion-conceptual">Tipos de variables (clasificación conceptual)<a class="headerlink" href="#tipos-de-variables-clasificacion-conceptual" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Primitivas vs Referenciadas</strong>: las primitivas contienen el valor (ej. <code>int</code>), las referenciadas contienen una referencia (dirección de memoria) a un objeto (<code>String</code>, <code>Persona</code>, arrays).</li>
+<li><strong>Variables vs Constantes</strong>: constantes se declaran con <code>final</code>.</li>
+<li><strong>Miembro vs Local</strong>: ámbito y ciclo de vida diferentes.</li>
+</ul>
+<h4 id="ejemplo-con-variables-estaticas-y-locales">Ejemplo con variables estáticas y locales<a class="headerlink" href="#ejemplo-con-variables-estaticas-y-locales" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TiposVariables</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="c1">// Constante</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415926536</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="c1">// Estática (campo de clase)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">obtenerX</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="c1">// Local a la función</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">valorAntiguo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">valorAntiguo</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obtenerX</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="24-tipos-de-datos">2.4 Tipos de datos<a class="headerlink" href="#24-tipos-de-datos" title="Permanent link">&para;</a></h2>
+<p>Los tipos describen qué valores puede contener una variable y qué operaciones son válidas.</p>
+<h3 id="primitivos-y-referenciados">Primitivos y referenciados<a class="headerlink" href="#primitivos-y-referenciados" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Primitivos</strong>: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>boolean</code>.</li>
+<li><strong>Referenciados</strong>: clases, interfaces, arrays (ej. <code>String</code>, <code>Persona</code>, <code>int[]</code>).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Valores típicos / comentario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>byte</code></td>
+<td>8 bits</td>
+<td>-128 a 127</td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>16</td>
+<td>-32.768 a 32.767</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>32</td>
+<td>-2^31 ... 2^31-1</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>64</td>
+<td>números grandes, añade <code>L</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>32</td>
+<td>punto flotante simple, añade <code>f</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>64</td>
+<td>punto flotante doble (por defecto)</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>16</td>
+<td>carácter Unicode</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td>1 (conceptual)</td>
+<td><code>true</code> o <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<figure>
+  <img src="imagenes/02/progt02-06.png" />
+  <figcaption>Tipos de datos primitivos</figcaption>
+</figure>
+
+<h3 id="rangos-y-valores-por-defecto">Rangos y valores por defecto<a class="headerlink" href="#rangos-y-valores-por-defecto" title="Permanent link">&para;</a></h3>
+<p>Los tipos primitivos tienen valores por defecto cuando son campos de clase (no locales):</p>
+<ul>
+<li><code>int</code> → <code>0</code>, <code>double</code> → <code>0.0</code>, <code>boolean</code> → <code>false</code>, <code>char</code> → <code>'\u0000'</code> (carácter nulo).</li>
+</ul>
+<figure>
+  <img src="imagenes/02/progt02-48.png" />
+  <figcaption>Rangos de los tipos primitivos</figcaption>
+</figure>
+
+<h3 id="declaracion-e-inicializacion-ejemplos">Declaración e inicialización: ejemplos<a class="headerlink" href="#declaracion-e-inicializacion-ejemplos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">boolean</span><span class="w"> </span><span class="n">abierto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">byte</span><span class="w"> </span><span class="n">repeticiones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">char</span><span class="w"> </span><span class="n">letra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">short</span><span class="w"> </span><span class="n">pantalones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">int</span><span class="w"> </span><span class="n">asistentes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="kt">long</span><span class="w"> </span><span class="n">poblacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2200000L</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="kt">float</span><span class="w"> </span><span class="n">nota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.5f</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">22.55</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Eladio&quot;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="var-en-java"><code>var</code> en Java<a class="headerlink" href="#var-en-java" title="Permanent link">&para;</a></h3>
+<p>Desde Java 10 existe <code>var</code> para inferencia local de tipos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">var</span><span class="w"> </span><span class="n">numeroAlumnos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kd">var</span><span class="w"> </span><span class="n">radio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span><span class="w">  </span><span class="c1">// double inferred</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Uso de <code>var</code></p>
+<p><code>var</code> mejora la concisión pero reduce la explícitez del código. Para variables con tipos claros y en ejemplos didácticos, recomendamos <strong>declarar explícitamente</strong> el tipo (especialmente en material de aprendizaje).</p>
+</div>
+<h3 id="char-formas-de-asignacion"><code>char</code>: formas de asignación<a class="headerlink" href="#char-formas-de-asignacion" title="Permanent link">&para;</a></h3>
+<p>Un <code>char</code> puede asignarse de tres maneras:</p>
+<ul>
+<li>Directamente: <code>char c = 'A';</code></li>
+<li>Por código Unicode: <code>char c = '\u0040';</code></li>
+<li>Por entero (valor ASCII/Unicode): <code>char c = 63;  // caracter '?'</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">char</span><span class="w"> </span><span class="n">simbolo1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;&amp;&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">char</span><span class="w"> </span><span class="n">simbolo2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\u0040&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">char</span><span class="w"> </span><span class="n">simbolo3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">63</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="boolean-expresiones-logicas"><code>boolean</code>: expresiones lógicas<a class="headerlink" href="#boolean-expresiones-logicas" title="Permanent link">&para;</a></h3>
+<p><code>boolean</code> almacena <code>true</code> o <code>false</code>. Se suele asignar a partir de comparaciones:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">boolean</span><span class="w"> </span><span class="n">adulto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">adulto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Eres mayor de edad&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Eres menor de edad&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="25-depuracion-y-herramientas">2.5 Depuración y herramientas<a class="headerlink" href="#25-depuracion-y-herramientas" title="Permanent link">&para;</a></h2>
+<p>Depurar es una habilidad esencial. Aprender a usar el <em>debugger</em> del IDE (breakpoints, inspección de variables, paso a paso) ayuda a entender el estado del programa y detectar errores lógicos.</p>
+<figure>
+  <img src="imagenes/02/progt02-15.png" />
+  <figcaption>Usando el debugger</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Estrategia de depuración</p>
+<ul>
+<li>Añade <code>System.out.printf</code> para inspecciones rápidas.  </li>
+<li>Usa breakpoints para detener la ejecución y examinar variables.  </li>
+<li>Escribe pruebas con datos límite para descubrir comportamientos inesperados.</li>
+</ul>
+</div>
+<h2 id="26-tipos-referenciados">2.6 Tipos referenciados<a class="headerlink" href="#26-tipos-referenciados" title="Permanent link">&para;</a></h2>
+<p>Los tipos referenciados no almacenan el valor directamente, sino una referencia (puntero) a un objeto en memoria:</p>
+<ul>
+<li>Arrays: <code>int[] vector = new int[10];</code></li>
+<li>Clases: <code>Persona usuario = new Persona();</code></li>
+<li><code>String</code> (inmutable): comparte características propias (pool de cadenas).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">Usuario</span><span class="w"> </span><span class="n">usuarioActivo</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">listaNotas</span><span class="o">[]</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<details class="tip">
+<summary>Pool de cadenas</summary>
+<p>Un "pool de cadenas" (o string pool) es un área de memoria donde se almacenan las cadenas de texto únicas para optimizar el uso de la memoria en lenguajes de programación como Java y C#. Cuando se crea un literal de cadena, el sistema primero verifica si ya existe en el pool; si es así, reutiliza la referencia existente en lugar de crear una nueva instancia, lo que hace que dos cadenas con el mismo valor apunten a la misma dirección de memoria. Este proceso mejora la eficiencia, especialmente cuando la misma cadena se utiliza en múltiples lugares. </p>
+</details>
+<h2 id="27-lectura-de-datos-desde-teclado">2.7 Lectura de datos desde teclado<a class="headerlink" href="#27-lectura-de-datos-desde-teclado" title="Permanent link">&para;</a></h2>
+<h3 id="clase-scanner">Clase <code>Scanner</code><a class="headerlink" href="#clase-scanner" title="Permanent link">&para;</a></h3>
+<p><code>Scanner</code> es la forma más común de leer desde <code>System.in</code> en programas de consola:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LeerTextoScanner</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Dime tu nombre completo: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w"> </span><span class="c1">// lee hasta ENTER</span>
+<span class="linenos" data-linenos="8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="conversion-de-datos-leidos">Conversión de datos leídos<a class="headerlink" href="#conversion-de-datos-leidos" title="Permanent link">&para;</a></h3>
+<p><code>Scanner</code> devuelve <em>strings</em> con <code>nextLine()</code> o tokens con <code>next()</code>. Para convertir a tipos numéricos se usan funciones como <code>Integer.parseInt</code> o <code>Float.parseFloat</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Leer y convertir</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">String</span><span class="w"> </span><span class="n">respuesta</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Dime tu edad: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">respuesta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">respuesta</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// Leer float (usar punto decimal)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Dime tu estatura en metros: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">respuesta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span><span class="kt">float</span><span class="w"> </span><span class="n">estatura</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Float</span><span class="p">.</span><span class="na">parseFloat</span><span class="p">(</span><span class="n">respuesta</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Edad: %d años. Estatura: %.2f metros.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">edad</span><span class="p">,</span><span class="w"> </span><span class="n">estatura</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Decimal y configuración regional</p>
+<p>En algunos sistemas, <code>nextFloat()</code> interpreta el separador decimal según el <code>Locale</code> (en España la coma). Para evitar confusiones, pide al usuario que use <code>.</code> como separador o establece explícitamente el <code>Locale</code> de <code>Scanner</code>.</p>
+</div>
+<h3 id="leer-varios-datos-con-metodos-especificos">Leer varios datos con métodos específicos<a class="headerlink" href="#leer-varios-datos-con-metodos-especificos" title="Permanent link">&para;</a></h3>
+<p><code>Scanner</code> incluye métodos <code>nextInt()</code>, <code>nextFloat()</code>, <code>next()</code> (token), <code>nextLine()</code> (línea completa):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Dime tu nombre, edad y estatura separados por espacio: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">float</span><span class="w"> </span><span class="n">estatura</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextFloat</span><span class="p">();</span>
+</code></pre></div>
+<h3 id="combinar-nextline-con-nextint-ojo">Combinar <code>nextLine()</code> con <code>nextInt()</code> — ojo!<a class="headerlink" href="#combinar-nextline-con-nextint-ojo" title="Permanent link">&para;</a></h3>
+<p>Si usas <code>nextInt()</code> y después <code>nextLine()</code>, la segunda puede leer el salto de línea sobrante. Solución típica: consumir el salto con un <code>nextLine()</code> extra.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w"> </span><span class="c1">// consume el salto pendiente</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Patrón seguro</p>
+<p>Para lecturas mixtas: lee siempre con <code>nextLine()</code> y parsea manualmente (<code>Integer.parseInt(...)</code>) para evitar efectos secundarios del buffer.</p>
+</div>
+<h2 id="28-operadores-y-expresiones">2.8 Operadores y expresiones<a class="headerlink" href="#28-operadores-y-expresiones" title="Permanent link">&para;</a></h2>
+<p>Los operadores manipulan valores primitivos y devuelven otro valor (generalmente primitivo). Entender la diferencia entre <strong>expresión</strong> (por ejemplo <code>i + 1</code>) y <strong>sentencia</strong> (<code>suma = i + 1;</code>) es clave.</p>
+<h3 id="aritmeticos">Aritméticos<a class="headerlink" href="#aritmeticos" title="Permanent link">&para;</a></h3>
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> — con reglas de tipo: si ambos operandos son enteros, <code>/</code> hace división entera; si uno es float/double, la división es en coma flotante.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">short</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;El resultado de x / y (división entera) es: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">y</span><span class="p">));</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;El resto de x / y es: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">y</span><span class="p">));</span>
+</code></pre></div>
+<h3 id="asignacion-combinada">Asignación combinada<a class="headerlink" href="#asignacion-combinada" title="Permanent link">&para;</a></h3>
+<p><code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code> facilitan operaciones con asignación:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// x == 8</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// x == 5 (si se vuelve a aplicar sobre el estado anterior)</span>
+</code></pre></div>
+<h3 id="incrementodecremento">Incremento/decremento<a class="headerlink" href="#incrementodecremento" title="Permanent link">&para;</a></h3>
+<p>Preincremento <code>++x</code> incrementa y devuelve el nuevo valor; postincremento <code>x++</code> devuelve el valor antiguo y luego incrementa.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// x==4, y==4</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// x==4, y==3</span>
+</code></pre></div>
+<h3 id="relacionales">Relacionales<a class="headerlink" href="#relacionales" title="Permanent link">&para;</a></h3>
+<p>Comparan valores y devuelven <code>boolean</code>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>.</p>
+<p><strong>Importante</strong>: para <code>String</code> en Java <strong>no</strong> uses <code>==</code> para comparar contenido; usa <code>equals()</code> o <code>equalsIgnoreCase()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Manolo&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">boolean</span><span class="w"> </span><span class="n">comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="logicos">Lógicos<a class="headerlink" href="#logicos" title="Permanent link">&para;</a></h3>
+<p><code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT). Recuerda evaluación <em>cortocircuitada</em>: en <code>A &amp;&amp; B</code>, si <code>A</code> es <code>false</code> no se evalúa <code>B</code>.</p>
+<h3 id="operador-ternario">Operador ternario<a class="headerlink" href="#operador-ternario" title="Permanent link">&para;</a></h3>
+<p>Sintaxis compacta: <code>variable = condición ? valorSiTrue : valorSiFalse;</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;par&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;impar&quot;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="trabajo-con-cadenas-string">Trabajo con cadenas (String)<a class="headerlink" href="#trabajo-con-cadenas-string" title="Permanent link">&para;</a></h3>
+<p>Algunos métodos útiles:</p>
+<ul>
+<li><code>length()</code> → longitud</li>
+<li><code>concat(...)</code> → concatenar</li>
+<li><code>equals(...)</code>, <code>equalsIgnoreCase(...)</code> → comparación</li>
+<li><code>substring(i, j)</code> → subcadena</li>
+<li><code>toUpperCase()</code>, <code>toLowerCase()</code> → cambios de caso</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">cad1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CICLO DAW&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cad2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ciclo daw&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cad1</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cad1</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">cad2</span><span class="p">));</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cad1</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/02/progt02-31.png" />
+  <figcaption>Orden de precedencia de operadores (resumen visual)</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Precedencia y paréntesis</p>
+<p>Si una expresión te resulta ambigua o depende del tipo de los operandos, usa paréntesis para dejar claro el orden de evaluación y evitar errores por coerción de tipos.</p>
+</div>
+<h2 id="29-conversion-de-tipo-cast">2.9 Conversión de tipo (cast)<a class="headerlink" href="#29-conversion-de-tipo-cast" title="Permanent link">&para;</a></h2>
+<p>La conversión entre tipos numéricos puede ser <strong>implícita</strong> (cuando el compilador lo permite sin pérdida aparente) o <strong>explícita</strong> (cuando el programador fuerza la conversión con cast).</p>
+<h3 id="conversion-implicita-promocion">Conversión implícita (promoción)<a class="headerlink" href="#conversion-implicita-promocion" title="Permanent link">&para;</a></h3>
+<p>Asignar de tipo menor a mayor:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">numeroEntero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">long</span><span class="w"> </span><span class="n">numeroLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeroEntero</span><span class="p">;</span><span class="w"> </span><span class="c1">// implícita</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">float</span><span class="w"> </span><span class="n">numeroFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeroEntero</span><span class="p">;</span><span class="w"> </span><span class="c1">// 10.0f</span>
+</code></pre></div>
+<h3 id="conversion-explicita-casting">Conversión explícita (casting)<a class="headerlink" href="#conversion-explicita-casting" title="Permanent link">&para;</a></h3>
+<p>De mayor a menor (posible pérdida de datos):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">long</span><span class="w"> </span><span class="n">numeroLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20L</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">int</span><span class="w"> </span><span class="n">numeroEntero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">numeroLong</span><span class="p">;</span><span class="w"> </span><span class="c1">// explícita</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">float</span><span class="w"> </span><span class="n">numeroFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.9f</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">int</span><span class="w"> </span><span class="n">entero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">numeroFloat</span><span class="p">;</span><span class="w"> </span><span class="c1">// entero == 5 (se trunca)</span>
+</code></pre></div>
+<h4 id="ejemplo-clasico-media-de-enteros">Ejemplo clásico: media de enteros<a class="headerlink" href="#ejemplo-clasico-media-de-enteros" title="Permanent link">&para;</a></h4>
+<p>Si sumas enteros y divides por <code>3</code> obtendrás división entera. Para obtener decimal, convierte al menos un operando a <code>float</code> o <code>double</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">nota1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">nota2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">nota3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">float</span><span class="w"> </span><span class="n">media</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">nota1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nota2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nota3</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Media: %.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">media</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="tabla-de-conversion-resumen">Tabla de conversión (resumen)<a class="headerlink" href="#tabla-de-conversion-resumen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CI → conversión implícita posible</li>
+<li>C → casting explícito necesario</li>
+<li>N → no permitido</li>
+</ul>
+<figure>
+  <img src="imagenes/02/progt02-34.png" />
+  <figcaption>Tabla resumen de conversión entre tipos</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Evita pérdida silenciosa</p>
+<p>Antes de castear, cuestiona si la pérdida de información es aceptable. Añade comentarios que justifiquen el cast si es deliberado.</p>
+</div>
+<h2 id="210-comentarios">2.10 Comentarios<a class="headerlink" href="#210-comentarios" title="Permanent link">&para;</a></h2>
+<p>Los comentarios facilitan la comprensión del código y la colaboración. Tipos en Java:</p>
+<ul>
+<li><code>// comentario de una línea</code></li>
+<li><code>/* comentario
+     de varias líneas */</code></li>
+<li><code>/** Comentario Javadoc */</code> → para documentación de clases/métodos (herramientas como <code>javadoc</code> lo usan)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Comentario de una línea</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cm">/*</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="cm">  Comentario multilínea</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cm">*/</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="cm">/**</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="cm"> * Devuelve la suma de a y b.</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="cm"> * @param a primer sumando</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="cm"> * @param b segundo sumando</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="cm"> * @return suma</span>
+<span class="linenos" data-linenos="10 "></span><span class="cm"> */</span>
+<span class="linenos" data-linenos="11 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Javadoc</p>
+<p>Documenta parámetros y valores de retorno en métodos públicos. Facilita la generación automática de documentación.</p>
+</div>
+<h2 id="211-estructuras-selectivas">2.11 Estructuras selectivas<a class="headerlink" href="#211-estructuras-selectivas" title="Permanent link">&para;</a></h2>
+<p>Las estructuras selectivas permiten ejecutar código condicionalmente.</p>
+<h3 id="if-simple-y-if-else"><code>if</code> simple y <code>if-else</code><a class="headerlink" href="#if-simple-y-if-else" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expresionLogica</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="c1">// sentencias si true</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="c1">// sentencias si false</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejemplo: determinar par/impar</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ParImpar</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="c1">// Es par si el resto de dividirlo entre 2 es 0</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">resto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">resto</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;El número %d es par.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;El número %d es impar.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Si el bloque contiene solo una sentencia, las llaves pueden omitirse, pero <strong>no</strong> es buena práctica omitirlas en código docente porque facilita errores al modificar el código.</p>
+</blockquote>
+<h3 id="switch-clasico-y-switch-expression-java-12"><code>switch</code> clásico y <code>switch</code> expression (Java 12+)<a class="headerlink" href="#switch-clasico-y-switch-expression-java-12" title="Permanent link">&para;</a></h3>
+<p><strong>Switch clásico</strong> (compatible con <code>int</code>, <code>String</code>, etc.):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">switch</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">valor1</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="n">sentencias</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">valor2</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">sentencias</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">sentencias</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Switch expression</strong> (más moderno, Java 12/13+), uso de <code>-&gt;</code> o <code>yield</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">numMes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">switch</span><span class="p">(</span><span class="n">numMes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;1er trimestre&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;2º trimestre&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Último trimestre! :)&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;3er trimestre&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;No hay clase&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejemplo asignando valores y usando <code>yield</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">String</span><span class="w"> </span><span class="n">mes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;may&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kt">int</span><span class="w"> </span><span class="n">trimestre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">switch</span><span class="p">(</span><span class="n">mes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;sep&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;oct&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nov&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dic&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;ene&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;feb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;mar&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;abr&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;may&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jun&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Último trimestre! :)&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="kd">yield</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">};</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Trimestre número &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">trimestre</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio (switch clásico)</p>
+<p>Completa el <code>switch</code> que devuelve el nombre del mes a partir de su número:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Introduce el número del mes: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kt">int</span><span class="w"> </span><span class="n">mes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">String</span><span class="w"> </span><span class="n">nombreDelMes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">switch</span><span class="p">(</span><span class="n">mes</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">nombreDelMes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;enero&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">nombreDelMes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;febrero&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="c1">// COMPLETA EL CÓDIGO QUE FALTA AQUÍ</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Mes &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mes</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nombreDelMes</span><span class="p">);</span>
+</code></pre></div></p>
+</div>
+<h2 id="212-estructuras-repetitivas">2.12 Estructuras repetitivas<a class="headerlink" href="#212-estructuras-repetitivas" title="Permanent link">&para;</a></h2>
+<p>Las estructuras repetitivas permiten ejecutar una o varias sentencias varias veces mientras se cumpla una condición.</p>
+<figure>
+  <img src="imagenes/02/progt02-40.png" />
+  <figcaption>Diagrama y ejemplos de bucles</figcaption>
+</figure>
+
+<h3 id="for-clasico"><code>for</code> clásico<a class="headerlink" href="#for-clasico" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">inicio</span><span class="p">;</span><span class="w"> </span><span class="n">condicion</span><span class="p">;</span><span class="w"> </span><span class="n">iteracion</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">sentencias</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejemplo: tabla de multiplicar</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Tabla de multiplicar del 5&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; * &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Contar hacia atrás:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;i = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="for-each"><code>for-each</code><a class="headerlink" href="#for-each" title="Permanent link">&para;</a></h3>
+<p>Para recorrer arrays y colecciones de manera segura y sin índices:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">semana</span><span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;lunes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;martes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;miércoles&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jueves&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;viernes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sábado&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;domingo&quot;</span><span class="p">};</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">dia</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">semana</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;día = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dia</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="while"><code>while</code><a class="headerlink" href="#while" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; * &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// iteración</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejemplo práctico (login con intentos):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">boolean</span><span class="w"> </span><span class="n">bloqueado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kt">boolean</span><span class="w"> </span><span class="n">logueado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">String</span><span class="w"> </span><span class="n">usuario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;superPass1234&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kt">int</span><span class="w"> </span><span class="n">intentos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">Scanner</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bloqueado</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">logueado</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">intentos</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Bienvenido, introduzca su usuario: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">entradaUsuario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Introduzca su contraseña: &quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">entradaPass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">entradaUsuario</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">usuario</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">entradaPass</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">pass</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="n">logueado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Acceso correcto&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">        </span><span class="n">intentos</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error. Intentos restantes: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intentos</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">intentos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">        </span><span class="n">bloqueado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="do-while"><code>do-while</code><a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
+<p>Se ejecuta al menos una vez:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Valor: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Elegir bucle</p>
+<ul>
+<li>Usa <code>for</code> cuando conoces el número de iteraciones.  </li>
+<li>Usa <code>while</code> cuando la condición se evalúa antes y puede no ejecutarse ninguna vez.  </li>
+<li>Usa <code>do-while</code> cuando la condición se evalúa después y necesitas asegurar una ejecución inicial.</li>
+</ul>
+</div>
+<h2 id="213-recomendaciones">2.13 Recomendaciones<a class="headerlink" href="#213-recomendaciones" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Documenta</strong> funciones públicas con Javadoc.  </li>
+<li><strong>Nombres significativos</strong> para variables, métodos y clases.  </li>
+<li><strong>Comprueba entradas</strong>: valida datos del usuario antes de parsear.  </li>
+<li><strong>Pruebas simples</strong>: prueba con casos límite y nulos.  </li>
+<li><strong>Formato y estilo</strong>: sigue una guía de estilo y mantén indentación consistente.</li>
+</ul>
+<h2 id="214-referencias">2.14 Referencias<a class="headerlink" href="#214-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Guía de estilo Java (Google Java Style Guide).  </li>
+<li>Documentación oficial Oracle/OpenJDK.  </li>
+<li>Tutoriales y recursos sobre <code>Scanner</code>, <code>String</code>, <code>Math</code>, y debugging en IntelliJ IDEA.</li>
+</ul>
+<h2 id="215-actividades">2.15 Actividades<a class="headerlink" href="#215-actividades" title="Permanent link">&para;</a></h2>
+<p>A continuación encontrarás ejercicios con distintos niveles y sugerencias de mejora o ampliación.</p>
+<ol start="201">
+<li>
+<p><strong>Positivo/negativo</strong><br />
+    Escribe un programa que lea un número y diga si es positivo, negativo o cero.  </p>
+<ul>
+<li>Ampliación: valida la entrada y maneja números grandes (<code>long</code>).  </li>
+<li>Casos de prueba: -1, 0, 1, <code>Long.MAX_VALUE</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Operaciones básicas</strong><br />
+    Crea un programa que lea dos números y muestre su suma, resta, multiplicación y división.  </p>
+<ul>
+<li>Ampliación: gestiona división por cero con control de excepciones.</li>
+</ul>
+</li>
+<li>
+<p><strong>Par/Impar</strong><br />
+    Realiza un programa que pida un número e indique si es par o impar.  </p>
+<ul>
+<li>Solución (colapsada abajo).</li>
+</ul>
+</li>
+<li>
+<p><strong>Bucle <code>for</code> hasta 10</strong><br />
+    Haz un programa que muestre los números del 1 al 10 usando un <code>for</code>.  </p>
+<ul>
+<li>Ampliación: muestra también la tabla de multiplicar de cada número.</li>
+</ul>
+</li>
+<li>
+<p><strong>Suma de primeros 100 naturales</strong><br />
+    Programa que calcule y muestre la suma de los 100 primeros números naturales.  </p>
+<ul>
+<li>Ampliación: implementa una solución matemática (<code>n*(n+1)/2</code>) y otra por bucle; compara tiempos.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validación completa</strong><br />
+    Diseña un programa que pida la edad y valide que es un número entre 0 y 120. Si la entrada no es válida, vuelve a pedirla hasta que lo sea (usa <code>while</code> y manejo de excepciones).</p>
+</li>
+<li>
+<p><strong>Menú de áreas (switch)</strong><br />
+    Implementa el ejemplo del cálculo de áreas (cuadrado, rectángulo, triángulo) con <code>switch</code>. Mejora el menú para permitir repetir operaciones hasta que el usuario decida salir.</p>
+</li>
+<li>
+<p><strong>Login con límites de intentos</strong><br />
+    Implementa el ejemplo de login con <code>while</code> y añade un temporizador simulado tras 3 intentos fallidos (por ejemplo, <code>Thread.sleep(2000)</code> para pausar).</p>
+</li>
+<li>
+<p><strong>Conversión y media</strong><br />
+    Programa que lea tres notas enteras, calcule la media y muestre con 2 decimales. Prueba con entradas que muestren pérdida por conversión y explica cómo evitarla.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
