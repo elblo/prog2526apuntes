@@ -7,7 +7,7 @@ nav:
   - "1.- Introducción": "01introduccion.md"
   - "2.- Fundamentos básicos de la programación": "02fundamentos.md"
   - "3.- Aleatorios y funciones": "03aleatorios_funciones.md"
-  - "4.- Arrays estáticos y cadenas": "04arrays_cadenas.md"
+  - "4.- Arrays estáticos y cadenas": "04cadenas_arrays.md"
   #- "Actividades resueltas": # Importante al ser categoría, NO enlazar a ningún md
   #  - "Tema 8": "08actividadesResueltas.md"
   #  - "Tema 9": "09actividadesResueltas.md"
