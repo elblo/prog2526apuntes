@@ -1,0 +1,1390 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/11estructuras_datos.html">
+      
+      
+        <link rel="prev" href="10fechas.html">
+      
+      
+        <link rel="next" href="12mvc.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>11.- Estructuras de datos - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-11-estructuras-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11.- Estructuras de datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02fundamentos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- Fundamentos básicos de la programación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03aleatorios_funciones.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- Aleatorios y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04cadenas_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Arrays estáticos y cadenas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05poo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.- Introducción a la POO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06poo_avanzada.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.- POO avanzada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07colecciones.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.- Colecciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08flujos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.- Flujos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09basedatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.- Conexión a Bases de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10fechas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.- Fechas y horas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="11estructuras_datos.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-tipos-de-estructuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Tipos de estructuras
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 Tipos de estructuras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1121-pila-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.1 Pila (Stack)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1122-cola-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.2 Cola (Queue)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1123-doble-cola-deque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.3 Doble cola (Deque)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1124-lista-circular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.4 Lista circular
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1125-tabla-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.5 Tabla hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1126-monticulo-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2.6 Montículo (Heap)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-ejemplos-de-implementacion-con-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Ejemplos de implementación con arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.3 Ejemplos de implementación con arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1131-pila" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.1 Pila
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1132-cola-circular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.2 Cola (circular)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1133-doble-cola-deque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3.3 Doble cola (Deque)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-las-estructuras-ya-hechas-en-el-jdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Las estructuras ya hechas en el JDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-tipos-genericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 Tipos genéricos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 Tipos genéricos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pila-generica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pila genérica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usar-la-pila-generica-con-cualquier-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usar la pila genérica con cualquier clase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.7 Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8 Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12mvc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12.- Patrón MVC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13testing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13.- Testing: pruebas unitarias con JUnit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-11-estructuras-de-datos">Tema 11: Estructuras de datos<a class="headerlink" href="#tema-11-estructuras-de-datos" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 8 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Conocer las estructuras de datos fundamentales: pilas, colas, dobles colas, listas circulares, tablas hash y montículos.</li>
+<li>Implementar las estructuras básicas (pila, cola, doble cola) con arrays.</li>
+<li>Crear estructuras de datos <strong>genéricas</strong> reutilizables para cualquier tipo de dato.</li>
+<li>Reconocer las implementaciones propias en la librería estándar de Java.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se explica el comportamiento LIFO de la pila y FIFO de la cola.</li>
+<li>Se distingue entre cola y doble cola (deque).</li>
+<li>Se implementa manualmente una pila y una cola con arrays (incluida la cola circular).</li>
+<li>Se implementan estructuras con <strong>tipos genéricos</strong>.</li>
+<li>Se asocia cada estructura de datos con su contrapartida del JDK (<code>Deque</code>, <code>Queue</code>, <code>PriorityQueue</code>, <code>HashMap</code>...).</li>
+</ol>
+</details>
+<h2 id="111-introduccion">11.1 Introducción<a class="headerlink" href="#111-introduccion" title="Permanent link">&para;</a></h2>
+<p>Las <strong>estructuras de datos</strong> son fundamentales en la programación: permiten <strong>organizar y gestionar la información de manera eficiente</strong>. Entre las más utilizadas están las <strong>pilas, colas, listas</strong> y estructuras más avanzadas como <strong>montículos y tablas hash</strong>.</p>
+<p>En este tema aprenderemos <strong>qué son</strong> y <strong>cómo se implementan</strong> por debajo (con arrays), para después saber <strong>cuándo usar</strong> cada una y qué clase del JDK te la da ya hecha.</p>
+<h2 id="112-tipos-de-estructuras">11.2 Tipos de estructuras<a class="headerlink" href="#112-tipos-de-estructuras" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Estructura</th>
+<th>Principio</th>
+<th>Se usa en...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pila (Stack)</strong></td>
+<td>LIFO (<em>Last In, First Out</em>)</td>
+<td>Gestión de llamadas recursivas, evaluación de expresiones, botón "deshacer"</td>
+</tr>
+<tr>
+<td><strong>Cola (Queue)</strong></td>
+<td>FIFO (<em>First In, First Out</em>)</td>
+<td>Sistemas de gestión de procesos, colas de impresión, transmisión de datos</td>
+</tr>
+<tr>
+<td><strong>Doble cola (Deque)</strong></td>
+<td>Inserción/borrado por <strong>ambos</strong> extremos</td>
+<td>Algoritmos de búsqueda, gestión de <em>buffers</em> de datos</td>
+</tr>
+<tr>
+<td><strong>Lista circular</strong></td>
+<td>El último elemento apunta al primero</td>
+<td>Reproducción en bucle de música, planificación de tareas en SO</td>
+</tr>
+<tr>
+<td><strong>Tabla hash</strong></td>
+<td>Dispersión por función <code>hash</code> + sondeo en colisiones</td>
+<td>Búsquedas rápidas en BBDD, cache, diccionarios</td>
+</tr>
+<tr>
+<td><strong>Montículo (Heap)</strong></td>
+<td>Árbol binario con jerarquía</td>
+<td>Colas de prioridad, algoritmos de Dijkstra y HeapSort</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Pila[Pila LIFO]
+        direction BT
+        A3["c"] --&gt; A2["b"] --&gt; A1["a"]
+    end
+    subgraph Cola[Cola FIFO]
+        direction LR
+        B1["a"] --&gt; B2["b"] --&gt; B3["c"]
+    end</code></pre>
+<h3 id="1121-pila-stack">11.2.1 Pila (Stack)<a class="headerlink" href="#1121-pila-stack" title="Permanent link">&para;</a></h3>
+<p>Estructura de tipo <strong>LIFO</strong> (<em>Last In, First Out</em>): <strong>el último elemento en entrar es el primero en salir</strong>. Las operaciones son:</p>
+<ul>
+<li><strong>Apilar</strong> (<code>push</code>): añade un elemento encima.</li>
+<li><strong>Desapilar</strong> (<code>pop</code>): extrae el elemento de la cima.</li>
+<li><strong>Cima</strong> (<code>peek</code>/<code>top</code>): observa el de la cima sin sacarlo.</li>
+</ul>
+<h3 id="1122-cola-queue">11.2.2 Cola (Queue)<a class="headerlink" href="#1122-cola-queue" title="Permanent link">&para;</a></h3>
+<p>Estructura que sigue el principio <strong>FIFO</strong> (<em>First In, First Out</em>): <strong>el primero en entrar es el primero en salir</strong>. Operaciones:</p>
+<ul>
+<li><strong>Encolar</strong> (<code>enqueue</code>): añade por el <strong>final</strong>.</li>
+<li><strong>Desencolar</strong> (<code>dequeue</code>): extrae por el <strong>frente</strong>.</li>
+<li><strong>Frente</strong> (<code>peek</code>): observa el primero sin sacarlo.</li>
+</ul>
+<h3 id="1123-doble-cola-deque">11.2.3 Doble cola (Deque)<a class="headerlink" href="#1123-doble-cola-deque" title="Permanent link">&para;</a></h3>
+<p>Permite <strong>inserción y eliminación tanto por el frente como por el final</strong>.</p>
+<h3 id="1124-lista-circular">11.2.4 Lista circular<a class="headerlink" href="#1124-lista-circular" title="Permanent link">&para;</a></h3>
+<p>Variante de la lista en la que <strong>el último elemento está conectado al primero</strong>, formando un ciclo.</p>
+<h3 id="1125-tabla-hash">11.2.5 Tabla hash<a class="headerlink" href="#1125-tabla-hash" title="Permanent link">&para;</a></h3>
+<p>Almacena datos de forma eficiente mediante una <strong>función de dispersión (hash)</strong>. Ante <strong>colisiones</strong> las gestiona mediante <strong>sondeo lineal</strong> (o encadenamiento). Ofrece <strong>búsquedas rápidas</strong>.</p>
+<h3 id="1126-monticulo-heap">11.2.6 Montículo (Heap)<a class="headerlink" href="#1126-monticulo-heap" title="Permanent link">&para;</a></h3>
+<p>Estructura basada en un <strong>árbol binario</strong> que mantiene una <strong>jerarquía</strong> entre sus elementos (el mayor —o menor— siempre arriba). Base de las <strong>colas de prioridad</strong> y de algoritmos como <strong>Dijkstra</strong> y <strong>HeapSort</strong>.</p>
+<h2 id="113-ejemplos-de-implementacion-con-arrays">11.3 Ejemplos de implementación con arrays<a class="headerlink" href="#113-ejemplos-de-implementacion-con-arrays" title="Permanent link">&para;</a></h2>
+<h3 id="1131-pila">11.3.1 Pila<a class="headerlink" href="#1131-pila" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Pila</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">elementos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tope</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Pila</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">capacidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">elementos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">capacidad</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">tope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// -1 significa pila vacía</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">apilar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tope</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">            </span><span class="n">tope</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">            </span><span class="n">elementos</span><span class="o">[</span><span class="n">tope</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Pila llena, no se puede apilar"</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">desapilar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tope</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">tope</span><span class="o">--]</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Indicar error: pila vacía</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">cima</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tope</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">tope</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="29 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="30 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pila vacía</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">estaVacia</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="34 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tope</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="35 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="36 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="1132-cola-circular">11.3.2 Cola (circular)<a class="headerlink" href="#1132-cola-circular" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cola</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">elementos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">frente</span><span class="p">,</span><span class="w"> </span><span class="n">fin</span><span class="p">,</span><span class="w"> </span><span class="n">tamano</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Cola</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">capacidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">elementos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">capacidad</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">frente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">tamano</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">encolar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">            </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">fin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// índice circular</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">            </span><span class="n">elementos</span><span class="o">[</span><span class="n">fin</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">            </span><span class="n">tamano</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Cola llena"</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">desencolar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">frente</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="25 "></span><span class="w">            </span><span class="n">frente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">frente</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">            </span><span class="n">tamano</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="29 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Cola vacía</span>
+<span class="linenos" data-linenos="30 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">frente</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="33 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="34 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">frente</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="35 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="36 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="37 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="38 "></span>
+<span class="linenos" data-linenos="39 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">estaVacia</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="40 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tamano</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="41 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="42 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">El truco del índice <code>%</code> (módulo)</p>
+<p>La cola reutiliza el espacio del array: cuando <code>fin</code> llega al final, <code>(fin + 1) % capacidad</code> lo devuelve al principio. Por eso se llama <strong>cola circular</strong>.</p>
+</div>
+<h3 id="1133-doble-cola-deque">11.3.3 Doble cola (Deque)<a class="headerlink" href="#1133-doble-cola-deque" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Deque</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">elementos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">frente</span><span class="p">,</span><span class="w"> </span><span class="n">fin</span><span class="p">,</span><span class="w"> </span><span class="n">tamano</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Deque</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">capacidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">elementos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">capacidad</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">frente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">tamano</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertarFrente</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">            </span><span class="n">frente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">frente</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">            </span><span class="n">elementos</span><span class="o">[</span><span class="n">frente</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">            </span><span class="n">tamano</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertarFinal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">            </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">fin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">            </span><span class="n">elementos</span><span class="o">[</span><span class="n">fin</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">            </span><span class="n">tamano</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="25 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">eliminarFrente</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="29 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="30 "></span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">frente</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">            </span><span class="n">frente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">frente</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="linenos" data-linenos="32 "></span><span class="w">            </span><span class="n">tamano</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos" data-linenos="33 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="34 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="35 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="36 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">eliminarFinal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="39 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tamano</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="40 "></span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">fin</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="41 "></span><span class="w">            </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">fin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="linenos" data-linenos="42 "></span><span class="w">            </span><span class="n">tamano</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos" data-linenos="43 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="44 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="45 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="46 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="47 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="114-las-estructuras-ya-hechas-en-el-jdk">11.4 Las estructuras ya hechas en el JDK<a class="headerlink" href="#114-las-estructuras-ya-hechas-en-el-jdk" title="Permanent link">&para;</a></h2>
+<p>Puedes <strong>implementarlas tú</strong> (como hicimos arriba) para entenderlas a fondo, pero en tus proyectos usa la <strong>librería estándar</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Estructura</th>
+<th>Clases/Interfaces del JDK</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pila</td>
+<td><code>java.util.ArrayDeque</code> (interfaz <code>Deque</code>)</td>
+<td>Mejor que la vieja <code>java.util.Stack</code> (heredada, lenta)</td>
+</tr>
+<tr>
+<td>Cola</td>
+<td><code>java.util.LinkedList</code> (interfaz <code>Queue</code>)</td>
+<td><code>add/poll/peek</code></td>
+</tr>
+<tr>
+<td>Doble cola</td>
+<td><code>java.util.ArrayDeque</code> (<code>Deque</code>)</td>
+<td><code>addFirst/addLast/pollFirst/pollLast</code></td>
+</tr>
+<tr>
+<td>Cola de prioridad (montículo)</td>
+<td><code>java.util.PriorityQueue</code></td>
+<td>El elemento con más prioridad (menor/mayor) sale primero</td>
+</tr>
+<tr>
+<td>Tabla hash</td>
+<td><code>java.util.HashMap</code> / <code>HashSet</code></td>
+<td>Búsqueda O(1) media (ya visto en el tema 7)</td>
+</tr>
+<tr>
+<td>Lista circular</td>
+<td><code>java.util.LinkedList</code> (aplicando el algoritmo)</td>
+<td>No hay clase específica: es un uso de la lista</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// PILA con ArrayDeque (recomendada: ¡no uses Stack!)</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pila</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">pila</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"hola"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">pila</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"mundo"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">pila</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span><span class="w">        </span><span class="c1">// "mundo" (el último en entrar sale primero)</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// COLA con LinkedList</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cola</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">cola</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"doc1"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">cola</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"doc2"</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">cola</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span><span class="w">       </span><span class="c1">// "doc1" (el primero en entrar sale primero)</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">// MONTÍCULO: cola de prioridad (sale primero el más pequeño por defecto)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">pq</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span><span class="w">         </span><span class="c1">// 10 (el de MENOR prioridad numérica, primero)</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">«Lista circular» en el JDK</p>
+<p>No existe una clase <code>CircularList</code>. Una <code>LinkedList</code> normal se recorre "en bucle" volviendo al principio al llegar al final; el patrón circular suele implementarse por encima de una lista normal.</p>
+</div>
+<h2 id="115-tipos-genericos">11.5 Tipos genéricos<a class="headerlink" href="#115-tipos-genericos" title="Permanent link">&para;</a></h2>
+<p>Y si pudiéramos crear estas estructuras <strong>para cualquier tipo de dato</strong>, en lugar de hacer cada vez "una pila de enteros", "otra de Strings", "otra de Tareas"... <strong>Gracias a los tipos genéricos</strong> en Java podemos crear estructuras de datos que funcionen con cualquier tipo, proporcionando <strong>flexibilidad y reutilización de código</strong>.</p>
+<h3 id="pila-generica">Pila genérica<a class="headerlink" href="#pila-generica" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Puedes sustituir de momento los throw por sout</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Anotación para suprimir warnings de castings a (T) en tiempo de compilación</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Pila</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elementos</span><span class="p">;</span><span class="w"> </span><span class="c1">// Guardamos Object</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Pila</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tamanio</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">elementos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">tamanio</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">estaVacia</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">"Pila vacía"</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">cima</span><span class="o">--]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Casteo a T</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">elemento</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cima</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">            </span><span class="n">cima</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">            </span><span class="n">elementos</span><span class="o">[</span><span class="n">cima</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elemento</span><span class="p">;</span>
+<span class="linenos" data-linenos="25 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">"Pila llena"</span><span class="p">);</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">estaVacia</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="32 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="33 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="usar-la-pila-generica-con-cualquier-clase">Usar la pila genérica con cualquier clase<a class="headerlink" href="#usar-la-pila-generica-con-cualquier-clase" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="c1">// Pila de Alumno</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="n">Pila</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pila1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pila</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">pila1</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Alumno</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">pila1</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Alumno</span><span class="p">(</span><span class="s">"Luis"</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">pila1</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Alumno</span><span class="p">(</span><span class="s">"María"</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pila1</span><span class="p">.</span><span class="na">pop</span><span class="p">().</span><span class="na">getNombre</span><span class="p">());</span><span class="w"> </span><span class="c1">// María (la última en entrar)</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="c1">// Pila de String</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="n">Pila</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pila2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pila</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">pila2</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"hola"</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="c1">// Pila de enteros</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="n">Pila</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pila3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pila</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="n">pila3</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio 1101 (tipo genérico): Cola genérica</p>
+<p>Implementa una <strong>Cola genérica circular</strong> similar a la clase <code>Cola</code> anterior, con métodos <code>encolar(T valor)</code>, <code>desencolar()</code> (devuelve <code>T</code>), <code>estaVacia()</code> y <code>frente()</code>. Recuerda manejar correctamente los índices <code>frente</code>/<code>fin</code> y el tamaño con el <code>%</code> de la cola circular.</p>
+</div>
+<h2 id="116-buenas-practicas">11.6 Buenas prácticas<a class="headerlink" href="#116-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Primero piensa la estructura, después el código</strong>: ¿necesitas LIFO, FIFO, prioridad o búsqueda rápida?</li>
+<li><strong>No reinventes la rueda</strong>: en producción usa <code>ArrayDeque</code>, <code>LinkedList</code>, <code>PriorityQueue</code>, <code>HashMap</code>...</li>
+<li>Si implementas estructuras para aprender, hazlas <strong>genéricas</strong> (<code>&lt;T&gt;</code>) para que sirvan para cualquier dato.</li>
+<li>En colas circulares recuerda: <strong>siempre devolver el elemento, no solo "verlo"</strong>, para no perder datos; y distingue entre "pila/cola <em>llena</em>" y "<em>vacía</em>".</li>
+<li><code>java.util.Stack</code> y <code>java.util.Vector</code> están desaconsejados: usan sincronización antigua y son heredadas. Prefiere <code>ArrayDeque</code>.</li>
+</ul>
+<h2 id="117-referencias">11.7 Referencias<a class="headerlink" href="#117-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/data-structures/">GeeksforGeeks: Data Structures</a></li>
+<li><a href="https://www.javaprogramto.com/">JavaProgramTo: Estructura de datos pila (con clases)</a></li>
+<li><a href="https://www.javatpoint.com/data-structure-tutorial">JavaPoint: Data Structure</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">Oracle: Generic Types</a></li>
+</ul>
+<h2 id="118-actividades">11.8 Actividades<a class="headerlink" href="#118-actividades" title="Permanent link">&para;</a></h2>
+<ol start="1101">
+<li>
+<p>Implementa la <strong>Cola genérica circular</strong> del ejercicio del bloque anterior (con <code>T</code>).</p>
+</li>
+<li>
+<p><strong>Simulador de navegación web (pila)</strong>: crea una clase <code>HistorialNavegacion</code> que simule la navegación con una pila: visitar una página (se apila la URL), retroceder (se desapila la última URL visitada), e ir a la vista actual (cima) sin sacarla.</p>
+</li>
+<li>
+<p><strong>Cola de impresión (cola)</strong>: diseña <code>ColaImpresion</code> para gestionar documentos (nombre y número de páginas): añadir documento a la cola, procesar el siguiente (se retira de la cola) y mostrar los pendientes.</p>
+</li>
+<li>
+<p><strong>Lista de tareas (lista)</strong>: crea <code>ListaTareas</code> (descripción y prioridad): añadir tarea, eliminar tarea por su posición, y mostrar todas las tareas.</p>
+</li>
+<li>
+<p>Implementa un <strong><code>Deque&lt;Integer&gt;</code></strong> con <code>ArrayDeque</code> y demuestra con ejemplos <code>addFirst</code>, <code>addLast</code>, <code>pollFirst</code>, <code>pollLast</code>.</p>
+</li>
+<li>
+<p><strong>Cola de prioridad</strong>: con <code>PriorityQueue</code>, gestiona urgencias de un hospital: cada paciente tiene una prioridad numérica y atiende primero al de mayor urgencia. Pista: usa <code>Comparator.reverseOrder()</code>.</p>
+</li>
+<li>
+<p>Reto: implementa una <strong>tabla hash propia</strong> sencilla con array de listas (encadenamiento) y métodos <code>put</code>, <code>get</code> y <code>remove</code>.</p>
+</li>
+<li>
+<p>Compara (con <code>Instant</code> + <code>Duration</code>, del tema anterior) el <code>push/pop</code> de <code>ArrayDeque</code> frente a <code>java.util.Stack</code> con 100.000 operaciones y comenta el resultado.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
