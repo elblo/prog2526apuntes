@@ -29,7 +29,7 @@
 En este tema vamos a trabajar las *bases* de la programación imperativa con Java: cómo representar información (tipos y variables), cómo comunicarnos con el usuario (entrada y salida), y cómo controlar el flujo del programa (condicionales y bucles). Estos conceptos son claves porque, una vez dominados, permiten construir cualquier algoritmo y entender mejor paradigmas superiores (POO, concurrencia, etc.).
 
 !!! tip "Lectura previa recomendada"
-    Repasa el Tema 1 (Introducción a la programación) para recordar conceptos como algoritmo, pseudocódigo y diagrama de flujo —estos siguen siendo útiles cuando traduzcas la lógica a Java.
+    Repasa el Tema 1 (Introducción a la programación) para recordar conceptos como algoritmo, pseudocódigo y diagrama de flujo — estos siguen siendo útiles cuando traduzcas la lógica a Java.
 
 ## 2.2 Salida de datos por pantalla
 
@@ -117,6 +117,11 @@ Un **identificador** es el nombre que damos a variables, métodos, clases o paqu
 - El primer carácter debe ser una letra, `$` o `_` (aunque `$` y `_` no se recomiendan).
 - Evita palabras reservadas (p. ej. `class`, `int`, `if`...).
 
+<figure>
+  <img src="imagenes/02/progt02-04.png" />
+  <figcaption>Palabras reservadas de Java: no pueden usarse como identificadores</figcaption>
+</figure>
+
 En equipos, seguir una guía de estilo (por ejemplo la de Google para Java) mejora la legibilidad.
 
 !!! tip "Nombres descriptivos"
@@ -141,8 +146,8 @@ int contador = 0;  // declaración e inicialización
 Tipos y ámbitos:
 
 - **Locales**: declaradas dentro de funciones, visibles solo allí.
-- **Miembro**: declaradas en la clase, visibles para instancias o `static` para la clase (Se ven en temas posteriores).
-- **Parámetros**: variables que se pasan a las funcinoes al llamarlas.
+- **Miembro**: declaradas en la clase, visibles para instancias o `static` para la clase (se ven en temas posteriores).
+- **Parámetros**: variables que se pasan a las funciones al llamarlas.
 
 ### Tipos de variables (clasificación conceptual)
 
@@ -222,6 +227,17 @@ double precio = 22.55;
 String nombre = "Eladio";
 ```
 
+!!! info "Información dinámica del tipo"
+    Podemos obtener datos sobre cualquier tipo primitivo a través de su clase envoltorio (`Integer`, `Byte`, `Float`...). Por ejemplo, para conocer los límites del tipo `byte`:
+
+    ```java
+    System.out.println(Byte.MIN_VALUE);      // -128
+    System.out.println(Byte.MAX_VALUE);      // 127
+    System.out.println(Byte.SIZE);           // 8 (bits)
+    ```
+
+    En los ejercicios del tema harás lo mismo con el resto de tipos primitivos.
+
 ### `var` en Java
 
 Desde Java 10 existe `var` para inferencia local de tipos:
@@ -296,8 +312,7 @@ public class Main {
 
 ??? tip "Pool de cadenas"
 
-    Un "pool de cadenas" (o string pool) es un área de memoria donde se almacenan las cadenas de texto únicas para optimizar el uso de la memoria en lenguajes de programación como Java y C#. Cuando se crea un literal de cadena, el sistema primero verifica si ya existe en el pool; si es así, reutiliza la referencia existente en lugar de crear una nueva instancia, lo que hace que dos cadenas con el mismo valor apunten a la misma dirección de memoria. Este proceso mejora la eficiencia, especialmente cuando la misma cadena se utiliza en múltiples lugares. 
-
+    Un "pool de cadenas" (o string pool) es un área de memoria donde se almacenan las cadenas de texto únicas para optimizar el uso de la memoria en lenguajes de programación como Java y C#. Cuando se crea un literal de cadena, el sistema primero verifica si ya existe en el pool; si es así, reutiliza la referencia existente en lugar de crear una nueva instancia, lo que hace que dos cadenas con el mismo valor apunten a la misma dirección de memoria. Este proceso mejora la eficiencia, especialmente cuando la misma cadena se utiliza en múltiples lugares.
 
 ## 2.7 Lectura de datos desde teclado
 
@@ -379,26 +394,37 @@ System.out.println("El resultado de x / y (división entera) es: " + (x / y));
 System.out.println("El resto de x / y es: " + (x % y));
 ```
 
+!!! example "Formatear el resultado"
+    El operador `/` entre dos enteros devuelve un entero. Para ver los decimales debes aplicar primero una conversión (casting) a `float`/`double` y usar `printf` para mostrar dos decimales:
+
+    ```java
+    int a = 7, b = 2;
+    System.out.printf("7 / 2 = %.2f (con cast)\n", (float) a / b);
+    System.out.println("7 / 2 = " + (a / b) + " (división entera)");
+    ```
+
+!!! example "Incremento y decremento"
+    Diferencia entre operadores pre-incremento y post-incremento:
+
+    ```java
+    int x = 3;
+    int y = ++x; // x==4, y==4  (primero incrementa, luego asigna)
+    System.out.println("x: " + x + ", y: " + y);
+
+    x = 3;
+    y = x++;    // y==3, x==4  (primero asigna, luego incrementa)
+    System.out.println("x: " + x + ", y: " + y);
+    ```
+
 ### Asignación combinada
 
 `+=`, `-=`, `*=`, `/=`, `%=` facilitan operaciones con asignación:
 
 ```java
-int x = 5, y = 3;
-x += y; // x == 8
-x -= y; // x == 5 (si se vuelve a aplicar sobre el estado anterior)
-```
-
-### Incremento/decremento
-
-Preincremento `++x` incrementa y devuelve el nuevo valor; postincremento `x++` devuelve el valor antiguo y luego incrementa.
-
-```java
-int x = 3;
-int y = ++x; // x==4, y==4
-
-x = 3;
-y = x++; // x==4, y==3
+int x = 5;
+x += 3; // x == 8
+x -= 2; // x == 6
+x *= 4; // x == 24
 ```
 
 ### Relacionales
@@ -417,12 +443,45 @@ boolean comp = nombre.equals(input);
 
 `&&` (AND), `||` (OR), `!` (NOT). Recuerda evaluación *cortocircuitada*: en `A && B`, si `A` es `false` no se evalúa `B`.
 
+!!! example "Rango de valores con operadores lógicos"
+    Programa que devuelva si un número está dentro de un rango establecido entre los valores 0 y 10:
+
+    ```java
+    Scanner s = new Scanner(System.in);
+    System.out.print("Introduce un número: ");
+    int numero = Integer.parseInt(s.nextLine());
+
+    if (numero >= 0 && numero <= 10) {
+        System.out.println("El número está en el rango [0, 10]");
+    } else {
+        System.out.println("El número NO está en el rango [0, 10]");
+    }
+    ```
+
+!!! example "Login booleano"
+    Programa de login que, a partir de unas variables booleanas previamente inicializadas, muestre diferentes mensajes:
+
+    ```java
+    boolean logueado = true;
+    boolean admin = false;
+
+    if (logueado && admin) {
+        System.out.println("Eres administrador");
+    } else if (logueado) {
+        System.out.println("Sesión iniciada (sin permisos de administrador)");
+    } else {
+        System.out.println("No has iniciado sesión");
+    }
+    ```
+
 ### Operador ternario
 
 Sintaxis compacta: `variable = condición ? valorSiTrue : valorSiFalse;`
 
 ```java
-String mensaje = (num % 2 == 0) ? "par" : "impar";
+int numero = 5;
+String mensaje = (numero % 2 == 0) ? "par" : "impar";
+System.out.println("El número es " + mensaje);
 ```
 
 ### Trabajo con cadenas (String)
@@ -486,6 +545,21 @@ float media = (float)(nota1 + nota2 + nota3) / 3;
 System.out.printf("Media: %.2f", media);
 ```
 
+!!! example "Un caso clásico de pregunta de examen"
+    Dado el código:
+
+    ```java
+    int a = 5, b = 2;
+    System.out.println(a / b);
+    ```
+
+    La salida es `2` (división entera), aunque matemáticamente esperaríamos `2.5`.
+    **¿Cómo se soluciona?** Con el casting convertimos un operando a `float` para que el resultado de la división sea decimal y no entero:
+
+    ```java
+    System.out.println((float) a / b); // 2.5
+    ```
+
 ### Tabla de conversión (resumen)
 
 - CI → conversión implícita posible
@@ -532,6 +606,11 @@ Las estructuras selectivas permiten ejecutar código condicionalmente.
 
 ### `if` simple y `if-else`
 
+<figure>
+  <img src="imagenes/02/progt02-37.png" />
+  <figcaption>Estructura if-else (flujograma)</figcaption>
+</figure>
+
 ```java
 if (expresionLogica) {
     // sentencias si true
@@ -561,6 +640,52 @@ public class ParImpar {
 
 > Si el bloque contiene solo una sentencia, las llaves pueden omitirse, pero **no** es buena práctica omitirlas en código docente porque facilita errores al modificar el código.
 
+!!! example "Calificación de un alumno"
+    Diseña un programa para determinar la nota de un alumno (insuficiente, suficiente, bien, notable y sobresaliente):
+
+    ```java
+    Scanner s = new Scanner(System.in);
+    System.out.println("Dime la nota: ");
+    double nota = Double.parseDouble(s.nextLine()); 
+
+    if (nota < 5) {
+        System.out.println("Insuficiente");
+    } else if (nota < 6) {
+        System.out.println("Suficiente");
+    } else if (nota < 7) {
+        System.out.println("Bien");
+    } else if (nota < 9) {
+        System.out.println("Notable");
+    } else {
+        System.out.println("Sobresaliente");
+    }
+    ```
+
+!!! example "Versión anidada de calificaciones"
+    ```java
+    Scanner s = new Scanner(System.in);
+    System.out.println("Dime la nota: ");
+    double nota = Double.parseDouble(s.nextLine());
+
+    if (nota < 5) {                // insuficiente
+        System.out.println("Insuficiente");
+    } else {                       // 5 o más
+        if (nota < 6) {
+            System.out.println("Suficiente");
+        } else {
+            if (nota < 7) {
+                System.out.println("Bien");
+            } else {
+                if (nota < 9) {
+                    System.out.println("Notable");
+                } else {
+                    System.out.println("Sobresaliente");
+                }
+            }
+        }
+    }
+    ```
+
 ### `switch` clásico y `switch` expression (Java 12+)
 
 **Switch clásico** (compatible con `int`, `String`, etc.):
@@ -577,6 +702,46 @@ switch(variable) {
         sentencias;
 }
 ```
+
+!!! example "Ejercicio resuelto: nombre del mes"
+    ```java
+    var s = new Scanner(System.in);
+    System.out.println("Introduce el número del mes: ");
+    int mes = Integer.parseInt(s.nextLine());
+    String nombreDelMes = "";
+
+    switch (mes) {
+        case 1:  nombreDelMes = "enero";     break;
+        case 2:  nombreDelMes = "febrero";   break;
+        case 3:  nombreDelMes = "marzo";     break;
+        case 4:  nombreDelMes = "abril";     break;
+        case 5:  nombreDelMes = "mayo";      break;
+        case 6:  nombreDelMes = "junio";     break;
+        case 7:  nombreDelMes = "julio";     break;
+        case 8:  nombreDelMes = "agosto";    break;
+        case 9:  nombreDelMes = "septiembre";break;
+        case 10: nombreDelMes = "octubre";   break;
+        case 11: nombreDelMes = "noviembre"; break;
+        case 12: nombreDelMes = "diciembre"; break;
+        default: nombreDelMes = "mes no válido";
+    }
+    System.out.println("Mes " + mes + ": " + nombreDelMes);
+    ```
+
+??? info "Ejemplo con cadenas"
+    El `switch` clásico también admite cadenas desde Java 7:
+
+    ```java
+    Scanner s = new Scanner(System.in);
+    System.out.println("Introduce el mes: ");
+    String mes = s.nextLine();
+
+    switch (mes.toLowerCase()) {
+        case "enero":   System.out.println("Enero tiene 31 días"); break;
+        case "febrero": System.out.println("Febrero tiene 28 o 29 días"); break;
+        default:        System.out.println("No conozco ese mes"); break;
+    }
+    ```
 
 **Switch expression** (más moderno, Java 12/13+), uso de `->` o `yield`:
 
@@ -609,23 +774,18 @@ int trimestre = switch(mes) {
 System.out.println("Trimestre número " + trimestre);
 ```
 
-!!! example "Ejercicio (switch clásico)"
-    Completa el `switch` que devuelve el nombre del mes a partir de su número:
+!!! example "Ejercicio (switch expression)"
+    Modifica el ejemplo de los 12 meses para utilizar una estructura switch expression que, a partir de un número de mes, devuelva el nombre del mes:
+
     ```java
-    var s = new Scanner(System.in);
-    System.out.println("Introduce el número del mes: ");
-    int mes = Integer.parseInt(s.nextLine());
-    String nombreDelMes = "";
-    switch(mes){
-        case 1:
-            nombreDelMes = "enero";
-            break;
-        case 2:
-            nombreDelMes = "febrero";
-            break;
+    String nombreMes = switch (mes) {
+        case 1  -> "enero";
+        case 2  -> "febrero";
+        case 3  -> "marzo";
         // COMPLETA EL CÓDIGO QUE FALTA AQUÍ
-    }
-    System.out.println("Mes " + mes + ": " + nombreDelMes);
+        default -> "mes no válido";
+    };
+    System.out.println("Mes " + mes + ": " + nombreMes);
     ```
 
 ## 2.12 Estructuras repetitivas
@@ -675,6 +835,11 @@ for (String dia : semana) {
 
 ### `while`
 
+<figure>
+  <img src="imagenes/02/progt02-41.png" />
+  <figcaption>Estructura del bucle while (flujograma)</figcaption>
+</figure>
+
 ```java
 int i = 0;
 while (i <= 10) {
@@ -713,7 +878,15 @@ while (!bloqueado && !logueado && intentos > 0) {
 }
 ```
 
+??? info "¿Qué hace este código?"
+    El programa anterior simula un **login con 3 intentos**: mientras no esté logueado, no esté bloqueado y queden intentos, sigue pidiendo usuario y contraseña. Si se acierta, `logueado` pasa a `true` y el bucle termina; si se fallan los 3 intentos, `bloqueado` pasa a `true`.
+
 ### `do-while`
+
+<figure>
+  <img src="imagenes/02/progt02-44.png" />
+  <figcaption>Estructura del bucle do-while (flujograma)</figcaption>
+</figure>
 
 Se ejecuta al menos una vez:
 
@@ -730,6 +903,56 @@ do {
     - Usa `while` cuando la condición se evalúa antes y puede no ejecutarse ninguna vez.  
     - Usa `do-while` cuando la condición se evalúa después y necesitas asegurar una ejecución inicial.
 
+### Estructuras de salto: `break` y `continue`
+
+Rompen el esquema de programación estructurada haciendo que el flujo de ejecución "salte" a otra parte.
+
+<figure>
+  <img src="imagenes/02/progt02-45.png" />
+  <figcaption>Estructuras de salto break y continue (flujograma)</figcaption>
+</figure>
+
+- **`break`**: termina la ejecución del bucle, saliendo de él:
+
+```java
+for (int contador = 0; contador <= 10; contador++) {
+    if (contador == 5) {
+        break; // salimos del bucle al llegar a 5
+    }
+    System.out.println("contador = " + contador);
+}
+```
+
+- **`continue`**: salta a la siguiente iteración del bucle:
+
+```java
+System.out.println("Imprimir números pares del 1 al 10.");
+for (int contador = 1; contador <= 10; contador++) {
+    if (contador % 2 != 0) {
+        continue; // nos saltamos los impares
+    }
+    System.out.println("contador = " + contador);
+}
+```
+
+!!! example "Ejemplo con arrays"
+    Recorrer un array de nombres y detenerse cuando se encuentre uno concreto:
+
+    ```java
+    String usuarios[] = {"Pablo", "Jose Manuel", "Ana", "Jesús"};
+
+    for (String nombre : usuarios) {
+        if (nombre.equals("Ana")) {
+            System.out.println("Encontrado: " + nombre);
+            break;
+        }
+        System.out.println("Comprobando: " + nombre);
+    }
+    ```
+
+!!! warning "Úsalos con moderación"
+    Abusar de `break`/`continue` puede volver el código difícil de seguir. La mayoría de los bucles se pueden reescribir modificando la condición del bucle para que no hagan falta.
+
 ## 2.13 Recomendaciones
 
 - **Documenta** funciones públicas con Javadoc.  
@@ -740,9 +963,12 @@ do {
 
 ## 2.14 Referencias
 
-- Guía de estilo Java (Google Java Style Guide).  
-- Documentación oficial Oracle/OpenJDK.  
-- Tutoriales y recursos sobre `Scanner`, `String`, `Math`, y debugging en IntelliJ IDEA.
+- [Guía de estilo Java (Google Java Style Guide)](https://google.github.io/styleguide/javaguide.html)
+- [Documentación oficial de Oracle (Java SE)](https://docs.oracle.com/en/java/javase/)
+- [Documentación de la clase Scanner](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Scanner.html)
+- [Documentación de la clase String](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html)
+- [Documentación de la clase Math](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Math.html)
+- [Java Tutorial — Language Basics (Oracle)](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html)
 
 ## 2.15 Actividades
 
@@ -753,27 +979,176 @@ A continuación encontrarás ejercicios con distintos niveles y sugerencias de m
     - Ampliación: valida la entrada y maneja números grandes (`long`).  
     - Casos de prueba: -1, 0, 1, `Long.MAX_VALUE`.
 
+??? info "Solución ejercicio 201"
+    ```java
+    import java.util.Scanner;
+
+    public class PositivoNegativo {
+        public static void main(String[] args) {
+            Scanner s = new Scanner(System.in);
+            System.out.print("Introduce un número: ");
+            int num = Integer.parseInt(s.nextLine());
+
+            if (num > 0) {
+                System.out.println("El número es positivo");
+            } else if (num < 0) {
+                System.out.println("El número es negativo");
+            } else {
+                System.out.println("El número es cero");
+            }
+        }
+    }
+    ```
+
 202. **Operaciones básicas**  
     Crea un programa que lea dos números y muestre su suma, resta, multiplicación y división.  
     - Ampliación: gestiona división por cero con control de excepciones.
 
 203. **Par/Impar**  
-    Realiza un programa que pida un número e indique si es par o impar.  
-    - Solución (colapsada abajo).
+    Realiza un programa que pida un número e indique si es par o impar.
+
+??? info "Solución ejercicio 203"
+    ```java
+    import java.util.Scanner;
+
+    public class ParImpar {
+        public static void main(String[] args) {
+            Scanner s = new Scanner(System.in);
+            System.out.print("Introduce un número: ");
+            int num = Integer.parseInt(s.nextLine());
+
+            if (num % 2 == 0) {
+                System.out.println("El número es par");
+            } else {
+                System.out.println("El número es impar");
+            }
+        }
+    }
+    ```
 
 204. **Bucle `for` hasta 10**  
     Haz un programa que muestre los números del 1 al 10 usando un `for`.  
     - Ampliación: muestra también la tabla de multiplicar de cada número.
 
+??? info "Solución ejercicio 204 (con ampliación)"
+    ```java
+    public class ForHasta10 {
+        public static void main(String[] args) {
+            System.out.println("Números del 1 al 10:");
+            for (int i = 1; i <= 10; i++) {
+                System.out.print(i + " ");
+            }
+            System.out.println("\n\nTablas de multiplicar:");
+            for (int i = 1; i <= 10; i++) {
+                System.out.println("Tabla del " + i);
+                for (int j = 1; j <= 10; j++) {
+                    System.out.println(i + " x " + j + " = " + (i * j));
+                }
+                System.out.println();
+            }
+        }
+    }
+    ```
+
 205. **Suma de primeros 100 naturales**  
     Programa que calcule y muestre la suma de los 100 primeros números naturales.  
     - Ampliación: implementa una solución matemática (`n*(n+1)/2`) y otra por bucle; compara tiempos.
 
+??? info "Solución ejercicio 205"
+    ```java
+    public class Suma100 {
+        public static void main(String[] args) {
+            int suma = 0;
+            for (int i = 1; i <= 100; i++) {
+                suma += i;
+            }
+            System.out.println("Suma por bucle: " + suma);
+
+            int sumaFormula = 100 * (100 + 1) / 2;
+            System.out.println("Suma con fórmula: " + sumaFormula);
+        }
+    }
+    ```
+
 206. **Validación completa**  
     Diseña un programa que pida la edad y valide que es un número entre 0 y 120. Si la entrada no es válida, vuelve a pedirla hasta que lo sea (usa `while` y manejo de excepciones).
 
+??? info "Solución ejercicio 206"
+    ```java
+    import java.util.Scanner;
+
+    public class ValidacionEdad {
+        public static void main(String[] args) {
+            Scanner s = new Scanner(System.in);
+            int edad = -1;
+            boolean valida = false;
+
+            while (!valida) {
+                System.out.print("Introduce tu edad (0-120): ");
+                try {
+                    edad = Integer.parseInt(s.nextLine());
+                    if (edad >= 0 && edad <= 120) {
+                        valida = true;
+                    } else {
+                        System.out.println("La edad debe estar entre 0 y 120.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("No has introducido un número válido.");
+                }
+            }
+            System.out.println("Edad registrada: " + edad);
+        }
+    }
+    ```
+
 207. **Menú de áreas (switch)**  
     Implementa el ejemplo del cálculo de áreas (cuadrado, rectángulo, triángulo) con `switch`. Mejora el menú para permitir repetir operaciones hasta que el usuario decida salir.
+
+??? info "Solución ejercicio 207"
+    ```java
+    import java.util.Scanner;
+
+    public class MenuAreas {
+        public static void main(String[] args) {
+            Scanner s = new Scanner(System.in);
+            int opcion;
+
+            do {
+                System.out.println("\nCÁLCULO DE ÁREAS");
+                System.out.println("1. Cuadrado");
+                System.out.println("2. Rectángulo");
+                System.out.println("3. Triángulo");
+                System.out.println("0. Salir");
+                System.out.print("Elige una opción: ");
+                opcion = Integer.parseInt(s.nextLine());
+
+                switch (opcion) {
+                    case 1 -> {
+                        System.out.print("Lado: ");
+                        double lado = Double.parseDouble(s.nextLine());
+                        System.out.println("Área del cuadrado: " + (lado * lado));
+                    }
+                    case 2 -> {
+                        System.out.print("Base: ");
+                        double base = Double.parseDouble(s.nextLine());
+                        System.out.print("Altura: ");
+                        double altura = Double.parseDouble(s.nextLine());
+                        System.out.println("Área del rectángulo: " + (base * altura));
+                    }
+                    case 3 -> {
+                        System.out.print("Base: ");
+                        double base = Double.parseDouble(s.nextLine());
+                        System.out.print("Altura: ");
+                        double altura = Double.parseDouble(s.nextLine());
+                        System.out.println("Área del triángulo: " + (base * altura / 2));
+                    }
+                    case 0 -> System.out.println("¡Hasta pronto!");
+                    default -> System.out.println("Opción no válida");
+                }
+            } while (opcion != 0);
+        }
+    }
+    ```
 
 208. **Login con límites de intentos**  
     Implementa el ejemplo de login con `while` y añade un temporizador simulado tras 3 intentos fallidos (por ejemplo, `Thread.sleep(2000)` para pausar).
@@ -781,5 +1156,30 @@ A continuación encontrarás ejercicios con distintos niveles y sugerencias de m
 209. **Conversión y media**  
     Programa que lea tres notas enteras, calcule la media y muestre con 2 decimales. Prueba con entradas que muestren pérdida por conversión y explica cómo evitarla.
 
+??? info "Solución ejercicio 209"
+    ```java
+    import java.util.Scanner;
 
+    public class MediaNotas {
+        public static void main(String[] args) {
+            Scanner s = new Scanner(System.in);
 
+            System.out.print("Nota 1: ");
+            int n1 = Integer.parseInt(s.nextLine());
+            System.out.print("Nota 2: ");
+            int n2 = Integer.parseInt(s.nextLine());
+            System.out.print("Nota 3: ");
+            int n3 = Integer.parseInt(s.nextLine());
+
+            // Sin cast daría división entera (media a 0 decimales)
+            float media = (float) (n1 + n2 + n3) / 3;
+            System.out.printf("Media: %.2f%n", media);
+        }
+    }
+    ```
+
+210. **Impares con continue**  
+    Escribe un programa que muestre los números impares del 1 al 20 usando un `for` y la instrucción `continue`.
+
+211. **`switch` de estaciones**  
+    Diseña un programa que pida el número de mes y devuelva la estación meteorológica a la que corresponde. Variante: hazlo con `switch` clásico y con `switch` expression.
