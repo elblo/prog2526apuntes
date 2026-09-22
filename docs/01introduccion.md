@@ -142,10 +142,10 @@ El desarrollo de un programa no consiste solo en escribir código. Se recorren d
 
 ```mermaid
 flowchart TD
-    A[1. Análisis<br/>¿Qué pide el cliente?] --> B[2. Diseño<br/>¿Cómo lo resuelvo?]
-    B --> C[3. Codificación<br/>Escribir el código Java]
-    C --> D[4. Pruebas y validación<br/>¿Funciona correctamente?]
-    D --> E[5. Explotación y mantenimiento<br/>Uso real + mejoras]
+    A[1. Análisis\n¿Qué pide el cliente?] --> B[2. Diseño\n¿Cómo lo resuelvo?]
+    B --> C[3. Codificación\nEscribir el código Java]
+    C --> D[4. Pruebas y validación\n¿Funciona correctamente?]
+    D --> E[5. Explotación y mantenimiento\nUso real + mejoras]
     D -.errores.-> B
     E -.> D
 ```
