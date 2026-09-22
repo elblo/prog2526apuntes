@@ -308,7 +308,7 @@ Java es **pseudo-compilado o pseudo-interpretado**:
 
 ```mermaid
 flowchart LR
-    A[Código fuente .java] -->|javac<br/>compila| B[Bytecode .class]
+    A[Código fuente .java] -->|javac compila| B[Bytecode .class]
     B --> C[JVM en Windows]
     B --> D[JVM en Linux]
     B --> E[JVM en macOS]
