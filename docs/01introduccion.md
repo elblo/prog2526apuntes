@@ -146,8 +146,8 @@ flowchart TD
     B --> C[3. Codificación\nEscribir el código Java]
     C --> D[4. Pruebas y validación\n¿Funciona correctamente?]
     D --> E[5. Explotación y mantenimiento\nUso real + mejoras]
-    D -.errores.-> B
-    E -.> D
+    D --> errores --> B
+    E --> D
 ```
 
 1. **Resolución del problema**
