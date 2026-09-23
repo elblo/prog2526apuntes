@@ -1,0 +1,1098 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/07colecciones.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 7: Colecciones - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-7-colecciones" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 7: Colecciones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-7-colecciones">Tema 7: Colecciones<a class="headerlink" href="#tema-7-colecciones" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 14 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Comprender la necesidad de las estructuras de datos dinámicas frente a los arrays estáticos.</li>
+<li>Conocer la arquitectura del framework de colecciones de Java (Collection, List, Set, Map).</li>
+<li>Utilizar conjuntos, listas y diccionarios para resolver problemas reales.</li>
+<li>Aplicar criterios de ordenación propios con <code>Comparable</code> y <code>Comparator</code>.</li>
+<li>Conocer las operaciones funcionales de la API Stream.</li>
+<li>Manejar XML y JSON como formatos de intercambio de información.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se elige la estructura de datos adecuada (lista, conjunto o diccionario) según la necesidad.</li>
+<li>Se realizan las operaciones CRUD sobre colecciones con los tipos genéricos correctos.</li>
+<li>Se ordenan objetos propios mediante <code>Comparable</code>, <code>Comparator</code> o lambdas.</li>
+<li>Se aplican filtros, transformaciones y reducciones con la API Stream.</li>
+<li>Se serializa y deserializa información con JSON (Gson) y se interpreta XML.</li>
+<li>Se comprenden las novedades de colecciones de Java 9 y Java 21 (<code>List.of</code>, <code>SequencedCollection</code>).</li>
+</ol>
+</details>
+<h2 id="71-introduccion">7.1 Introducción<a class="headerlink" href="#71-introduccion" title="Permanent link">&para;</a></h2>
+<p>Con lo aprendido hasta ahora puedes escribir programas correctos, pero <strong>limitados por el número de datos</strong>: un número finito de usuarios, de cuentas, de incidencias...</p>
+<p>¿Qué pasaría si tu <em>App Banco</em> debe gestionar <strong>millones de cuentas</strong>? No puedes declarar <code>Cuenta c1, c2, c3...</code>. Necesitas estructuras que:</p>
+<ul>
+<li>Almacenen <strong>muchos elementos</strong> (simple o compuestos).</li>
+<li>Tengan un tamaño <strong>fijo o dinámico</strong>.</li>
+<li>Se puedan <strong>recorrer</strong>.</li>
+<li>Permitan realizar operaciones <strong>CRUD</strong> (Create, Read, Update, Delete).</li>
+</ul>
+<p>Esto existe: son las <strong>colecciones</strong>.</p>
+<h3 id="clasificacion-de-las-estructuras-de-almacenamiento">Clasificación de las estructuras de almacenamiento<a class="headerlink" href="#clasificacion-de-las-estructuras-de-almacenamiento" title="Permanent link">&para;</a></h3>
+<p>Según lo que almacenan:</p>
+<ul>
+<li><strong>Datos del mismo tipo</strong>: arrays, matrices, <strong>listas, colecciones, conjuntos</strong>...</li>
+<li><strong>Datos de distinto tipo</strong>: <strong>clases</strong> (vistas en POO).</li>
+</ul>
+<p>Según su tamaño:</p>
+<ul>
+<li><strong>Fijo</strong>: el tamaño se especifica al crearla y no cambia (arrays, matrices).</li>
+<li><strong>Dinámico</strong>: el tamaño cambia en tiempo de ejecución (listas, colecciones...).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">De los arrays a las colecciones</p>
+<p>Un array es la estructura "básica": tamaño fijo y acceso por índice. Las colecciones añaden flexibilidad: crecen solas, se borran elementos, se buscan, se ordenan...</p>
+</div>
+<h2 id="72-que-es-una-coleccion">7.2 ¿Qué es una colección?<a class="headerlink" href="#72-que-es-una-coleccion" title="Permanent link">&para;</a></h2>
+<p>Una <strong>colección</strong> es un grupo de elementos almacenados de forma conjunta en la misma estructura. Además de los datos, la colección <strong>incluye las funciones</strong> para interactuar con ellos (<code>add</code>, <code>remove</code>, <code>size</code>...).</p>
+<p>En Java, el framework de colecciones tiene esta arquitectura:</p>
+<pre class="mermaid"><code>graph TD
+    Iterable --&gt; Collection
+    Collection --&gt; List
+    Collection --&gt; Set
+    Collection --&gt; Queue
+    List --&gt; ArrayList
+    List --&gt; LinkedList
+    Set --&gt; HashSet
+    Set --&gt; LinkedHashSet
+    Set --&gt; TreeSet</code></pre>
+<ul>
+<li>Los <strong>conjuntos</strong> y <strong>listas</strong> implementan la interfaz <code>java.util.Collection</code>, que define las operaciones comunes (añadir, borrar, saber el tamaño, recorrer...).</li>
+<li>Los <strong>diccionarios</strong> implementan <code>java.util.Map</code>, que define las operaciones de pares <strong>clave/valor</strong>.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Interfaz <code>Collection</code></label><label for="__tabbed_1_2">Interfaz <code>Map</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">c</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"hola"</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">c</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">          </span><span class="c1">// 1</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">c</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"hola"</span><span class="p">);</span><span class="w">  </span><span class="c1">// true</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">c</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span><span class="w">       </span><span class="c1">// true</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">m</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">m</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">);</span><span class="w">      </span><span class="c1">// 20</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">m</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Las colecciones usan tipos genéricos</p>
+<p>Declara siempre el <strong>tipo</strong> de los elementos que almacena la colección (<code>ArrayList&lt;String&gt;</code>, <code>Map&lt;String, Integer&gt;</code>...). Los <em>tipos crudos</em> (<code>ArrayList</code> a secas) son código antiguo: compilan, pero pierden la seguridad de tipos y obligan a castear.</p>
+</div>
+<h2 id="73-conjuntos-set">7.3 Conjuntos (Set)<a class="headerlink" href="#73-conjuntos-set" title="Permanent link">&para;</a></h2>
+<p>Un <strong>conjunto</strong> es un tipo de colección que <strong>no admite elementos duplicados</strong>, derivado del concepto matemático de conjunto.</p>
+<p>La interfaz <code>java.util.Set</code> define cómo deben ser los conjuntos y <strong>extiende <code>Collection</code></strong>, aunque no añade operaciones nuevas: la gracia está en su <strong>comportamiento</strong> (sin repetidos).</p>
+<h3 id="clases-mas-utilizadas">Clases más utilizadas<a class="headerlink" href="#clases-mas-utilizadas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Cómo almacena</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>java.util.HashSet</code></td>
+<td>Tablas hash</td>
+<td>Muy rápido. <strong>Sin orden</strong> garantizado.</td>
+</tr>
+<tr>
+<td><code>java.util.LinkedHashSet</code></td>
+<td>Tablas hash + lista enlazada</td>
+<td>Orden de <strong>inserción</strong>. Acceso rápido.</td>
+</tr>
+<tr>
+<td><code>java.util.TreeSet</code></td>
+<td>Árbol rojo-negro</td>
+<td>Más lento, pero <strong>ordenado</strong> (natural o con <code>Comparator</code>).</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploSet</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">nombres</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">nombres</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Luis"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">nombres</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Duplicado: NO se añade</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nombres</span><span class="p">);</span><span class="w"> </span><span class="c1">// [Luis, Ana] (orden no garantizado)</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nombres</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">¿Cuándo usar un Set?</p>
+<p>Cuando necesites <strong>eliminar duplicados</strong> o comprobar <strong>si un elemento existe</strong> de forma rápida. Ejemplo: lista de alumnos que se apuntan a una actividad (no puede repetirse el DNI).</p>
+</div>
+<h2 id="74-listas-list">7.4 Listas (List)<a class="headerlink" href="#74-listas-list" title="Permanent link">&para;</a></h2>
+<p>Las <strong>listas</strong> son el avance natural sobre los arrays. Añaden:</p>
+<ul>
+<li>Almacenamiento de <strong>elementos repetidos</strong>.</li>
+<li><strong>Acceso por posición</strong> (índice).</li>
+<li><strong>Búsqueda</strong> de elementos (obtiene su posición).</li>
+<li>Extracción de <strong>sublistas</strong>.</li>
+</ul>
+<p>Todas implementan la interfaz <code>java.util.List</code>.</p>
+<h3 id="clases-mas-utilizadas_1">Clases más utilizadas<a class="headerlink" href="#clases-mas-utilizadas_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Cómo funciona</th>
+<th>Ideal para</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>java.util.ArrayList</code></td>
+<td>Array que se <strong>redimensiona</strong> solo</td>
+<td><strong>Acceso rápido</strong> por índice y lecturas</td>
+</tr>
+<tr>
+<td><code>java.util.LinkedList</code></td>
+<td>Lista <strong>doblemente enlazada</strong> (nodos)</td>
+<td>Muchas <strong>inserciones/borrados</strong> en los extremos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="741-declaracion-e-insercion">7.4.1 Declaración e inserción<a class="headerlink" href="#741-declaracion-e-insercion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploArrayList</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">colores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"violeta"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"blanco"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"negro"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"verde"</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">colores</span><span class="p">);</span><span class="w"> </span><span class="c1">// [violeta, blanco, negro, verde]</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="742-recorridos">7.4.2 Recorridos<a class="headerlink" href="#742-recorridos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Recorrido clásico con índice</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">colores</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">colores</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// Recorrido mejorado (for-each)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">colores</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">// Con un Consumer (forEach, Java 8+)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">colores</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">color</span><span class="p">));</span>
+</code></pre></div>
+<h3 id="743-el-resto-de-operaciones-crud">7.4.3 El resto de operaciones CRUD<a class="headerlink" href="#743-el-resto-de-operaciones-crud" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">colores</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">                    </span><span class="c1">// Elemento en posición 1</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">colores</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"rojo"</span><span class="p">);</span><span class="w">            </span><span class="c1">// Reemplaza la posición 1</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">"amarillo"</span><span class="p">);</span><span class="w">        </span><span class="c1">// Inserta en la posición 2</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">colores</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">                 </span><span class="c1">// Borra por posición</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">colores</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"verde"</span><span class="p">);</span><span class="w">           </span><span class="c1">// Borra por valor (si existe)</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">colores</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">"negro"</span><span class="p">);</span><span class="w">          </span><span class="c1">// Posición del elemento (o -1)</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">colores</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">"negro"</span><span class="p">);</span><span class="w">         </span><span class="c1">// ¿Existe?</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">colores</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">                    </span><span class="c1">// Número de elementos</span>
+<span class="linenos" data-linenos="9 "></span><span class="n">colores</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span><span class="w">                 </span><span class="c1">// ¿Está vacía?</span>
+</code></pre></div>
+<h3 id="744-borrado-condicional-con-removeif-java-8">7.4.4 Borrado condicional con <code>removeIf</code> (Java 8+)<a class="headerlink" href="#744-borrado-condicional-con-removeif-java-8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">colores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"violeta"</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"blanco"</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"negro"</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">colores</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"verde"</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">// Elimina los elementos que cumplan la condición (empiezan por "v")</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">colores</span><span class="p">.</span><span class="na">removeIf</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">"v"</span><span class="p">));</span>
+<span class="linenos" data-linenos="9 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">colores</span><span class="p">);</span><span class="w"> </span><span class="c1">// [blanco, negro]</span>
+</code></pre></div>
+<h3 id="745-almacenar-objetos-propios">7.4.5 Almacenar objetos propios<a class="headerlink" href="#745-almacenar-objetos-propios" title="Permanent link">&para;</a></h3>
+<p>Las listas pueden guardar cualquier objeto:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gatos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Garfield"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">));</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Mishi"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Novedad Java 21: <code>SequencedCollection</code></p>
+<p>Desde Java 21, todas las colecciones ordenadas (listas, <code>ArrayDeque</code>, <code>TreeSet</code>...) implementan la interfaz <code>SequencedCollection</code>, que aporta operaciones uniformes para los <strong>extremos</strong> y la <strong>vista inversa</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">var</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="s">"c"</span><span class="p">));</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">lista</span><span class="p">.</span><span class="na">getFirst</span><span class="p">();</span><span class="w">          </span><span class="c1">// "a"  (antes: lista.get(0))</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">lista</span><span class="p">.</span><span class="na">getLast</span><span class="p">();</span><span class="w">           </span><span class="c1">// "c"  (antes: lista.get(lista.size()-1))</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">lista</span><span class="p">.</span><span class="na">reversed</span><span class="p">();</span><span class="w">          </span><span class="c1">// vista inversa [c, b, a]</span>
+</code></pre></div>
+</div>
+<h2 id="75-ordenacion-de-listas">7.5 Ordenación de listas<a class="headerlink" href="#75-ordenacion-de-listas" title="Permanent link">&para;</a></h2>
+<h3 id="751-ordenar-colecciones-de-tipos-basicos">7.5.1 Ordenar colecciones de tipos básicos<a class="headerlink" href="#751-ordenar-colecciones-de-tipos-basicos" title="Permanent link">&para;</a></h3>
+<p><code>Collections.sort(lista)</code> ordena una lista de tipos que ya implementan orden natural (<code>String</code>, <code>Integer</code>...):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">notas</span><span class="p">);</span><span class="w">       </span><span class="c1">// [3, 5, 8, 9]</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">Collections</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="n">notas</span><span class="p">);</span><span class="w">    </span><span class="c1">// [9, 8, 5, 3]</span>
+</code></pre></div>
+<h3 id="752-ordenar-objetos-propios-metodo-1-comparable">7.5.2 Ordenar objetos propios. Método 1: <code>Comparable</code><a class="headerlink" href="#752-ordenar-objetos-propios-metodo-1-comparable" title="Permanent link">&para;</a></h3>
+<p>Si queremos ordenar objetos propios (por ejemplo, <code>Gato</code>), la clase debe implementar la interfaz <code>Comparable</code> y definir <strong><code>compareTo</code></strong> con el criterio de ordenación.</p>
+<p><code>compareTo</code> debe devolver: <strong>negativo</strong>, <strong>0</strong> o <strong>positivo</strong> según el objeto actual sea menor, igual o mayor que el argumento.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// 1. Implementar la interfaz Comparable y sobrescribir compareTo</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Gato</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">raza</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">peso</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="c1">// constructor, getters y setters...</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="c1">// Criterio: ordenar por peso de menor a mayor</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Gato</span><span class="w"> </span><span class="n">gato</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">peso</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">gato</span><span class="p">.</span><span class="na">peso</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// 2. Utilizar Collections.sort(lista)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">Gato</span><span class="w"> </span><span class="n">gato1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Garfield"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">Gato</span><span class="w"> </span><span class="n">gato2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Mishi"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">Gato</span><span class="w"> </span><span class="n">gato3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Hello Kitty"</span><span class="p">,</span><span class="w"> </span><span class="s">"blanco"</span><span class="p">,</span><span class="w"> </span><span class="s">"japo"</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gatos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">gatos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">gato1</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="n">gatos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">gato2</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">gatos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">gato3</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">gatos</span><span class="p">);</span><span class="w"> </span><span class="c1">// Ordena por el criterio de compareTo</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">gatos</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio</p>
+<p>Aplica diferentes ordenaciones con <code>Comparable</code>: por <strong>nombre</strong>, por <strong>raza</strong> y por <strong>peso</strong>, tanto ascendente como descendentemente. Pista: para ordenar descendente puedes usar <code>Collections.reverse(lista)</code> o invertir el orden de <code>compareTo</code>.</p>
+</div>
+<h3 id="753-metodo-2-comparator">7.5.3 Método 2: <code>Comparator</code><a class="headerlink" href="#753-metodo-2-comparator" title="Permanent link">&para;</a></h3>
+<p>El <code>Comparator</code> permite definir <strong>varios criterios de ordenación</strong> sin tocar la clase <code>Gato</code>. Se crea una clase que implemente <code>Comparator</code> y defina <code>compare</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// 1. Crear la clase con el método compare</span>
+<span class="linenos" data-linenos="2 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PesoMenosMas</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">Gato</span><span class="w"> </span><span class="n">o1</span><span class="p">,</span><span class="w"> </span><span class="n">Gato</span><span class="w"> </span><span class="n">o2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">o1</span><span class="p">.</span><span class="na">getPeso</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">o2</span><span class="p">.</span><span class="na">getPeso</span><span class="p">();</span><span class="w"> </span><span class="c1">// De menos a más peso</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// 2. Llamar al método sort de la propia lista pasándole una instancia</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PesoMenosMas</span><span class="p">());</span>
+</code></pre></div>
+<p><strong>Variante con clase anónima</strong> (ahorramos crear la clase):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">Gato</span><span class="w"> </span><span class="n">o1</span><span class="p">,</span><span class="w"> </span><span class="n">Gato</span><span class="w"> </span><span class="n">o2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">o1</span><span class="p">.</span><span class="na">getPeso</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">o2</span><span class="p">.</span><span class="na">getPeso</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">});</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio</p>
+<p>Crea las clases necesarias (<code>PesoMenosMas</code>, <code>NombreAZ</code>, <code>RazaAZ</code>, y sus inversas) para ordenar los gatos por nombre, raza y peso, ascendente y descendentemente.</p>
+</div>
+<h3 id="754-metodo-3-comparator-con-lambdas-java-8">7.5.4 Método 3: <code>Comparator</code> con lambdas (Java 8+)<a class="headerlink" href="#754-metodo-3-comparator-con-lambdas-java-8" title="Permanent link">&para;</a></h3>
+<p>La forma más moderna y breve: pasar una <strong>función lambda</strong> directamente a <code>sort</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Los tipos de los argumentos se infieren de la lista</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">((</span><span class="n">o1</span><span class="p">,</span><span class="w"> </span><span class="n">o2</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">o1</span><span class="p">.</span><span class="na">getPeso</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">o2</span><span class="p">.</span><span class="na">getPeso</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">});</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// Si la función tiene una sola línea, se pueden quitar llaves y return. Mejor así:</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">((</span><span class="n">o1</span><span class="p">,</span><span class="w"> </span><span class="n">o2</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">o1</span><span class="p">.</span><span class="na">getPeso</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">o2</span><span class="p">.</span><span class="na">getPeso</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// Con métodos de ayuda (Comparator.comparing...) todavía más legible:</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">Gato</span><span class="p">::</span><span class="n">getNombre</span><span class="p">));</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">Gato</span><span class="p">::</span><span class="n">getNombre</span><span class="p">).</span><span class="na">reversed</span><span class="p">());</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">Gato</span><span class="p">::</span><span class="n">getPeso</span><span class="p">).</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">Gato</span><span class="p">::</span><span class="n">getNombre</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="76-consideraciones-importantes-referencias">7.6 Consideraciones importantes: referencias<a class="headerlink" href="#76-consideraciones-importantes-referencias" title="Permanent link">&para;</a></h2>
+<p>Las listas pueden almacenar objetos <strong>inmutables</strong> (<code>String</code>, <code>Integer</code>, <code>Long</code>...) y <strong>mutables</strong> (clases propias).</p>
+<p>Dos errores clásicos:</p>
+<div class="admonition danger">
+<p class="admonition-title">1. Modificar el objeto "fuera" cambia lo que hay en la lista</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Test</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Test</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">lista</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span><span class="w">        </span><span class="c1">// Se guarda la REFERENCIA, no una copia</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="n">p1</span><span class="p">.</span><span class="na">setNum</span><span class="p">(</span><span class="mi">99</span><span class="p">);</span><span class="w">        </span><span class="c1">// Cambiamos el objeto desde fuera</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// La lista ahora contiene un objeto con num=99</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">lista</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getNum</span><span class="p">());</span><span class="w"> </span><span class="c1">// 99</span>
+</code></pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">2. Iterar y borrar a la vez</p>
+<p>Borrar elementos mientras se recorre una lista con <code>for</code> tradicional puede saltarte elementos. Mejor usa <code>removeIf</code> (visto antes) o recorre hacia atrás con <code>Iterator</code>.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Con gatos:</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">Gato</span><span class="w"> </span><span class="n">gato1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Garfield"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gatos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">gatos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">gato1</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="n">gato1</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="s">"verde"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Cambia el color "dentro" de la lista</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">gatos</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getColor</span><span class="p">());</span><span class="w"> </span><span class="c1">// verde</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Copia antes, si no quieres compartir</p>
+<p>Si no quieres que el objeto de la lista se vea afectado por cambios externos, añade una <strong>copia</strong> (como hicimos con la composición en el tema anterior).</p>
+</div>
+<h2 id="77-bonus-programacion-funcional-con-la-api-stream">7.7 Bonus: programación funcional con la API Stream<a class="headerlink" href="#77-bonus-programacion-funcional-con-la-api-stream" title="Permanent link">&para;</a></h2>
+<p>La <strong>API Stream</strong> (Java 8) permite trabajar con una colección <strong>como si fuese un flujo de información</strong>, encadenando operaciones de filtrado, transformación, ordenación y presentación.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.Collectors</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProgramacionFuncional</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">multiplica10</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="c1">// Crear una colección de enteros sin añadirlos uno a uno</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">));</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Original: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lista</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="c1">// filter: quedarnos con los pares</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pares</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">                </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="w">        </span><span class="c1">// map: transformar cada elemento (num * 10)</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">por10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">                </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">ProgramacionFuncional</span><span class="p">::</span><span class="n">multiplica10</span><span class="p">)</span><span class="w"> </span><span class="c1">// referencia a método</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="w">        </span><span class="c1">// sorted: ordenar</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ordenados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">                </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="w">        </span><span class="c1">// reduce: sumar todos los elementos</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lista</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="linenos" data-linenos="32 "></span><span class="w">                </span><span class="p">.</span><span class="na">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">acumulado</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">acumulado</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Pares: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pares</span><span class="p">);</span>
+<span class="linenos" data-linenos="35 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Por 10: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">por10</span><span class="p">);</span>
+<span class="linenos" data-linenos="36 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Ordenados: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ordenados</span><span class="p">);</span>
+<span class="linenos" data-linenos="37 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Suma: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">suma</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="39 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Operaciones más usadas</p>
+<ul>
+<li><code>filter(condición)</code> → deja pasar los elementos que cumplen la condición.</li>
+<li><code>map(transformación)</code> → transforma cada elemento.</li>
+<li><code>sorted()</code> → ordena (con o sin <code>Comparator</code>).</li>
+<li><code>reduce(inicial, función)</code> → reduce todos a un único valor (suma, máximo...).</li>
+<li><code>forEach(acción)</code> → aplica una acción a cada elemento.</li>
+<li><code>collect(...)</code> → convierte el stream en colección/list/map.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio (baraja española)</p>
+<p>Partiendo de un programa que elige aleatoriamente <strong>10 cartas</strong> de la baraja española, usando programación funcional:</p>
+<ol>
+<li>Muestra todas las cartas en orden normal e inverso.</li>
+<li>Muéstralas ordenadas por palo y valor.</li>
+<li>Muestra las cartas del palo <code>espadas</code> (<code>filter</code>).</li>
+<li>Muestra el valor numérico de las cartas (<code>map</code>): el as vale 1, la sota 10, el caballo 11 y el rey 12.</li>
+<li>Muestra las cartas que valen más de 7.</li>
+<li>Muestra la <strong>suma</strong> de todos los valores de las cartas (<code>reduce</code>).</li>
+</ol>
+</div>
+<h2 id="78-diccionarios-map">7.8 Diccionarios (Map)<a class="headerlink" href="#78-diccionarios-map" title="Permanent link">&para;</a></h2>
+<p>Los <strong>diccionarios</strong> almacenan <strong>pares clave/valor</strong>. Todos implementan la interfaz <code>java.util.Map</code>.</p>
+<h3 id="clases-mas-utilizadas_2">Clases más utilizadas<a class="headerlink" href="#clases-mas-utilizadas_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Comportamiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>java.util.HashMap</code></td>
+<td><strong>Sin orden</strong> garantizado. Rápido acceso por clave.</td>
+</tr>
+<tr>
+<td><code>java.util.LinkedHashMap</code></td>
+<td>Mantiene el <strong>orden de inserción</strong>.</td>
+</tr>
+<tr>
+<td><code>java.util.TreeMap</code></td>
+<td>Mantiene las claves <strong>ordenadas</strong> (natural o <code>Comparator</code>).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="781-hashmap-en-detalle">7.8.1 HashMap en detalle<a class="headerlink" href="#781-hashmap-en-detalle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Colección <strong>no ordenada</strong> de elementos.</li>
+<li>Se implementa en una <strong>tabla hash</strong>.</li>
+<li>Se aplica una <strong>función hash</strong> a la clave que determina dónde se almacena.</li>
+<li>Si hay <strong>colisión</strong>, el nuevo par clave/valor se enlaza al anterior.</li>
+<li>Acceso a través de la <strong>clave</strong> o del <strong>valor</strong>.</li>
+<li>Permite <strong>valores nulos</strong>, pero <strong>solo una clave nula</strong>.</li>
+</ul>
+<h3 id="782-operaciones">7.8.2 Operaciones<a class="headerlink" href="#782-operaciones" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploMap</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">edades</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="c1">// Inserción</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">edades</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">edades</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Luis"</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">edades</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"María"</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="c1">// Lectura de un valor con get</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">edades</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">));</span><span class="w"> </span><span class="c1">// 20</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="c1">// Lectura de todas las entradas con entrySet y for-each</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">entrada</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">edades</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">            </span><span class="c1">// getKey y getValue</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">entrada</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" -&gt; "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">entrada</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="w">        </span><span class="c1">// Búsqueda de clave</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">edades</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">"Luis"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Luis está en el mapa"</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="w">        </span><span class="c1">// Otras operaciones</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">edades</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">edades</span><span class="p">.</span><span class="na">keySet</span><span class="p">());</span><span class="w">   </span><span class="c1">// Conjunto de claves</span>
+<span class="linenos" data-linenos="29 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">edades</span><span class="p">.</span><span class="na">values</span><span class="p">());</span><span class="w">   </span><span class="c1">// Colección de valores</span>
+<span class="linenos" data-linenos="30 "></span><span class="w">        </span><span class="n">edades</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"Luis"</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="32 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="783-ejemplo-de-aplicacion-bbdd-de-bizum">7.8.3 Ejemplo de aplicación: BBDD de Bizum<a class="headerlink" href="#783-ejemplo-de-aplicacion-bbdd-de-bizum" title="Permanent link">&para;</a></h3>
+<p>En la <em>App Banco</em> se puede usar un <code>HashMap</code> para identificar rápidamente qué cuentas tienen asociado un teléfono para hacer Bizum:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">telefonoCuenta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">telefonoCuenta</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"600111222"</span><span class="p">,</span><span class="w"> </span><span class="s">"ES123456789"</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">telefonoCuenta</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"600333444"</span><span class="p">,</span><span class="w"> </span><span class="s">"ES987654321"</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="n">String</span><span class="w"> </span><span class="n">cuentaAsociada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">telefonoCuenta</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"600111222"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Búsqueda instantánea</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Novedad Java 9: <code>Map.of</code></p>
+<p>Para mapas <strong>inmutables</strong> pequeños, existen los métodos de fábrica estáticos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">edades</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">        </span><span class="s">"Ana"</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="s">"Luis"</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Ana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Luis"</span><span class="p">,</span><span class="w"> </span><span class="s">"María"</span><span class="p">);</span>
+</code></pre></div>
+<p>Ojo: son <strong>inmutables</strong> (no se puede <code>put</code>/<code>add</code>).</p>
+</div>
+<h2 id="79-otras-estructuras-xml-y-json">7.9 Otras estructuras: XML y JSON<a class="headerlink" href="#79-otras-estructuras-xml-y-json" title="Permanent link">&para;</a></h2>
+<h3 id="791-xml">7.9.1 XML<a class="headerlink" href="#791-xml" title="Permanent link">&para;</a></h3>
+<p><strong>XML</strong> (<em>eXtensible Markup Language</em>) es un lenguaje de etiquetado para <strong>estructurar, almacenar e intercambiar información</strong>.</p>
+<ul>
+<li>La información en XML está pensada para ser <strong>leída por una máquina</strong>.</li>
+<li>Es <strong>legible y editable</strong> con un editor de texto plano.</li>
+<li>Formado por <strong>nodos</strong>: se delimitan por etiqueta de apertura y cierre (como en HTML). Los nodos pueden tener <strong>atributos</strong> en su etiqueta de apertura.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nt">&lt;clientes&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="nt">&lt;cliente</span><span class="w"> </span><span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="nt">&lt;nombre&gt;</span>Rafael<span class="w"> </span>López<span class="nt">&lt;/nombre&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="nt">&lt;telefono&gt;</span>1234<span class="nt">&lt;/telefono&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="nt">&lt;/cliente&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="nt">&lt;cliente</span><span class="w"> </span><span class="na">id=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="nt">&lt;nombre&gt;</span>María<span class="w"> </span>Nadal<span class="nt">&lt;/nombre&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="nt">&lt;telefono&gt;</span>1238<span class="nt">&lt;/telefono&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="nt">&lt;/cliente&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="nt">&lt;/clientes&gt;</span>
+</code></pre></div>
+<h3 id="792-json">7.9.2 JSON<a class="headerlink" href="#792-json" title="Permanent link">&para;</a></h3>
+<p><strong>JSON</strong> (<em>JavaScript Object Notation</em>) es un formato de texto para <strong>representar objetos</strong>. Muy útil para transmitir datos por la red.</p>
+<ul>
+<li>Permite almacenar los mismos tipos de datos que Java: cadenas, números, arrays, objetos...</li>
+<li>Para acceder a sus datos desde Java hay que <strong>convertirlo a objetos nativos</strong> mediante librerías como <strong>Gson</strong> (de Google).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="nt">"clientes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rafael López"</span><span class="p">,</span><span class="w"> </span><span class="nt">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="p">},</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"María Nadal"</span><span class="p">,</span><span class="w"> </span><span class="nt">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="mi">1238</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">  </span><span class="p">]</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<h4 id="serializar-stringify-con-gson">Serializar (stringify) con Gson<a class="headerlink" href="#serializar-stringify-con-gson" title="Permanent link">&para;</a></h4>
+<p>Convierte un objeto Java en una cadena de texto JSON → <code>gson.toJson(objeto)</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.gson.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploToJson</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">Gson</span><span class="w"> </span><span class="n">gson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gson</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cuenta</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cuentas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">cuentas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cliente</span><span class="p">(</span><span class="s">"Rafael López"</span><span class="p">),</span><span class="w"> </span><span class="mf">100.0</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gson</span><span class="p">.</span><span class="na">toJson</span><span class="p">(</span><span class="n">cuentas</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="c1">// Guardar a fichero... (se hace con FileWriter, tema siguiente)</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<h4 id="deserializar-parse-con-gson">Deserializar (parse) con Gson<a class="headerlink" href="#deserializar-parse-con-gson" title="Permanent link">&para;</a></h4>
+<p>Convierte un texto JSON en un objeto Java → <code>gson.fromJson(buffer, ClasePrincipal.class)</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.gson.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploFromJson</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">Gson</span><span class="w"> </span><span class="n">gson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gson</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="c1">// El buffer se lee normalmente desde un fichero</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="s">"cuentas.json"</span><span class="p">));</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">GestionCuentas</span><span class="w"> </span><span class="n">gc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gson</span><span class="p">.</span><span class="na">fromJson</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">GestionCuentas</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">buffer</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="c1">// Si queremos mapear un JSON a una estructura sin clase propia (ArrayList):</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cuenta</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cuentas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gson</span><span class="p">.</span><span class="na">fromJson</span><span class="p">(</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="s">"cuentas.json"</span><span class="p">),</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">TypeToken</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cuenta</span><span class="o">&gt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}.</span><span class="na">getType</span><span class="p">()</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">}</span>
+</code></pre></div>
+<h4 id="escritura-del-json-a-fichero">Escritura del JSON a fichero<a class="headerlink" href="#escritura-del-json-a-fichero" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">escribeJSONEnFichero</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="n">FileWriter</span><span class="w"> </span><span class="n">fichero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileWriter</span><span class="p">(</span><span class="s">"cuentas.json"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">pw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PrintWriter</span><span class="p">(</span><span class="n">fichero</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">pw</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">fichero</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/07/progt07-14.png" />
+  <figcaption>Plugin DataGraph de IntelliJ IDEA para visualizar archivos JSON</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/07/progt07-15.png" />
+  <figcaption>Reformatear un JSON en IntelliJ IDEA (Code → Reformat Code)</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Trabajar con APIs (flujo completo)</p>
+<p>Para consumir un JSON descargado desde una API:</p>
+<ol>
+<li>Localizar una <strong>API</strong> pública.</li>
+<li>Probar la API en <strong>Postman</strong> (ver la estructura del JSON).</li>
+<li>Generar el <strong>esquema de clases</strong> a partir del JSON con <a href="https://www.jsonschema2pojo.org/">jsonschema2pojo</a>.</li>
+<li>Comprender la información del JSON y del esquema generado.</li>
+<li>Parsear con <code>gson.fromJson(buffer, ClasePrincipal.class)</code>.</li>
+</ol>
+</div>
+<h2 id="710-novedades-de-java-en-colecciones">7.10 Novedades de Java en colecciones<a class="headerlink" href="#710-novedades-de-java-en-colecciones" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Novedad</th>
+<th>Versión</th>
+<th>Qué aporta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Stream, lambdas</td>
+<td>Java 8</td>
+<td>Programación funcional sobre colecciones (<code>filter</code>, <code>map</code>, <code>reduce</code>...)</td>
+</tr>
+<tr>
+<td><code>List.of</code>, <code>Set.of</code>, <code>Map.of</code></td>
+<td>Java 9</td>
+<td>Colecciones inmutables en una línea</td>
+</tr>
+<tr>
+<td><code>removeIf</code>, <code>forEach</code></td>
+<td>Java 8</td>
+<td>Operaciones cómodas sobre <code>Collection</code></td>
+</tr>
+<tr>
+<td><code>getOrDefault</code>, <code>putIfAbsent</code>, <code>computeIfAbsent</code></td>
+<td>Java 8</td>
+<td>Métodos cómodos de <code>Map</code></td>
+</tr>
+<tr>
+<td><code>SequencedCollection</code>, <code>SequencedSet</code>, <code>SequencedMap</code></td>
+<td>Java 21</td>
+<td><code>getFirst()</code>, <code>getLast()</code>, <code>reversed()</code> en todas las colecciones ordenadas</td>
+</tr>
+<tr>
+<td>Records</td>
+<td>Java 16</td>
+<td>Modelar los objetos guardados en colecciones de forma breve</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Ejemplo del mundo real: combinar novedades</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gatos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Garfield"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">(</span><span class="s">"Mishi"</span><span class="p">,</span><span class="w"> </span><span class="s">"naranja"</span><span class="p">,</span><span class="w"> </span><span class="s">"común"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// Gatos que pesan más de 6, ordenados por peso</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Gato</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pesados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gatos</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">getPeso</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">Gato</span><span class="p">::</span><span class="n">getPeso</span><span class="p">))</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// Java 16+: toList() sin colector</span>
+</code></pre></div>
+<h2 id="711-buenas-practicas">7.11 Buenas prácticas<a class="headerlink" href="#711-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Declara siempre el <strong>tipo genérico</strong> (<code>ArrayList&lt;String&gt;</code>), nunca tipos crudos.</li>
+<li><strong>Elige bien la estructura</strong>: ¿admite repetidos? → lista. ¿No? → set. ¿Búsqueda por clave? → map.</li>
+<li>Nombra con tipos de la <strong>interfaz</strong> (<code>List&lt;String&gt; l = new ArrayList&lt;&gt;();</code>) para poder cambiar la implementación después.</li>
+<li>En producción, ordena con <code>Collections.sort</code> o <code>list.sort</code>; no reinventes la burbuja.</li>
+<li>Para concatenar mucho texto usa <code>StringBuilder</code> (ya lo vimos en el tema 4).</li>
+<li>Usa <code>Stream</code> para operaciones de filtrado/transformación que serían <em>ruidosas</em> con bucles.</li>
+<li>Ten cuidado con las <strong>referencias</strong>: añadir un objeto a una lista no lo copia.</li>
+<li>Prefiere <strong><code>List.of</code>/<code>Map.of</code></strong> cuando la colección no vaya a cambiar.</li>
+</ul>
+<h2 id="712-referencias">7.12 Referencias<a class="headerlink" href="#712-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/list.html">Java Tutorial: The List interface (Oracle)</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/set.html">Java Tutorial: The Set interface</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/map.html">Java Tutorial: The Map interface</a></li>
+<li><a href="https://openjdk.org/jeps/431">JEP 431: Sequenced Collections</a></li>
+<li><a href="https://github.com/google/gson/blob/main/UserGuide.md">Gson: guía de usuario</a></li>
+<li><a href="https://javarevisited.blogspot.com/">Javarevisited: 5 librerías JSON para Java</a></li>
+</ul>
+<h2 id="713-actividades">7.13 Actividades<a class="headerlink" href="#713-actividades" title="Permanent link">&para;</a></h2>
+<ol start="701">
+<li>
+<p>Crea un <code>HashSet&lt;Integer&gt;</code> e intenta añadir tres veces el mismo número. Comprueba con <code>size()</code> que solo se almacena una vez.</p>
+</li>
+<li>
+<p>Escribe un programa que lea nombres por teclado y los guarde en un <code>ArrayList&lt;String&gt;</code> hasta que el usuario escriba "fin". Después muestra el listado ordenado alfabéticamente y sin repetidos (pista: usa un <code>TreeSet</code> o <code>LinkedHashSet</code>).</p>
+</li>
+<li>
+<p>Crea la clase <code>Gato</code> con <code>Comparable</code> (peso) y la clase <code>PesoMenosMas</code> (Comparator). Ordena una lista de 3 o 4 gatos de las tres formas: <code>Comparable</code>, <code>Comparator</code> y <strong>lambda</strong>, y comprueba que salen igual.</p>
+</li>
+<li>
+<p>Dado un <code>ArrayList&lt;Integer&gt;</code> con los números del 1 al 20, usa <strong>Stream</strong> para mostrar: los pares, los múltiplos de 3, el mayor, el menor, y la suma de todos.</p>
+</li>
+<li>
+<p>Implementa una mini agenda con <code>HashMap&lt;String, String&gt;</code> (teléfono → nombre). Ofrece un menú: añadir contacto, buscar contacto, listar todos, eliminar, salir.</p>
+</li>
+<li>
+<p>Crea un programa que serialize un objeto <code>Library</code> (con libros) a JSON con Gson y lo guarde en <code>biblioteca.json</code>. Después, en otro programa, léelo y muéstralo.</p>
+</li>
+<li>
+<p>Convierte la lista de la App Banco (cuentas) para que se gestione con <code>ArrayList&lt;Cuenta&gt;</code> (fuera ya los arrays estáticos). Añade y elimina cuentas, ordénalas por número e imprime el detalle de cada una.</p>
+</li>
+<li>
+<p>Investiga la diferencia entre <code>ArrayList</code> y <code>LinkedList</code>: qué operaciones son rápidas y cuáles lentas en cada una. Pon un ejemplo donde <code>LinkedList</code> gane claramente (insertar/borrar al principio).</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

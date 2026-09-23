@@ -1,0 +1,1487 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/01introduccion.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.- Introducción - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-1-introduccion-a-la-programacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.- Introducción
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01introduccion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-programas-y-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Programas y programación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Programas y programación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptos-clave-en-la-resolucion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptos clave en la resolución de problemas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritmo-y-programa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algoritmo y programa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacion-de-algoritmos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representación de algoritmos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-paradigmas-de-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Paradigmas de programación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Paradigmas de programación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clasificacion-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clasificación general
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subtipos-de-paradigmas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subtipos de paradigmas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-multiparadigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lenguajes multiparadigma
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-fases-de-la-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Fases de la programación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Fases de la programación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-programa-paresimpares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo: programa "pares/impares"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-lenguajes-de-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Lenguajes de programación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Lenguajes de programación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lenguaje-maquina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Lenguaje máquina
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-lenguaje-ensamblador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Lenguaje ensamblador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lenguajes-compilados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Lenguajes compilados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lenguajes-interpretados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lenguajes interpretados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-particular-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso particular: Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-programas-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Programas en Java
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 Programas en Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ediciones-y-versiones-del-jdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ediciones y versiones del JDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-un-programa-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura de un programa Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-programas-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de programas en Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-ia-en-el-desarrollo-de-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 IA en el desarrollo de software
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 IA en el desarrollo de software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-actuales-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas actuales (2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-pueden-hacer-por-ti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué pueden hacer por ti?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas-y-riesgos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas y riesgos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-ia-no-sustituye-los-fundamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La IA no sustituye los fundamentos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-git-y-control-de-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 Git y control de versiones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.8 Git y control de versiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo básico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-entornos-de-desarrollo-integrado-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 Entornos de Desarrollo Integrado (IDE)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.9 Entornos de Desarrollo Integrado (IDE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tu-primer-proyecto-hola-mundo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tu primer proyecto: "Hola Mundo"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#110-salidas-profesionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 Salidas profesionales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.10 Salidas profesionales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-mas-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles más habituales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-se-valora-en-el-sector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué se valora en el sector?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.11 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.12 Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.13 Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-1-introduccion-a-la-programacion">Tema 1: Introducción a la programación<a class="headerlink" href="#tema-1-introduccion-a-la-programacion" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 6 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Comprende los conceptos fundamentales de la programación, sus paradigmas y fases de desarrollo.</li>
+<li>Conoce los distintos tipos de lenguajes de programación y su evolución histórica.</li>
+<li>Comprende el proceso de compilación y ejecución de programas en Java.</li>
+<li>Utiliza un entorno de desarrollo integrado para elaborar programas básicos.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se han identificado las acciones cotidianas que dependen de la programación.</li>
+<li>Se han descrito los conceptos de programa, programación y algoritmo.</li>
+<li>Se han caracterizado los principales paradigmas de programación y sus diferencias.</li>
+<li>Se han descrito las fases del ciclo de vida de un programa con ejemplos prácticos.</li>
+<li>Se han diferenciado los tipos de lenguajes de programación y sus ventajas e inconvenientes.</li>
+<li>Se ha explicado el funcionamiento de Java y su máquina virtual.</li>
+<li>Se han creado programas en Java utilizando un IDE de desarrollo.</li>
+</ol>
+</details>
+<h2 id="11-introduccion">1.1 Introducción<a class="headerlink" href="#11-introduccion" title="Permanent link">&para;</a></h2>
+<p>Vivimos rodeados de tecnología. Muchas de las acciones que realizamos a diario son posibles gracias a <strong>programas informáticos</strong>:</p>
+<ul>
+<li>La alarma del móvil que te despierta.</li>
+<li>El microondas que calienta tu desayuno.</li>
+<li>El ascensor que utilizas para salir de casa.</li>
+<li>Las noticias que consultas en un dispositivo digital.</li>
+<li>Los videojuegos, las aplicaciones de mensajería o incluso los cajeros automáticos.</li>
+</ul>
+<p>Detrás de todo ello hay personas que diseñan, programan y mantienen el software. La programación es, por tanto, una habilidad fundamental en la sociedad actual.</p>
+<div class="admonition tip">
+<p class="admonition-title">Reflexiona</p>
+<p>Intenta pensar cuántas veces al día interactúas con un programa. Te sorprenderá ver hasta qué punto dependemos de ellos.</p>
+</div>
+<h2 id="12-programas-y-programacion">1.2 Programas y programación<a class="headerlink" href="#12-programas-y-programacion" title="Permanent link">&para;</a></h2>
+<p>Un <strong>programa</strong> es un conjunto de instrucciones que indican a un ordenador cómo realizar una tarea. La <strong>programación</strong> es el proceso de diseñar y escribir dichos programas.</p>
+<figure>
+  <img src="imagenes/01/progt01-01.png" />
+  <figcaption>Resolución de problemas mediante programación</figcaption>
+</figure>
+
+<h3 id="conceptos-clave-en-la-resolucion-de-problemas">Conceptos clave en la resolución de problemas<a class="headerlink" href="#conceptos-clave-en-la-resolucion-de-problemas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Abstracción</strong>: centrarse en lo esencial, ignorando los detalles irrelevantes.</li>
+<li><strong>Divide y vencerás</strong>: dividir un problema complejo en problemas más pequeños y manejables.</li>
+<li><strong>Encapsulación</strong>: agrupar datos y procedimientos relacionados, de forma que se oculten los detalles internos.</li>
+<li><strong>Modularidad</strong>: organizar el código en módulos reutilizables y fáciles de mantener.</li>
+</ul>
+<h3 id="algoritmo-y-programa">Algoritmo y programa<a class="headerlink" href="#algoritmo-y-programa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Algoritmo</strong>: secuencia ordenada y no ambigua de pasos que llevan a la solución de un problema.</li>
+<li><strong>Programa</strong>: implementación de un algoritmo en un lenguaje de programación concreto.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Características de un buen algoritmo</p>
+<ul>
+<li><strong>Finito</strong>: tras un número limitado de pasos finaliza.</li>
+<li><strong>Preciso</strong>: cada paso está descrito sin ambigüedades.</li>
+<li><strong>Definido</strong>: si se repite con la misma entrada, produce el mismo resultado.</li>
+</ul>
+<p>Piensa en la receta de cocinar pasta:</p>
+<ul>
+<li>Poner agua a hervir.</li>
+<li>Añadir sal y pasta.</li>
+<li>Esperar 10 minutos.</li>
+<li>Escurrir y servir.</li>
+</ul>
+<p>Este conjunto de pasos claros y ordenados es un <strong>algoritmo</strong>.</p>
+</div>
+<h3 id="representacion-de-algoritmos">Representación de algoritmos<a class="headerlink" href="#representacion-de-algoritmos" title="Permanent link">&para;</a></h3>
+<p>Existen distintas técnicas para plasmar un algoritmo antes de programarlo:</p>
+<ul>
+<li><a href="https://www.lucidchart.com/pages/es/que-es-un-diagrama-de-flujo">Diagramas de flujo</a>: representación gráfica de los pasos mediante figuras (elipses, rectángulos, rombos...).</li>
+<li><a href="https://es.wikipedia.org/wiki/Pseudoc%C3%B3digo">Pseudocódigo</a>: texto estructurado con instrucciones similares a un lenguaje de programación.</li>
+<li><a href="https://es.wikipedia.org/wiki/Tabla_de_decisi%C3%B3n">Tablas de decisión</a>: representación tabular de condiciones y acciones.</li>
+</ul>
+<figure>
+  <img src="imagenes/01/progt01-03.png" />
+  <figcaption>Elementos básicos de un diagrama de flujo</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/01/progt01-04.png" />
+  <figcaption>Ejemplo de construcción de un diagrama de flujo</figcaption>
+</figure>
+
+<h2 id="13-paradigmas-de-programacion">1.3 Paradigmas de programación<a class="headerlink" href="#13-paradigmas-de-programacion" title="Permanent link">&para;</a></h2>
+<p>Los <strong>paradigmas</strong> son formas de clasificar los lenguajes de programación según sus características.</p>
+<h3 id="clasificacion-general">Clasificación general<a class="headerlink" href="#clasificacion-general" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Programación imperativa</strong>: describe paso a paso cómo resolver un problema (<em>cómo</em> hacerlo). Ejemplo: C.</li>
+<li><strong>Programación declarativa</strong>: describe el resultado que se quiere obtener (<em>qué</em> se desea). Ejemplo: SQL.</li>
+</ul>
+<figure>
+  <img src="imagenes/01/progt01-02.png" height="400" />
+  <figcaption>Paradigmas de programación</figcaption>
+</figure>
+
+<h3 id="subtipos-de-paradigmas">Subtipos de paradigmas<a class="headerlink" href="#subtipos-de-paradigmas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Imperativo</strong> (cómo se hace, secuencia de instrucciones)  </li>
+<li><strong>Convencional (no estructurada)</strong>  <ul>
+<li>Basada en <code>GOTO</code>, poco mantenible  </li>
+</ul>
+</li>
+<li><strong>Estructurada</strong>  <ul>
+<li>Uso de funciones, bucles, condicionales, modularidad  </li>
+</ul>
+</li>
+<li>
+<p><strong>Orientado a Objetos (subtipo imperativo)</strong>  </p>
+<ul>
+<li>Objetos con atributos y métodos, herencia, polimorfismo  </li>
+</ul>
+</li>
+<li>
+<p><strong>Declarativo</strong> (qué se quiere lograr, sin detallar el cómo)  </p>
+</li>
+<li><strong>Funcional</strong>  <ul>
+<li>Basado en funciones matemáticas, sin estado mutable  </li>
+</ul>
+</li>
+<li>
+<p><strong>Lógico</strong>  </p>
+<ul>
+<li>Basado en reglas y deducción lógica (ej. Prolog)  </li>
+</ul>
+</li>
+<li>
+<p><strong>Orientado a Eventos / Visual</strong>  </p>
+</li>
+<li>
+<p>Flujo guiado por eventos externos (clics, señales, GUI)  </p>
+</li>
+<li>
+<p><strong>Orientado a Aspectos (AOP)</strong>  </p>
+</li>
+<li>Manejo de elementos transversales (logging, seguridad, etc.)</li>
+</ul>
+<details class="info">
+<summary>Notas sobre paradigmas visual, orientados a eventos y a aspectos</summary>
+<p>Se suele considerar la orientación a eventos más bien un estilo de programación que puede coexistir con POO o estructurada. Se pone aparte en muchas clasificaciones porque cambia la forma mental de diseñar: pasas de pensar en "qué pasos sigue mi programa" a "qué debe hacer mi programa cuando ocurra X".</p>
+<p>La programación orientada a aspectos complementa a la POO. Mientras la POO organiza el software en objetos, la AOP organiza el software en objetos + aspectos transversales que se aplican de manera automática allí donde se necesitan.</p>
+</details>
+<h3 id="lenguajes-multiparadigma">Lenguajes multiparadigma<a class="headerlink" href="#lenguajes-multiparadigma" title="Permanent link">&para;</a></h3>
+<p>Hoy en día, la mayoría de los lenguajes son multiparadigma. Ejemplo: <strong>Java</strong>, que es estructurado, orientado a objetos y funcional.</p>
+<h2 id="14-fases-de-la-programacion">1.4 Fases de la programación<a class="headerlink" href="#14-fases-de-la-programacion" title="Permanent link">&para;</a></h2>
+<p>El desarrollo de un programa no consiste solo en escribir código. Se recorren distintas fases que forman el <strong>ciclo de vida</strong> del software:</p>
+<pre class="mermaid"><code>flowchart TD
+    A[1. Análisis\n¿Qué pide el cliente?] --&gt; B[2. Diseño\n¿Cómo lo resuelvo?]
+    B --&gt; C[3. Codificación\nEscribir el código Java]
+    C --&gt; D[4. Pruebas y validación\n¿Funciona correctamente?]
+    D --&gt; E[5. Explotación y mantenimiento\nUso real + mejoras]
+    D --&gt; errores --&gt; B
+    E --&gt; D</code></pre>
+<ol>
+<li><strong>Resolución del problema</strong></li>
+</ol>
+<ul>
+<li><strong>Análisis</strong>: identificar los requisitos del cliente, elaborando la especificación de requisitos.</li>
+<li><strong>Diseño</strong>: definir cómo se resolverá el problema (algoritmos, diagramas, estructura del programa).</li>
+</ul>
+<ol start="2">
+<li><strong>Implementación</strong></li>
+</ol>
+<ul>
+<li><strong>Codificación</strong>: escribir el código en un lenguaje.</li>
+<li><strong>Pruebas y validación</strong>: comprobar que funciona correctamente y documentar (manuales de instalación, administración, usuario...).</li>
+</ul>
+<ol start="3">
+<li><strong>Explotación y mantenimiento</strong></li>
+</ol>
+<ul>
+<li>Uso en producción por los usuarios finales.</li>
+<li>Correcciones y mejoras (proceso de mejora y optimización del software).</li>
+</ul>
+<h3 id="ejemplo-programa-paresimpares">Ejemplo: programa "pares/impares"<a class="headerlink" href="#ejemplo-programa-paresimpares" title="Permanent link">&para;</a></h3>
+<p><strong>1. Análisis</strong></p>
+<p>Una empresa quiere un programa que pida un número entre 1 y 100 y devuelva si es <strong>par o impar</strong>. Reglas acordadas con el cliente:</p>
+<ul>
+<li>El número deberá estar entre 1 y 100.</li>
+<li>Si el número es 0 → error.</li>
+<li>Si está fuera del rango → error.</li>
+<li>Debe indicar si es par o impar.</li>
+</ul>
+<p><strong>2. Diseño</strong></p>
+<ul>
+<li>Puede representarse mediante diagrama de flujo o pseudocódigo.</li>
+</ul>
+<figure>
+  <img src="imagenes/01/progt01-06.png" height="400" />
+  <figcaption>Ejemplo de diagrama de flujo</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/01/progt01-07.png" height="400" />
+  <figcaption>Ejemplo de pseudocódigo</figcaption>
+</figure>
+
+<p><strong>3. Codificación (Java)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">modulo</span><span class="p">,</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Introduce un número"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="n">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numero</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Valor incorrecto. El 0 no es válido"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numero</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Número no válido, el rango es 1-100"</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">      </span><span class="n">modulo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">modulo</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"El número es par"</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"El número es impar"</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">      </span><span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">  </span><span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span><span class="p">}</span>
+</code></pre></div>
+<p><strong>4. Pruebas y validación</strong></p>
+<ul>
+<li>Probar con números válidos (p. ej. 4 → par, 7 → impar) e inválidos (0, 101, -3).</li>
+<li>Documentar cómo usar el programa.</li>
+</ul>
+<p><strong>5. Explotación y mantenimiento</strong></p>
+<ul>
+<li>Cuando el software se usa en la práctica, se corrigen errores y se actualiza.</li>
+</ul>
+<h2 id="15-lenguajes-de-programacion">1.5 Lenguajes de programación<a class="headerlink" href="#15-lenguajes-de-programacion" title="Permanent link">&para;</a></h2>
+<p>Los lenguajes han evolucionado mucho desde los inicios de la informática. Los agrupamos según su <strong>nivel de abstracción</strong> y su <strong>forma de traducción</strong>.</p>
+<h3 id="1-lenguaje-maquina">1. Lenguaje máquina<a class="headerlink" href="#1-lenguaje-maquina" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Es el nivel más bajo.</li>
+<li>Se escribe directamente en <strong>código binario</strong> (0 y 1).</li>
+<li>Válido solo para un tipo de procesador concreto.</li>
+<li>Muy costoso para el programador, pero el único que entiende la CPU directamente.</li>
+</ul>
+<figure>
+  <img src="imagenes/01/progt01-09.jpg" />
+  <figcaption>Ejemplo de código en lenguaje máquina</figcaption>
+</figure>
+
+<h3 id="2-lenguaje-ensamblador">2. Lenguaje ensamblador<a class="headerlink" href="#2-lenguaje-ensamblador" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Usa instrucciones <strong>simbólicas (mnemónicos)</strong> como <code>MOV</code>, <code>ADD</code>, <code>JMP</code>.</li>
+<li>Depende de la arquitectura del PC.</li>
+<li>Requiere gran conocimiento del hardware y control de los recursos.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Ejemplo en vídeo</p>
+<ul>
+<li><a href="https://www.youtube.com/embed/GmtenWqfIaI">Lenguaje ensamblador (YouTube 1)</a></li>
+<li><a href="https://www.youtube.com/embed/wQf0u8cTAcg">Lenguaje ensamblador (YouTube 2)</a></li>
+</ul>
+</div>
+<h3 id="3-lenguajes-compilados">3. Lenguajes compilados<a class="headerlink" href="#3-lenguajes-compilados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se usa un <strong>compilador</strong> que traduce todo el código de alto nivel a lenguaje máquina <strong>de una sola vez</strong>.</li>
+<li>Se genera un <strong>ejecutable</strong> independiente del compilador (aunque dependiente del sistema operativo).</li>
+<li>Más rápidos en ejecución.</li>
+<li>Ejemplos: C, C++ (sobre todo C#/Java a media distancia).</li>
+</ul>
+<figure>
+  <img src="imagenes/01/progt01-11.png" />
+  <figcaption>Esquema del proceso de compilación</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Ventajas</th>
+<th>Inconvenientes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rápidos y eficientes</td>
+<td>El ejecutable depende de la plataforma</td>
+</tr>
+<tr>
+<td>Se detectan muchos errores en compilación</td>
+<td>Hay que recompilar al hacer cambios</td>
+</tr>
+<tr>
+<td>Generan programas muy optimizados</td>
+<td>Menos flexibles para desarrollo rápido</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-lenguajes-interpretados">4. Lenguajes interpretados<a class="headerlink" href="#4-lenguajes-interpretados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se usa un <strong>intérprete</strong> que analiza, traduce y ejecuta <strong>instrucción a instrucción</strong>.</li>
+<li>Más lentos, pero más flexibles (se ejecutan directamente desde el código fuente).</li>
+<li>Ejemplos: Python, PHP, JavaScript.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">numero1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Ingresa un número: "</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">numero2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Ingresa otro número: "</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">operacion</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"suma, resta, división, multiplicación: "</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">if</span> <span class="n">operacion</span> <span class="o">==</span> <span class="s2">"suma"</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">numero1</span> <span class="o">+</span> <span class="n">numero2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">elif</span> <span class="n">operacion</span> <span class="o">==</span> <span class="s2">"resta"</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">numero1</span> <span class="o">-</span> <span class="n">numero2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">elif</span> <span class="n">operacion</span> <span class="o">==</span> <span class="s2">"división"</span><span class="p">:</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">numero1</span> <span class="o">/</span> <span class="n">numero2</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">elif</span> <span class="n">operacion</span> <span class="o">==</span> <span class="s2">"multiplicación"</span><span class="p">:</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">numero1</span> <span class="o">*</span> <span class="n">numero2</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Ventajas</th>
+<th>Inconvenientes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Código portable (solo necesita el intérprete)</td>
+<td>Más lentos en ejecución</td>
+</tr>
+<tr>
+<td>Fáciles de depurar y probar</td>
+<td>Los errores aparecen en tiempo de ejecución</td>
+</tr>
+<tr>
+<td>Muy productivos para desarrollo</td>
+<td>El cliente necesita el intérprete</td>
+</tr>
+</tbody>
+</table>
+<h3 id="caso-particular-java">Caso particular: Java<a class="headerlink" href="#caso-particular-java" title="Permanent link">&para;</a></h3>
+<p>Java es <strong>pseudo-compilado o pseudo-interpretado</strong>:</p>
+<ul>
+<li>El <strong>compilador (<code>javac</code>)</strong> traduce el código fuente a <strong>bytecode</strong> (código intermedio) en lugar de a lenguaje máquina.</li>
+<li>El <strong>intérprete (<code>java</code>)</strong> de la <strong>Máquina Virtual de Java (JVM)</strong> ejecuta ese bytecode en cada plataforma.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A[Código fuente .java] --&gt;|javac compila| B[Bytecode .class]
+    B --&gt; C[JVM en Windows]
+    B --&gt; D[JVM en Linux]
+    B --&gt; E[JVM en macOS]</code></pre>
+<figure>
+  <img src="imagenes/01/progt01-12.png" />
+  <figcaption>Arquitectura completa de Java</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/01/progt01-13.png" />
+  <figcaption>El compilador (javac) e intérprete (java) en distintas plataformas</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Las siglas que debes conocer</p>
+<ul>
+<li><strong>JDK</strong> (Java Development Kit): incluye compilador, herramientas y bibliotecas. Lo usas para <strong>desarrollar</strong>.</li>
+<li><strong>JRE</strong> (Java Runtime Environment): incluye la JVM y las bibliotecas. Basta para <strong>ejecutar</strong> programas.</li>
+<li><strong>JVM</strong> (Java Virtual Machine): la máquina virtual que ejecuta el bytecode.</li>
+</ul>
+</div>
+<h2 id="16-programas-en-java">1.6 Programas en Java<a class="headerlink" href="#16-programas-en-java" title="Permanent link">&para;</a></h2>
+<p>Java es uno de los lenguajes más utilizados del mundo. Sus características:</p>
+<ul>
+<li>Código <strong>independiente de la arquitectura</strong> gracias a la JVM.</li>
+<li><strong>Totalmente orientado a objetos</strong> (y multiparadigma).</li>
+<li>Sintaxis <strong>similar a C/C++</strong>.</li>
+<li>Gran <strong>biblioteca de clases</strong> (la API estándar).</li>
+<li>Preparado para <strong>aplicaciones en red</strong>.</li>
+<li><strong>Seguro y robusto</strong> (gestión de memoria automática, excepciones...).</li>
+</ul>
+<h3 id="ediciones-y-versiones-del-jdk">Ediciones y versiones del JDK<a class="headerlink" href="#ediciones-y-versiones-del-jdk" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>OpenJDK</strong>: versión abierta y gratuita, desarrollada por la comunidad.</li>
+<li><strong>Oracle JDK</strong>: versión comercial de Oracle, casi idéntica.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Descarga e instalación</p>
+<ol>
+<li>Descarga el <strong>JDK 26</strong> (Oracle JDK o OpenJDK) desde su web oficial.</li>
+<li>Establece la variable del sistema <strong>PATH</strong> para poder ejecutar <code>java</code> y <code>javac</code> desde cualquier terminal.</li>
+<li>Comprueba la instalación:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>java -version
+<span class="linenos" data-linenos="2 "></span>javac -version
+</code></pre></div>
+</div>
+<h3 id="estructura-de-un-programa-java">Estructura de un programa Java<a class="headerlink" href="#estructura-de-un-programa-java" title="Permanent link">&para;</a></h3>
+<p>Todo programa Java tiene esta estructura:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ClasePrincipal</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="c1">// Definición de atributos de clase</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">  </span><span class="c1">// Definición de métodos de clase</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">  </span><span class="c1">// Método principal main</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="c1">// Instrucciones</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">  </span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Características:</p>
+<ul>
+<li><strong>Método principal <code>main</code></strong>: todo programa ejecutable debe tenerlo. Es el punto de entrada.</li>
+<li><strong>Comentarios</strong>: de línea (<code>//</code>) o de bloque (<code>/* ... */</code>).</li>
+<li><strong>Bloques</strong>: código delimitado por llaves <code>{ }</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cm">/**</span>
+<span class="linenos" data-linenos="2 "></span><span class="cm"> * La clase HolaMundo implementa una aplicación que</span>
+<span class="linenos" data-linenos="3 "></span><span class="cm"> * simplemente imprime "Hola Mundo!" por la salida estándar.</span>
+<span class="linenos" data-linenos="4 "></span><span class="cm"> */</span>
+<span class="linenos" data-linenos="5 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HolaMundo</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Hola Mundo!"</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="w">  </span><span class="p">}</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="tipos-de-programas-en-java">Tipos de programas en Java<a class="headerlink" href="#tipos-de-programas-en-java" title="Permanent link">&para;</a></h3>
+<p>Hoy en día Java se usa para desarrollar multitud de tipos de aplicaciones:</p>
+<ul>
+<li><strong>Aplicaciones de consola</strong>: programas con interfaz de texto (las que haremos en clase).</li>
+<li><strong>Aplicaciones de escritorio</strong>: interfaces gráficas con JavaFX o Swing.</li>
+<li><strong>Aplicaciones web del lado servidor</strong>: Spring Boot, Jakarta EE (Servlets, JSP).</li>
+<li><strong>Aplicaciones Android</strong>: la mayoría del framework Android está escrito en Java/Kotlin.</li>
+<li><strong>Microservicios</strong>: servicios ligeros e independientes desplegados en la nube (Spring Boot, Quarkus).</li>
+<li><strong>Big Data</strong>: distribución y procesamiento masivo de datos (Hadoop, Spark).</li>
+</ul>
+<h2 id="17-ia-en-el-desarrollo-de-software">1.7 IA en el desarrollo de software<a class="headerlink" href="#17-ia-en-el-desarrollo-de-software" title="Permanent link">&para;</a></h2>
+<p>La <strong>Inteligencia Artificial (IA)</strong> ya forma parte del trabajo diario de las personas que programan. Se utiliza como <strong>asistente</strong> para escribir, revisar y entender código.</p>
+<h3 id="herramientas-actuales-2026">Herramientas actuales (2026)<a class="headerlink" href="#herramientas-actuales-2026" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/features/copilot">GitHub Copilot</a>: asistente de código integrado en el IDE.</li>
+<li>Asistentes conversacionales: <a href="https://chatgpt.com/">ChatGPT</a>, <a href="https://claude.ai/">Claude</a>, <a href="https://gemini.google.com/">Gemini</a>.</li>
+<li><a href="https://www.jetbrains.com/ai/">IntelliJ IDEA AI Assistant</a>: integrado en el IDE que usaremos.</li>
+<li>Editores con IA: <a href="https://cursor.com/">Cursor</a>, <a href="https://code.visualstudio.com/">VS Code</a> con Copilot.</li>
+</ul>
+<h3 id="que-pueden-hacer-por-ti">¿Qué pueden hacer por ti?<a class="headerlink" href="#que-pueden-hacer-por-ti" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Completar el código mientras escribes (autocompletado).</li>
+<li>Generar código a partir de una descripción en lenguaje natural.</li>
+<li>Explicar qué hace un fragmento de código o un error.</li>
+<li>Refactorizar: renombrar, simplificar y reorganizar el código.</li>
+<li>Escribir pruebas unitarias y comentarios.</li>
+<li>Buscar documentación de forma contextual.</li>
+</ul>
+<h3 id="buenas-practicas-y-riesgos">Buenas prácticas y riesgos<a class="headerlink" href="#buenas-practicas-y-riesgos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Verifica siempre</strong> el código generado: la IA puede <strong>alucinar</strong> y producir código falso o incorrecto.</li>
+<li>No <strong>copies sin entender</strong>: si no puedes explicarlo, no lo has aprendido.</li>
+<li>No pegues <strong>código confidencial</strong> ni datos personales en herramientas externas.</li>
+<li>Úsala como un <strong>profesor particular</strong>: pide explicaciones, ejemplos y correcciones.</li>
+</ul>
+<h3 id="la-ia-no-sustituye-los-fundamentos">La IA no sustituye los fundamentos<a class="headerlink" href="#la-ia-no-sustituye-los-fundamentos" title="Permanent link">&para;</a></h3>
+<p>Programar con IA = <strong>saber preguntar</strong> + <strong>saber validar</strong>.</p>
+<p>Para usar bien la IA necesitas entender:</p>
+<ul>
+<li>Abstracción, algoritmos y lógica: lo que verás en este tema.</li>
+<li>Cómo funciona el lenguaje que usas (Java).</li>
+<li>Leer y depurar código, no solo generarlo.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Recuerda</p>
+<p>La IA hace el trabajo <em>mecánico</em>; el de <em>pensar</em> es tuyo.</p>
+</div>
+<h2 id="18-git-y-control-de-versiones">1.8 Git y control de versiones<a class="headerlink" href="#18-git-y-control-de-versiones" title="Permanent link">&para;</a></h2>
+<p><strong>Git</strong> es un sistema de <strong>control de versiones</strong>: guarda el historial de cambios de tu código.</p>
+<ul>
+<li><strong>Repositorio</strong>: el proyecto con todo su historial.</li>
+<li><strong>Commit</strong>: un cambio concreto guardado con un mensaje descriptivo.</li>
+<li><strong>Ramas (branches)</strong>: permiten trabajar en paralelo sin romper lo que funciona.</li>
+<li><strong>GitHub</strong>: plataforma que aloja repositorios en la nube para colaborar y publicar tu código.</li>
+</ul>
+<h3 id="flujo-basico">Flujo básico<a class="headerlink" href="#flujo-basico" title="Permanent link">&para;</a></h3>
+<p>Comandos más utilizados:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>git clone https://github.com/usuario/repo.git    # copiar un repositorio
+<span class="linenos" data-linenos="2 "></span>git status                                        # ver qué ha cambiado
+<span class="linenos" data-linenos="3 "></span>git add .                                         # añadir los cambios
+<span class="linenos" data-linenos="4 "></span>git commit -m "Mi primer commit"                  # guardarlos
+<span class="linenos" data-linenos="5 "></span>git push                                          # subirlos a GitHub
+<span class="linenos" data-linenos="6 "></span>git pull                                          # descargar cambios
+</code></pre></div>
+<p>Los IDEs (IntelliJ, VS Code) integran Git con botones y ventanas, sin usar terminal.</p>
+<h2 id="19-entornos-de-desarrollo-integrado-ide">1.9 Entornos de Desarrollo Integrado (IDE)<a class="headerlink" href="#19-entornos-de-desarrollo-integrado-ide" title="Permanent link">&para;</a></h2>
+<p>Un <strong>IDE</strong> (Integrated Development Environment) integra editor, compilador, depurador y otras herramientas (control de versiones, refactorización, autocompletado...).</p>
+<p>Los más conocidos para Java son:</p>
+<ul>
+<li><a href="https://www.jetbrains.com/es-es/idea/">IntelliJ IDEA</a>: potente y muy usado en entornos profesionales. La edición <em>Community</em> es gratuita.</li>
+<li><a href="https://netbeans.apache.org/">NetBeans</a>: gratuito y versátil, muy utilizado en entornos educativos.</li>
+<li><a href="https://code.visualstudio.com/">VS Code</a> con la extensión <em>Extension Pack for Java</em>: ligero y moderno.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Consejo</p>
+<p>Empieza con un IDE sencillo, pero no olvides aprender también a <strong>compilar desde la terminal</strong> (<code>javac</code> y <code>java</code>). Eso te ayudará a entender mejor cómo funciona Java y a valorar lo que el IDE automatiza por ti.</p>
+</div>
+<h3 id="tu-primer-proyecto-hola-mundo">Tu primer proyecto: "Hola Mundo"<a class="headerlink" href="#tu-primer-proyecto-hola-mundo" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Ejecuta tu IDE y crea un <strong>nuevo proyecto</strong> Java (no uses plantillas de <em>Maven</em> todavía).</li>
+<li>Crea una clase principal llamada <code>HolaMundo</code>.</li>
+<li>Escribe el programa visto en el apartado anterior.</li>
+<li>Compila (pulsa el botón de ejecutar / <code>Run</code>) y observa la salida en la consola del IDE.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Regla de oro</p>
+<p>El <strong>nombre del archivo</strong> <code>.java</code> debe coincidir exactamente con el nombre de la <strong>clase pública</strong> que contiene.</p>
+</div>
+<h2 id="110-salidas-profesionales">1.10 Salidas profesionales<a class="headerlink" href="#110-salidas-profesionales" title="Permanent link">&para;</a></h2>
+<p>Un ciclo de <strong>Desarrollo de Aplicaciones Web</strong> te prepara para trabajar como programador, una de las profesiones más demandadas.</p>
+<h3 id="roles-mas-habituales">Roles más habituales<a class="headerlink" href="#roles-mas-habituales" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Desarrollador</strong>: backend, frontend, full-stack o móvil.</li>
+<li><strong>QA / Tester</strong>: garantiza la calidad y escribe pruebas.</li>
+<li><strong>DevOps</strong>: despliega y mantiene aplicaciones en servidores y en la nube.</li>
+<li><strong>Analista / científico de datos</strong>: extrae valor de los datos.</li>
+</ul>
+<h3 id="que-se-valora-en-el-sector">¿Qué se valora en el sector?<a class="headerlink" href="#que-se-valora-en-el-sector" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dominar los fundamentos: lógica, algoritmos y POO, que verás este curso.</li>
+<li>Trabajar en equipo y usar control de versiones (Git).</li>
+<li>Aprender a aprender: la tecnología cambia muy rápido.</li>
+<li>Usar la IA como herramienta profesional, con criterio.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Objetivo del curso</p>
+<p><strong>Pensar como programador</strong>.</p>
+</div>
+<h2 id="111-buenas-practicas">1.11 Buenas prácticas<a class="headerlink" href="#111-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Escribe primero el algoritmo</strong>: diseña con pseudocódigo o diagrama antes de abrir el IDE.</li>
+<li><strong>Nombres descriptivos</strong>: las clases en <code>UpperCamelCase</code> y las variables en <code>lowerCamelCase</code>, en español o inglés, pero siempre coherente.</li>
+<li><strong>Comenta lo importante</strong>: explica el <em>porqué</em>, no traduzcas el código línea a línea.</li>
+<li><strong>Prueba poco y a menudo</strong>: compila y ejecuta al acabar cada pequeña mejora.</li>
+<li><strong>Un programa, un archivo</strong>: en proyectos reales, cada clase pública va en su propio archivo.</li>
+</ul>
+<h2 id="112-referencias">1.12 Referencias<a class="headerlink" href="#112-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/">Documentación oficial de Java (Oracle)</a></li>
+<li><a href="https://openjdk.org/">Descarga del OpenJDK</a></li>
+<li><a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA Community</a></li>
+<li><a href="https://netbeans.apache.org/">NetBeans</a></li>
+<li><a href="https://www.w3schools.com/java/">Tutorial de Java de W3Schools</a></li>
+<li><a href="https://www.javatpoint.com/java-tutorial">Tutorial de Java de w3schools/JavaPoint</a></li>
+<li><a href="https://git-scm.com/doc">Documentación oficial de Git</a></li>
+<li><a href="https://github.com/">GitHub</a></li>
+</ul>
+<h2 id="113-actividades">1.13 Actividades<a class="headerlink" href="#113-actividades" title="Permanent link">&para;</a></h2>
+<ol start="101">
+<li>
+<p>Enumera 5 ejemplos de tu vida diaria que dependen de la programación.</p>
+</li>
+<li>
+<p>Explica con tus palabras la diferencia entre un <strong>algoritmo</strong> y un <strong>programa</strong>.</p>
+</li>
+<li>
+<p>Representa en <strong>pseudocódigo</strong> un algoritmo que determine si un número es divisible por 5.</p>
+</li>
+</ol>
+<details class="info">
+<summary>Solución ejercicio 103</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Escribir "Introduce un número: "
+<span class="linenos" data-linenos="2 "></span>Leer numero
+<span class="linenos" data-linenos="3 "></span>Si resto(numero, 5) == 0 Entonces
+<span class="linenos" data-linenos="4 "></span>    Escribir "Es divisible por 5"
+<span class="linenos" data-linenos="5 "></span>SiNo
+<span class="linenos" data-linenos="6 "></span>    Escribir "No es divisible por 5"
+<span class="linenos" data-linenos="7 "></span>FinSi
+</code></pre></div>
+</details>
+<ol start="104">
+<li>
+<p>Busca 3 lenguajes de programación <strong>compilados</strong> y 3 <strong>interpretados</strong>. Comenta en qué situaciones se usaría cada uno.</p>
+</li>
+<li>
+<p>Dibuja un <strong>diagrama de flujo</strong> que represente el cálculo del área de un triángulo.</p>
+</li>
+</ol>
+<details class="info">
+<summary>Pseudocódigo de ayuda para el ejercicio 105</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Escribir "Base: "
+<span class="linenos" data-linenos="2 "></span>Leer base
+<span class="linenos" data-linenos="3 "></span>Escribir "Altura: "
+<span class="linenos" data-linenos="4 "></span>Leer altura
+<span class="linenos" data-linenos="5 "></span>area = (base * altura) / 2
+<span class="linenos" data-linenos="6 "></span>Escribir "El área es: ", area
+</code></pre></div>
+</details>
+<ol start="106">
+<li>
+<p>Descarga e instala un IDE de Java. Crea un programa "Hola Mundo" y describe los pasos realizados.</p>
+</li>
+<li>
+<p>Investiga la diferencia entre <strong>OpenJDK</strong> y <strong>Oracle JDK</strong> y explica cuál utilizarías en un proyecto educativo.</p>
+</li>
+<li>
+<p>Busca una oferta de trabajo en programación y analiza: lenguaje solicitado, paradigma, herramientas y nivel de experiencia requerido.</p>
+</li>
+<li>
+<p>Ordena del nivel más bajo al más alto: Java, ensamblador, lenguaje máquina, Python. Justifica tu respuesta.</p>
+</li>
+<li>
+<p>Explica por qué el <em>bytecode</em> permite que un programa Java se ejecute en cualquier sistema operativo <strong>sin recompilarlo</strong>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

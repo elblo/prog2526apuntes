@@ -1,0 +1,740 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/10fechas.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 10: Fechas y horas en Java - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-10-fechas-y-horas-en-java" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 10: Fechas y horas en Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-10-fechas-y-horas-en-java">Tema 10: Fechas y horas en Java<a class="headerlink" href="#tema-10-fechas-y-horas-en-java" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 6 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Conocer las clases de manejo de fechas y horas de Java.</li>
+<li>Distinguir las clases obsoletas (<code>Date</code>, <code>Calendar</code>) del paquete moderno <code>java.time</code>.</li>
+<li>Construir, transformar, comparar y formatear fechas y horas.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se crean fechas y horas con <code>now()</code>, <code>of()</code> y <code>with()</code> (y ajustadores temporales).</li>
+<li>Se extrae información (año, mes, día, hora...) con los métodos <code>get</code>.</li>
+<li>Se suman y restan intervalos con <code>plus*</code>/<code>minus*</code> y se comparan con <code>isBefore</code>/<code>isAfter</code>.</li>
+<li>Se obtienen fechas desde texto con <code>parse()</code> y se muestran con <code>format()</code>.</li>
+<li>Se calcula el tiempo transcurrido entre dos instantes con <code>Period</code>, <code>Duration</code> y <code>CronoUnit</code>.</li>
+</ol>
+</details>
+<h2 id="101-introduccion">10.1 Introducción<a class="headerlink" href="#101-introduccion" title="Permanent link">&para;</a></h2>
+<p>Java dispone de <strong>clases específicas para manejar datos de fechas y horas</strong> de forma correcta. Con ellas será más sencillo:</p>
+<ul>
+<li>Crear fechas y horas.</li>
+<li>Convertirlas.</li>
+<li>Realizar cálculos con ellas.</li>
+<li>"Parsearlas" (de texto a fecha).</li>
+<li>Mostrarlas con un formato determinado.</li>
+</ul>
+<h2 id="102-clases-obsoletas">10.2 Clases obsoletas<a class="headerlink" href="#102-clases-obsoletas" title="Permanent link">&para;</a></h2>
+<p>Dos clases típicas para trabajar con fechas han sido:</p>
+<ul>
+<li><code>java.util.Date</code></li>
+<li><code>java.util.Calendar</code></li>
+</ul>
+<p>Hoy en día están <strong>obsoletas</strong> (<em>deprecated</em>). Después apareció <code>java.sql.Date</code>, pero realmente es una <strong>subclase de <code>Date</code></strong> y tampoco se usa actualmente.</p>
+<div class="admonition danger">
+<p class="admonition-title">No las uses en código nuevo</p>
+<p>Tienen problemas graves (mutables, años empiezan en 1900, meses en 0, formato por defecto feo, zona horaria rara...). Si ves <code>SimpleDateFormat</code>, <code>Calendar.getInstance()</code> o <code>new Date()</code>, sabes que es código antiguo.</p>
+</div>
+<h2 id="103-el-nuevo-paquete-javatime">10.3 El nuevo paquete <code>java.time</code><a class="headerlink" href="#103-el-nuevo-paquete-javatime" title="Permanent link">&para;</a></h2>
+<p>Con <strong>Java 8</strong> (2014) se crea el paquete <strong><code>java.time</code></strong> con las clases oficiales. Soluciona bastantes problemas de las clases tradicionales:</p>
+<ul>
+<li>Incluye <strong>soporte automático</strong> para años bisiestos.</li>
+<li>Zonas horarias y <strong>cambio automático</strong> de hora.</li>
+<li>Como bonus, modela el <strong>tiempo con inmutabilidad</strong> (operaciones devuelven copias), como vimos en POO avanzada.</li>
+</ul>
+<h3 id="clases-mas-importantes">Clases más importantes<a class="headerlink" href="#clases-mas-importantes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Para qué sirve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>java.time.LocalDate</code></td>
+<td>Representa <strong>fechas</strong> (día, mes, año) y facilita su manejo: declararlas, compararlas, sumarlas...</td>
+</tr>
+<tr>
+<td><code>java.time.LocalTime</code></td>
+<td>Igual que la anterior, pero para <strong>horas</strong>.</td>
+</tr>
+<tr>
+<td><code>java.time.LocalDateTime</code></td>
+<td>Combinación de las dos anteriores.</td>
+</tr>
+<tr>
+<td><code>java.time.ZonedDateTime</code></td>
+<td>Como <code>LocalDateTime</code>, pero teniendo en cuenta la <strong>zona horaria</strong>.</td>
+</tr>
+<tr>
+<td><code>java.time.Instant</code></td>
+<td>Parecida a <code>LocalDateTime</code>, pero almacena <strong>nanosegundos desde el epoch UNIX</strong> (01/01/1970).</td>
+</tr>
+<tr>
+<td><code>java.time.Period</code></td>
+<td>Permite obtener la <strong>diferencia entre fechas</strong>.</td>
+</tr>
+<tr>
+<td><code>java.time.Duration</code></td>
+<td>Permite obtener la <strong>diferencia entre instantes de tiempo</strong> (horas/minutos/segundos).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="104-construir-fechas-y-horas">10.4 Construir fechas y horas<a class="headerlink" href="#104-construir-fechas-y-horas" title="Permanent link">&para;</a></h2>
+<p>Estas clases <strong>carecen de constructores públicos</strong>: se instancian usando <strong>métodos de tipo factoría</strong> que construyen los objetos a partir de parámetros.</p>
+<p>Todas disponen de 3 métodos importantes:</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>now()</code></td>
+<td>Crea instancias a partir de la fecha y hora <strong>actual</strong>.</td>
+</tr>
+<tr>
+<td><code>of()</code></td>
+<td>Construye fechas y horas <strong>a partir de sus partes</strong>.</td>
+</tr>
+<tr>
+<td><code>with()</code></td>
+<td><strong>Modifica</strong> el objeto (devuelve una copia con el cambio).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1041-fecha-y-hora-actuales-con-now">10.4.1 Fecha y hora actuales con <code>now()</code><a class="headerlink" href="#1041-fecha-y-hora-actuales-con-now" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Fecha01now</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="c1">// Creación de distintos objetos con now()</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">());</span><span class="w">       </span><span class="c1">// 2026-09-11</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">LocalTime</span><span class="p">.</span><span class="na">now</span><span class="p">());</span><span class="w">       </span><span class="c1">// 21:43:56.123456</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">());</span><span class="w">   </span><span class="c1">// 2026-09-11T21:43:56.123456</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="1042-fechas-especificas-con-of">10.4.2 Fechas específicas con <code>of()</code><a class="headerlink" href="#1042-fechas-especificas-con-of" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Fecha02of</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="c1">// Creación de fechas con of()</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1983</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">MARCH</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">);</span><span class="w">                       </span><span class="c1">// 1983-03-24</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">LocalTime</span><span class="w"> </span><span class="n">hora</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hora</span><span class="p">);</span><span class="w">                        </span><span class="c1">// 20:30:15</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">fechaConHora</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1983</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fechaConHora</span><span class="p">);</span><span class="w">                </span><span class="c1">// 1983-03-24T20:30:15</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="1043-copias-modificadas-con-with-y-ajustadores-temporales">10.4.3 Copias modificadas con <code>with()</code> y ajustadores temporales<a class="headerlink" href="#1043-copias-modificadas-con-with-y-ajustadores-temporales" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Fecha03with</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">ahora</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span><span class="w"> </span><span class="c1">// 2026-09-11</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="c1">// with() modifica una parte de la fecha</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ahora</span><span class="p">.</span><span class="na">withDayOfMonth</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w">  </span><span class="c1">// 2026-09-01 (primer día del mes)</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ahora</span><span class="p">.</span><span class="na">withMonth</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span><span class="w">       </span><span class="c1">// 2026-06-11</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ahora</span><span class="p">.</span><span class="na">withYear</span><span class="p">(</span><span class="mi">2000</span><span class="p">));</span><span class="w">     </span><span class="c1">// 2000-09-11</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="c1">// Ajustadores temporales (java.time.temporal.TemporalAdjusters)</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ahora</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">firstDayOfMonth</span><span class="p">()));</span><span class="w">   </span><span class="c1">// 2026-09-01</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ahora</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">firstDayOfYear</span><span class="p">()));</span><span class="w">    </span><span class="c1">// 2026-01-01</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="c1">// Próximo viernes a partir de hoy (útil para el ejercicio del viernes 13)</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ahora</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">nextOrSame</span><span class="p">(</span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">FRIDAY</span><span class="p">)));</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="105-informacion-de-fechas">10.5 Información de fechas<a class="headerlink" href="#105-informacion-de-fechas" title="Permanent link">&para;</a></h2>
+<p>Mediante los métodos <code>get</code> de las fechas podemos extraer mucha información:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Fecha 14/11/2022 a las 13:52:13 horas</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getYear</span><span class="p">());</span><span class="w">   </span><span class="c1">// 2022</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getMonth</span><span class="p">());</span><span class="w">  </span><span class="c1">// NOVEMBER</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getMonthValue</span><span class="p">());</span><span class="w"> </span><span class="c1">// 11</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getDayOfMonth</span><span class="p">());</span><span class="w"> </span><span class="c1">// 14</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getDayOfWeek</span><span class="p">());</span><span class="w">  </span><span class="c1">// MONDAY</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getDayOfYear</span><span class="p">());</span><span class="w">  </span><span class="c1">// 318</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getHour</span><span class="p">());</span><span class="w">   </span><span class="c1">// 13</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getMinute</span><span class="p">());</span><span class="w"> </span><span class="c1">// 52</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">getSecond</span><span class="p">());</span><span class="w"> </span><span class="c1">// 13</span>
+</code></pre></div>
+<h2 id="106-transformar-fechas-y-horas">10.6 Transformar fechas y horas<a class="headerlink" href="#106-transformar-fechas-y-horas" title="Permanent link">&para;</a></h2>
+<p>Según la clase utilizada dispondremos de métodos para <strong>añadir o quitar intervalos</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">NOVEMBER</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mo">00</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">plusYears</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w">    </span><span class="c1">// 2032-11-22T14:30</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">plusMonths</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span><span class="w">    </span><span class="c1">// 2023-02-22T14:30</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">minusDays</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span><span class="w">     </span><span class="c1">// 2022-11-17T14:30</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">plusHours</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span><span class="w">     </span><span class="c1">// 2022-11-22T16:30</span>
+</code></pre></div>
+<p>Así mismo, se pueden <strong>comparar</strong> con <code>isBefore(fecha)</code>, <code>isAfter(fecha)</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">isBefore</span><span class="p">(</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)));</span><span class="w"> </span><span class="c1">// true</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">.</span><span class="na">isAfter</span><span class="p">(</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)));</span><span class="w">  </span><span class="c1">// true</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Ojo: las clases de <code>java.time</code> son inmutables</p>
+<p>Métodos como <code>plusDays()</code>, <code>minusDays()</code> o <code>withMonth()</code> <strong>no modifican el objeto</strong>: devuelven uno <strong>nuevo</strong> (como el ejemplo: el resultado hay que capturarlo o mostrarlo). El objeto original queda intacto.</p>
+</div>
+<h2 id="107-parsear-fechas">10.7 Parsear fechas<a class="headerlink" href="#107-parsear-fechas" title="Permanent link">&para;</a></h2>
+<p>Es posible crear fechas a partir de una <strong>cadena de texto</strong> mediante <code>parse()</code>. Opcionalmente admite un <strong>segundo parámetro</strong> para especificar el formato.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Formato por defecto (ISO): yyyy-MM-dd</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">LocalDate</span><span class="w"> </span><span class="n">hoy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">"2022-11-14"</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hoy</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2022-11-14</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// Con un formato concreto: dd/MM/yyyy</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">LocalDate</span><span class="w"> </span><span class="n">fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">"24/03/1983"</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">        </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">"dd/MM/yyyy"</span><span class="p">));</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fecha</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1983-03-24</span>
+</code></pre></div>
+<h3 id="patrones-mas-usados">Patrones más usados<a class="headerlink" href="#patrones-mas-usados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Patrón</th>
+<th>Significado</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>yyyy</code></td>
+<td>Año (4 cifras)</td>
+<td>2026</td>
+</tr>
+<tr>
+<td><code>MM</code></td>
+<td>Mes (2 cifras)</td>
+<td>09</td>
+</tr>
+<tr>
+<td><code>MMM</code> / <code>MMMM</code></td>
+<td>Mes abreviado / completo</td>
+<td>sep / septiembre</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>Día del mes (2 cifras)</td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>E</code> / <code>EEEE</code></td>
+<td>Día de la semana abreviado/completo</td>
+<td>vie / viernes</td>
+</tr>
+<tr>
+<td><code>HH</code></td>
+<td>Hora en formato 24 h</td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>hh</code></td>
+<td>Hora en formato 12 h</td>
+<td>09</td>
+</tr>
+<tr>
+<td><code>mm</code></td>
+<td>Minutos</td>
+<td>43</td>
+</tr>
+<tr>
+<td><code>ss</code></td>
+<td>Segundos</td>
+<td>56</td>
+</tr>
+</tbody>
+</table>
+<h2 id="108-mostrar-fechas">10.8 Mostrar fechas<a class="headerlink" href="#108-mostrar-fechas" title="Permanent link">&para;</a></h2>
+<p>Podemos convertir una clase temporal en una <strong>cadena de texto</strong> (proceso inverso a <code>parse</code>) usando el formato que nos interese mediante <code>format()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">fechaConHora</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fechaConHora</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">"dd/MM/yyyy HH:mm:ss"</span><span class="p">)));</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// 14/11/2022 13:52:13</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fechaConHora</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">"EEEE, dd 'de' MMMM 'de' yyyy"</span><span class="p">)));</span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// lunes, 14 de noviembre de 2022</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// Formateadores predefinidos</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fechaConHora</span><span class="p">.</span><span class="na">toLocalDate</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofLocalizedDate</span><span class="p">(</span><span class="n">FormatStyle</span><span class="p">.</span><span class="na">FULL</span><span class="p">)));</span>
+</code></pre></div>
+<h2 id="109-tiempo-entre-fechas">10.9 Tiempo entre fechas<a class="headerlink" href="#109-tiempo-entre-fechas" title="Permanent link">&para;</a></h2>
+<p>Para obtener la <strong>diferencia entre dos instantes</strong> de tiempo existe la interfaz <code>java.time.temporal.TemporalUnit</code>, una enumeración <code>CronoUnit</code> y las clases <code>Period</code> y <code>Duration</code>.</p>
+<ul>
+<li>Mediante <strong><code>between()</code></strong> obtenemos el tiempo transcurrido entre dos instantes.</li>
+<li>Con <strong><code>until()</code></strong> también (método de la propia fecha).</li>
+</ul>
+<h3 id="con-localdatetime-between-y-until-devuelven-un-long">Con LocalDateTime: <code>between</code> y <code>until</code> devuelven un <code>long</code><a class="headerlink" href="#con-localdatetime-between-y-until-devuelven-un-long" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">fNacimiento</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1983</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">MARCH</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">hoy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">// between con LocalDateTime devuelve long</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">YEARS</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">fNacimiento</span><span class="p">,</span><span class="w"> </span><span class="n">hoy</span><span class="p">));</span><span class="w">   </span><span class="c1">// 43 años</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">// until devuelve un long con la unidad indicada</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fNacimiento</span><span class="p">.</span><span class="na">until</span><span class="p">(</span><span class="n">hoy</span><span class="p">,</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">));</span><span class="w">      </span><span class="c1">// ~15858 días</span>
+<span class="linenos" data-linenos="9 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fNacimiento</span><span class="p">.</span><span class="na">until</span><span class="p">(</span><span class="n">hoy</span><span class="p">,</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">HOURS</span><span class="p">));</span><span class="w">     </span><span class="c1">// ~380000 horas</span>
+</code></pre></div>
+<h3 id="con-localdate-between-y-until-devuelven-un-period">Con LocalDate: <code>between</code> y <code>until</code> devuelven un <code>Period</code><a class="headerlink" href="#con-localdate-between-y-until-devuelven-un-period" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">LocalDate</span><span class="w"> </span><span class="n">finAnio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">LocalDate</span><span class="w"> </span><span class="n">ahora</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span><span class="w"> </span><span class="c1">// 14/11/2022</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// until y between con LocalDate devuelven Period</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">Period</span><span class="w"> </span><span class="n">hastaFinAnio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ahora</span><span class="p">.</span><span class="na">until</span><span class="p">(</span><span class="n">finAnio</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hastaFinAnio</span><span class="p">);</span><span class="w">            </span><span class="c1">// P1M17D (1 mes y 17 días)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Faltan "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hastaFinAnio</span><span class="p">.</span><span class="na">getMonths</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" meses y "</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">hastaFinAnio</span><span class="p">.</span><span class="na">getDays</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" días"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Faltan 1 meses y 17 días</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="n">Period</span><span class="w"> </span><span class="n">vida</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Period</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">fNacimiento</span><span class="p">.</span><span class="na">toLocalDate</span><span class="p">(),</span><span class="w"> </span><span class="n">ahora</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">vida</span><span class="p">.</span><span class="na">getYears</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" años, "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vida</span><span class="p">.</span><span class="na">getMonths</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" meses, "</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">vida</span><span class="p">.</span><span class="na">getDays</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" días"</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Con <code>Instant</code> y <code>Duration</code> para nanosegundos</p>
+<p>Para medir <strong>tiempos de ejecución</strong> (el cronómetro del ejercicio 3) conviene <code>Instant</code> + <code>Duration</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Instant</span><span class="w"> </span><span class="n">inicio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// ... trabajo ...</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">Instant</span><span class="w"> </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">long</span><span class="w"> </span><span class="n">milis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">inicio</span><span class="p">,</span><span class="w"> </span><span class="n">fin</span><span class="p">).</span><span class="na">toMillis</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Han pasado "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">milis</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" ms"</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<h2 id="1010-buenas-practicas">10.10 Buenas prácticas<a class="headerlink" href="#1010-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Usa siempre <strong><code>java.time</code></strong>, nunca <code>java.util.Date</code>/<code>Calendar</code>.</li>
+<li>Elige el tipo justo: fecha sola → <code>LocalDate</code>; fecha+hora → <code>LocalDateTime</code>; con zona horaria → <code>ZonedDateTime</code>; instante de la máquina → <code>Instant</code>.</li>
+<li>Recuerda que son <strong>inmutables</strong>: <code>plus</code>, <code>minus</code>, <code>with</code> devuelven copias.</li>
+<li>Guarda fechas en la BDD como texto <strong>ISO</strong> (<code>LocalDate.toString()</code> → <code>yyyy-MM-dd</code>), ordenable y sin ambigüedad.</li>
+<li>Para medir tiempos usa <code>Instant</code> + <code>Duration</code>; para edades, <code>Period</code> entre <code>LocalDate</code>.</li>
+</ul>
+<h2 id="1011-referencias">10.11 Referencias<a class="headerlink" href="#1011-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.w3schools.com/java/java_date.asp">w3schools: Java Date and Time</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/datetime/">Oracle: Standard Calendar Tutorial (java.time)</a></li>
+<li><a href="https://www.baeldung.com/java-8-date-time-intro">Baeldung: Introduction to Java 8 Date and Time</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/format/DateTimeFormatter.html">Oracle: DateTimeFormatter patterns</a></li>
+</ul>
+<h2 id="1012-actividades">10.12 Actividades<a class="headerlink" href="#1012-actividades" title="Permanent link">&para;</a></h2>
+<ol start="1001">
+<li>
+<p><strong>Info de vida</strong>: a partir de una fecha de nacimiento proporcionada, da información de los <strong>años, meses, semanas, días, horas, minutos y segundos</strong> vividos. El programa dirá además cuántos <strong>días del año</strong> quedan y en qué <strong>día de la semana</strong> nació el usuario.</p>
+</li>
+<li>
+<p><strong>Memento mori</strong>: se dice que una persona de media vivirá 4000 semanas (unos 80 años). A partir de la fecha de nacimiento, dibuja un <strong>gráfico con las semanas vividas</strong> (marca <code>X</code> las semanas vividas y <code>.</code> las restantes, en filas de 52).</p>
+</li>
+<li>
+<p><strong>Cronómetro</strong>: construye un cronómetro que mida el tiempo de paso por vuelta cada vez que se pulsa <strong>INTRO</strong>: muestra el número de vuelta, segundos y centésimas de cada vuelta; termina al pulsar una tecla distinta.</p>
+</li>
+<li>
+<p><strong>Experto en 10.000 horas</strong>: la teoría de las 10.000 horas de Malcolm Gladwell afirma que si practicas una habilidad durante ese tiempo acabas siendo experto. Implementa una función a la que se le pase el número de horas practicadas y devuelva el tiempo restante y una <strong>fecha estimada</strong> en la que se alcanzaría el objetivo practicando <code>N</code> horas al día.</p>
+</li>
+<li>
+<p><strong>Viernes 13</strong>: crea una función que detecte si <strong>existe un viernes 13</strong> en el mes y año pasados por parámetros (devuelve <code>true</code>/<code>false</code>). Crea una segunda función que use la anterior para devolver <strong>la fecha del próximo viernes 13</strong>. Pista: usa <code>TemporalAdjusters.nextOrSame(DayOfWeek.FRIDAY)</code>.</p>
+</li>
+<li>
+<p><strong>Edad exacta</strong>: pide dos fechas (nacimiento y una fecha de referencia) y muestra la edad en años, meses y días, usando <code>Period.between</code>.</p>
+</li>
+<li>
+<p><strong>Días entre fases</strong>: dado un <code>LocalDate</code> inicial, muestra cuántos días, meses y años han pasado hasta hoy usando <code>ChronoUnit</code>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

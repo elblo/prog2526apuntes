@@ -1,0 +1,947 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/09basedatos.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 9: Conexión a Bases de Datos - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-9-conexion-a-bases-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 9: Conexión a Bases de Datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-9-conexion-a-bases-de-datos">Tema 9: Conexión a Bases de Datos<a class="headerlink" href="#tema-9-conexion-a-bases-de-datos" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 14 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Conocer cómo se relacionan los lenguajes de programación con las bases de datos mediante APIs.</li>
+<li>Comprender el <strong>desfase objeto-relacional</strong> y el papel de los ORM.</li>
+<li>Instalar y configurar el <strong>driver JDBC</strong> para MySQL.</li>
+<li>Conectar una aplicación Java a una base de datos MySQL con la <strong>API JDBC</strong>.</li>
+<li>Ejecutar sentencias SQL (INSERT, UPDATE, DELETE, SELECT) desde Java.</li>
+<li>Desplegar una base de datos MySQL (y phpMyAdmin) con <strong>Docker</strong>.</li>
+<li>Aplicar el <strong>patrón DAO</strong> para independizar la lógica de negocio del acceso a datos.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se explica la utilidad de una API y del driver/conector para acceder a la BDD.</li>
+<li>Se establece una conexión correcta con <code>DriverManager.getConnection()</code> (sin <code>Class.forName</code>).</li>
+<li>Se realizan operaciones con <code>Statement</code> y, preferentemente, con <code>PreparedStatement</code>.</li>
+<li>Se procesan los resultados de una consulta con <code>ResultSet</code>.</li>
+<li>Se gestionan los recursos con <code>try-with-resources</code>.</li>
+<li>Se levantan MySQL y phpMyAdmin como contenedores Docker.</li>
+<li>Se estructura el acceso a datos con el patrón DAO: <code>DAOManager</code>, interfaces y DAOs.</li>
+</ol>
+</details>
+<h2 id="91-introduccion-y-desfase-objeto-relacional">9.1 Introducción y desfase objeto-relacional<a class="headerlink" href="#91-introduccion-y-desfase-objeto-relacional" title="Permanent link">&para;</a></h2>
+<p>Los lenguajes de programación y las bases de datos se relacionan <strong>mediante APIs</strong>. Nosotros vamos a trabajar con la <strong>API JDBC</strong> (<em>Java DataBase Connectivity</em>) para acceder desde Java a <strong>MySQL</strong>. Nos va a permitir ejecutar sentencias SQL desde Java de forma sencilla.</p>
+<h3 id="el-desfase-objeto-relacional">El desfase objeto-relacional<a class="headerlink" href="#el-desfase-objeto-relacional" title="Permanent link">&para;</a></h3>
+<p>Consiste en las <strong>diferencias entre la POO y las bases de datos relacionales</strong>:</p>
+<ul>
+<li>El lenguaje de programación (Java) es distinto del lenguaje de acceso a datos (SQL).</li>
+<li>En POO hay <strong>tipos de datos complejos</strong> (objetos con sus relaciones) y en la BDD relacional, <strong>datos sencillos</strong>.</li>
+<li>En la fase de diseño intervienen <strong>diagramas de clases</strong> (clases y objetos) y <strong>diagramas ER</strong> (tablas y relaciones).</li>
+<li>El modelo relacional trata con <strong>relaciones y conjuntos</strong> (base matemática); el de POO, con <strong>objetos y asociaciones</strong>.</li>
+</ul>
+<p>La principal dificultad es <strong>manejar nuestras clases y pasarlas a SQL</strong>: un objeto <em>EquipoFutbol</em> que tiene una colección de <em>Jugadores</em> y cada jugador su número de teléfono se modela "fácil" en POO, pero pasarlo a SQL no es trivial y necesita mucho código.</p>
+<h3 id="la-solucion-orm">La solución: ORM<a class="headerlink" href="#la-solucion-orm" title="Permanent link">&para;</a></h3>
+<p>Un <strong>ORM</strong> (<em>Object Relational Mapping</em>) <strong>mapea de forma automática nuestros objetos a tablas SQL y viceversa</strong>.</p>
+<figure>
+  <img src="imagenes/08/progt08-01.webp" />
+  <figcaption>Un ORM convierte objetos Java en filas de tablas y viceversa</figcaption>
+</figure>
+
+<p>Algunos ORMs: <strong>Hibernate</strong>, ObjectDB, TopLink, CocoBase, OpenJPA...</p>
+<div class="admonition tip">
+<p class="admonition-title">¿Por qué empezar entonces con JDBC?</p>
+<p>JDBC es el API "de bajo nivel" sobre el que se construyen los ORM. Entenderlo te ayuda a saber qué hace Hibernate "bajo el capó" y te permite trabajar sin él en proyectos pequeños.</p>
+</div>
+<h2 id="92-drivers-conectores">9.2 Drivers (conectores)<a class="headerlink" href="#92-drivers-conectores" title="Permanent link">&para;</a></h2>
+<p>Un <strong>conector o driver</strong> es un <strong>conjunto de clases encargadas de implementar las interfaces del API</strong> utilizado para acceder a la base de datos. En nuestro caso, es un fichero <strong><code>.jar</code></strong> que contiene una implementación de todas las interfaces del API JDBC que conectará con MySQL.</p>
+<figure>
+  <img src="imagenes/08/progt08-02.png" />
+  <figcaption>El driver JDBC actúa de puente entre la aplicación Java y el SGBD</figcaption>
+</figure>
+
+<h3 id="como-instalarlo-opcion-manual">Cómo instalarlo: opción manual<a class="headerlink" href="#como-instalarlo-opcion-manual" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Descargar el <strong>MySQL Connector/J</strong> (elige la opción <em>Independiente de la plataforma</em> y descarga el ZIP).</li>
+</ol>
+<figure>
+  <img src="imagenes/08/progt08-22.png" />
+  <figcaption>Descarga del conector JDBC para MySQL</figcaption>
+</figure>
+
+<ol start="2">
+<li>Descomprimir el ZIP y añadir el <code>.jar</code> al proyecto en <strong>Project structure → Modules → Dependencies → + → JAR or directories</strong>.</li>
+</ol>
+<figure>
+  <img src="imagenes/08/progt08-23.png" />
+  <figcaption>Añadir el JAR del driver al proyecto en IntelliJ IDEA</figcaption>
+</figure>
+
+<h3 id="como-instalarlo-opcion-maven-recomendada">Cómo instalarlo: opción Maven (recomendada)<a class="headerlink" href="#como-instalarlo-opcion-maven-recomendada" title="Permanent link">&para;</a></h3>
+<p>En lugar de descargar el JAR a mano, añade la dependencia en el <code>pom.xml</code> para que Maven la gestione automáticamente. El grupo/artefacto actual es <code>com.mysql:mysql-connector-j</code> (versión actual: <strong>26.7.0</strong>):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&lt;dependency&gt;</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.mysql<span class="nt">&lt;/groupId&gt;</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>mysql-connector-j<span class="nt">&lt;/artifactId&gt;</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="nt">&lt;version&gt;</span>26.7.0<span class="nt">&lt;/version&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Ya no hace falta <code>Class.forName</code> (JDBC 4.0+)</p>
+<p>Los tutoriales antiguos cargaban el driver con <code>Class.forName("com.mysql.cj.jdbc.Driver")</code>. Desde <strong>JDBC 4.0</strong> (Java 6) eso es innecesario: el JAR del driver <strong>se registra solo</strong> mediante el mecanismo de <em>ServiceLoader</em> al llamar a <code>getConnection()</code>. Basta con que el JAR esté en el classpath (o la dependencia en Maven). Si tú lo tienes escrito, puedes eliminarlo.</p>
+</div>
+<h2 id="93-api-jdbc">9.3 API JDBC<a class="headerlink" href="#93-api-jdbc" title="Permanent link">&para;</a></h2>
+<p><strong>JDBC</strong> es el API de Java para ejecutar sentencias SQL. Se basa en:</p>
+<ul>
+<li>La <strong>simplicidad</strong> y la <strong>abstracción</strong>.</li>
+<li>Ocultar al usuario toda la información posible sobre el acceso a la <strong>capa de datos</strong>.</li>
+<li>Programar las operaciones de lectura/escritura trabajando con <strong>clases de Java</strong>.</li>
+</ul>
+<p>JDBC proporciona las clases e interfaces para:</p>
+<ol>
+<li><strong>Establecer una conexión</strong> a una base de datos.</li>
+<li><strong>Ejecutar</strong> una sentencia o consulta SQL.</li>
+<li><strong>Procesar los resultados</strong>.</li>
+</ol>
+<h3 id="931-establecer-una-conexion">9.3.1 Establecer una conexión<a class="headerlink" href="#931-establecer-una-conexion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// URL con el servidor, puerto, SGBD y nombre de la BDD</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"jdbc:mysql://localhost:3306/pruebabdd"</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"root"</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// Establecer la conexión a la base de datos</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Ejemplo clásico (código antiguo)</p>
+<p>Antiguamente se precedía de <code>Class.forName("com.mysql.cj.jdbc.Driver");</code>. Hoy no es necesario (ver el aviso anterior). Este apunte lo omite por considerarlo obsoleto.</p>
+</div>
+<h3 id="932-ejecutar-sentencias-executeupdate">9.3.2 Ejecutar sentencias: <code>executeUpdate</code><a class="headerlink" href="#932-ejecutar-sentencias-executeupdate" title="Permanent link">&para;</a></h3>
+<p>Mediante <code>executeUpdate</code> se ejecutan sentencias <strong>INSERT, UPDATE y DELETE</strong>, devolviendo el <strong>número de filas afectadas</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Crear y ejecutar la sentencia</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"INSERT INTO usuarios (nombre, edad) VALUES ('Juan López', 25)"</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">int</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Filas insertadas: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rows</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="933-ejecutar-consultas-executequery">9.3.3 Ejecutar consultas: <code>executeQuery</code><a class="headerlink" href="#933-ejecutar-consultas-executequery" title="Permanent link">&para;</a></h3>
+<p>Mediante <code>executeQuery</code> se ejecutan consultas, devolviendo los datos en un <strong><code>ResultSet</code></strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Crear y ejecutar la consulta</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"SELECT * FROM usuarios"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// Procesar los resultados de la consulta (avanza fila a fila con next())</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">"id"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"nombre"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">"edad"</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" | "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" | "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">edad</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/09/progt09-01.png" />
+  <figcaption>Base de datos `pruebabdd` con la tabla `usuarios` (id, nombre, edad)</figcaption>
+</figure>
+
+<h3 id="934-ejemplo-completo-insert-update-y-delete">9.3.4 Ejemplo completo: Insert, Update y Delete<a class="headerlink" href="#934-ejemplo-completo-insert-update-y-delete" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploInsertUpdateDelete</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"jdbc:mysql://localhost:3306/pruebabdd"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"root"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="c1">// INSERT</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">            </span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">insertSql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"INSERT INTO usuarios (nombre, edad) VALUES ('Ana Pérez', 30)"</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">filasInsertadas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">insertSql</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Filas insertadas: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filasInsertadas</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="w">            </span><span class="c1">// UPDATE</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">updateSql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"UPDATE usuarios SET edad = 31 WHERE nombre = 'Ana Pérez'"</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">filasActualizadas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">updateSql</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Filas actualizadas: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filasActualizadas</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="w">            </span><span class="c1">// DELETE</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">deleteSql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"DELETE FROM usuarios WHERE id = 1"</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">filasBorradas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">deleteSql</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Filas borradas: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filasBorradas</span><span class="p">);</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="linenos" data-linenos="29 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="30 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="31 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="935-ejemplo-completo-select">9.3.5 Ejemplo completo: SELECT<a class="headerlink" href="#935-ejemplo-completo-select" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EjemploSelect</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"jdbc:mysql://localhost:3306/pruebabdd"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"root"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="n">Statement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"SELECT id, nombre, edad FROM usuarios"</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">            </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"USUARIOS:"</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">"id"</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"nombre"</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rs</span><span class="p">.</span><span class="na">getInt</span><span class="p">(</span><span class="s">"edad"</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" | "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" | "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">edad</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">            </span><span class="p">}</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="linenos" data-linenos="25 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Usa <code>PreparedStatement</code> (evita la inyección SQL)</p>
+<p>Cuando la sentencia lleve <strong>datos variables</strong> (del usuario), NO concatene cadenas. Usa <code>PreparedStatement</code>, que además es más cómodo y más rápido si se repite:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"INSERT INTO usuarios (nombre, edad) VALUES (?, ?)"</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nombreDelUsuario</span><span class="p">);</span><span class="w">   </span><span class="c1">// El "?" 1</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">edadDelUsuario</span><span class="p">);</span><span class="w">        </span><span class="c1">// El "?" 2</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">filas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Con concatener en el <code>Statement</code> un nombre como <code>Ana'; DROP TABLE usuarios;--</code> tu tabla... desaparece. Inyección SQL, de verdad.</p>
+</div>
+<h2 id="94-base-de-datos-con-docker">9.4 Base de datos con Docker<a class="headerlink" href="#94-base-de-datos-con-docker" title="Permanent link">&para;</a></h2>
+<p><strong>Docker</strong> es una solución de <strong>virtualización ligera</strong> para correr <strong>contenedores Linux</strong> de manera muy eficiente. Se puede usar en equipos de escritorio y también desplegar en nubes como Azure, AWS... A partir de un anfitrión Linux es capaz de desplegar máquinas que <strong>comparten procesos e hilos</strong> de la máquina anfitriona.</p>
+<figure>
+  <img src="imagenes/08/progt08-03.jpeg" />
+  <figcaption>Contenedores Docker: máquinas ligeras que comparten el kernel del anfitrión</figcaption>
+</figure>
+
+<div class="admonition info">
+<p class="admonition-title">Docker en Windows</p>
+<p>En Windows, a diferencia de Linux y Mac, la instalación y ejecución <strong>no es trivial</strong> porque no hay un kernel Linux funcionando en el sistema.</p>
+</div>
+<figure>
+  <img src="imagenes/08/progt08-06.png" />
+  <figcaption>Docker Desktop: gestión de contenedores con interfaz gráfica</figcaption>
+</figure>
+
+<p>Vamos a desplegar y asociar <strong>2 contenedores</strong>: uno con el SGBD <strong>MySQL</strong> y otro con <strong>phpmyadmin</strong>, para facilitar la interacción y visualización de los datos. Trabajaremos desde la terminal.</p>
+<p>Paso a paso:</p>
+<ol>
+<li><strong>Descargar las imágenes</strong> de MySQL y phpMyAdmin.</li>
+</ol>
+<figure>
+  <img src="imagenes/08/progt08-07.png" />
+  <figcaption>Paso 1: descargar las imágenes de MySQL y phpMyAdmin</figcaption>
+</figure>
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Descargar las imágenes</span>
+<span class="linenos" data-linenos="2 "></span>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>mysql:8.4
+<span class="linenos" data-linenos="3 "></span>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>phpmyadmin:latest
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1"># Comprobar las imágenes descargadas</span>
+<span class="linenos" data-linenos="6 "></span>$<span class="w"> </span>docker<span class="w"> </span>images
+</code></pre></div>
+<figure>
+  <img src="imagenes/08/progt08-09.png" />
+  <figcaption>Comprobar las imágenes descargadas</figcaption>
+</figure>
+
+<ol start="2">
+<li><strong>Crear los contenedores</strong>. Opciones importantes:
+   - <code>-d</code> / <code>--detach</code>: ejecutar el contenedor en <strong>background</strong> (normalmente porque tenga un servicio).
+   - <code>-p</code> / <code>--publish</code>: conectar puertos del contenedor con los del host.
+   - <code>--name</code>: dar un nombre al contenedor.
+   - <code>-e</code> / <code>--env</code>: establecer <strong>variables de entorno</strong> (usuario root, contraseña, BDD inicial...).</li>
+</ol>
+<figure>
+  <img src="imagenes/08/progt08-10.png" />
+  <figcaption>Paso 2: crear los contenedores MySQL y phpMyAdmin</figcaption>
+</figure>
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Contenedor MySQL (root con contraseña "pass", crea la BDD pruebabdd)</span>
+<span class="linenos" data-linenos="2 "></span>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mysql-daw<span class="w"> </span>-p<span class="w"> </span><span class="m">3306</span>:3306<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>pass<span class="w"> </span><span class="se">\</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span>-e<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>pruebabdd<span class="w"> </span>-d<span class="w"> </span>mysql:8.4
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1"># Contenedor phpMyAdmin enlazado al MySQL</span>
+<span class="linenos" data-linenos="6 "></span>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>phpmyadmin-daw<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--link<span class="w"> </span>mysql-daw:db<span class="w"> </span><span class="se">\</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span>-e<span class="w"> </span><span class="nv">PMA_HOST</span><span class="o">=</span>mysql-daw<span class="w"> </span>-d<span class="w"> </span>phpmyadmin:latest
+</code></pre></div>
+<ol start="3">
+<li><strong>Comprobar el estado</strong> de los contenedores y acceder a phpMyAdmin (<code>http://localhost:8080</code>, usuario <code>root</code> | contraseña <code>pass</code>).</li>
+</ol>
+<figure>
+  <img src="imagenes/08/progt08-13.png" />
+  <figcaption>Comprobar el estado de los contenedores creados</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/08/progt08-14.png" />
+  <figcaption>Acceder a phpMyAdmin desde el navegador</figcaption>
+</figure>
+
+<ol start="4">
+<li><strong>Gestión básica</strong> de los contenedores:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Ejecutar comandos dentro de un contenedor</span>
+<span class="linenos" data-linenos="2 "></span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysql-daw<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1"># Parar la ejecución de un contenedor</span>
+<span class="linenos" data-linenos="5 "></span>$<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>mysql-daw
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1"># Volver a ejecutar un contenedor ya creado</span>
+<span class="linenos" data-linenos="8 "></span>$<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span>mysql-daw
+</code></pre></div>
+<figure>
+  <img src="imagenes/08/progt08-17.png" />
+  <figcaption>Parar la ejecución de los contenedores</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/08/progt08-18.png" />
+  <figcaption>Volver a ejecutar los contenedores previamente creados</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">ddl y consultas a mano</p>
+<p>Crearemos la BDD y las tablas desde <strong>phpMyAdmin</strong> (o con la pestaña <em>SQL</em>). Te vendrá bien esta chuleta:</p>
+</div>
+<figure>
+  <img src="imagenes/08/progt08-20.png" />
+  <figcaption>Chuleta SQL: DDL y consultas</figcaption>
+</figure>
+
+<h2 id="95-resumen-sql-rapido">9.5 Resumen SQL rápido<a class="headerlink" href="#95-resumen-sql-rapido" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sentencia</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crear BDD</td>
+<td><code>CREATE DATABASE pruebabdd;</code></td>
+</tr>
+<tr>
+<td>Usar BDD</td>
+<td><code>USE pruebabdd;</code></td>
+</tr>
+<tr>
+<td>Crear tabla</td>
+<td><code>CREATE TABLE usuarios (id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50), edad INT);</code></td>
+</tr>
+<tr>
+<td>Insertar</td>
+<td><code>INSERT INTO usuarios (nombre, edad) VALUES ('Ana', 30);</code></td>
+</tr>
+<tr>
+<td>Actualizar</td>
+<td><code>UPDATE usuarios SET edad = 31 WHERE nombre = 'Ana';</code></td>
+</tr>
+<tr>
+<td>Borrar</td>
+<td><code>DELETE FROM usuarios WHERE id = 2;</code></td>
+</tr>
+<tr>
+<td>Consultar</td>
+<td><code>SELECT * FROM usuarios WHERE edad &gt; 18 ORDER BY nombre;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="96-patron-dao">9.6 Patrón DAO<a class="headerlink" href="#96-patron-dao" title="Permanent link">&para;</a></h2>
+<p>El patrón <strong>Data Access Object (DAO)</strong> pretende <strong>independizar la aplicación de la forma de acceder a la base de datos</strong>: fuera de las clases DAO <strong>no debe haber código que acceda al repositorio de datos</strong>.</p>
+<p>Ventajas:</p>
+<ul>
+<li>Separar el <strong>modelo de negocio</strong> del <strong>acceso a datos</strong>.</li>
+<li>Tener un código limpio en la aplicación, <strong>sin mezclar con SQL</strong>.</li>
+<li>Posibilidad de <strong>cambiar de BDD</strong> con la misma lógica de negocio.</li>
+</ul>
+<figure>
+  <img src="imagenes/08/progt08-21.png" />
+  <figcaption>Estructura del patrón DAO</figcaption>
+</figure>
+
+<p>Clases que utilizaremos:</p>
+<ol>
+<li><strong>DAO Manager</strong>: gestión de la conexión.</li>
+<li><strong>Interfaces</strong> con las operaciones CRUD.</li>
+<li><strong>DAOs</strong> de nuestras clases con la implementación de su correspondiente interfaz.</li>
+</ol>
+<h3 id="961-dao-manager-patron-singleton">9.6.1 DAO Manager (patrón singleton)<a class="headerlink" href="#961-dao-manager-patron-singleton" title="Permanent link">&para;</a></h3>
+<p>Clase <strong>singleton</strong> (solo puede instanciarse 1 objeto) que gestiona la conexión (abrirla y cerrarla) con la BDD y a la que enviaremos las sentencias SQL.</p>
+<figure>
+  <img src="imagenes/08/progt08-25.png" />
+  <figcaption>Esquema del DAO Manager</figcaption>
+</figure>
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.*</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DAOManager</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="c1">// Atributos</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">URL</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">USER</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PASS</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span><span class="w"> </span><span class="c1">// Atributo estático con la única instancia</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="c1">// Constructor PRIVADO para que no se pueda utilizar desde el exterior</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">DAOManager</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"jdbc:mysql://localhost:3306/pruebabdd"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"root"</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">PASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"pass"</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="w">    </span><span class="c1">// Método estático que devuelve la única instancia (la crea si no existe)</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="nf">getSingletonInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">singleton</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DAOManager</span><span class="p">();</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="w">    </span><span class="c1">// Conectar</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="nf">open</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">        </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span><span class="w"> </span><span class="n">USER</span><span class="p">,</span><span class="w"> </span><span class="n">PASS</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">conn</span><span class="p">;</span>
+<span class="linenos" data-linenos="29 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span><span class="w">    </span><span class="c1">// Desconectar</span>
+<span class="linenos" data-linenos="32 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">close</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="33 "></span><span class="w">        </span><span class="n">conn</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="linenos" data-linenos="34 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="35 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Uso desde el <code>main</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DAOManager</span><span class="p">.</span><span class="na">getSingletonInstance</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DAOManager</span><span class="p">.</span><span class="na">getSingletonInstance</span><span class="p">();</span><span class="w"> </span><span class="c1">// Misma instancia</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="n">dao</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Conexión establecida"</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error de conexión: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="962-interfaces-de-operaciones">9.6.2 Interfaces de operaciones<a class="headerlink" href="#962-interfaces-de-operaciones" title="Permanent link">&para;</a></h3>
+<p>No es obligatorio, aunque sí <strong>buena práctica</strong>. Se desarrollan interfaces sobre nuestras clases con las operaciones CRUD y otras que pudiéramos necesitar. Así, si se cambia de SGBD, solo habría que <strong>implementar la interfaz sobre el DAO del nuevo SGBD</strong>, sin que se olvide ninguno de los métodos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">package</span><span class="w"> </span><span class="nn">ejemploBDMySQL.DAO</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">ejemploBDMySQL.modelo.Alumno</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">DaoAlumno</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="p">,</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="p">,</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="p">,</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Alumno</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">dni</span><span class="p">,</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">readAll</span><span class="p">(</span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Alumno</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">readAlumnosByApellidos</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">apellidos</span><span class="p">,</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="963-daos-de-nuestras-clases">9.6.3 DAOs de nuestras clases<a class="headerlink" href="#963-daos-de-nuestras-clases" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">package</span><span class="w"> </span><span class="nn">ejemploBDMySQL.DAO</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">ejemploBDMySQL.modelo.Alumno</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DaoAlumnoSQL</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DaoAlumno</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">Alumno</span><span class="w"> </span><span class="n">alumno</span><span class="p">,</span><span class="w"> </span><span class="n">DAOManager</span><span class="w"> </span><span class="n">dao</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">Statement</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">open</span><span class="p">().</span><span class="na">createStatement</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">sentencia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"INSERT INTO alumnos VALUES ('"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getDni</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"','"</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getNombre</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"','"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getApellidos</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"','"</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getFechaNacim</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">"yyyy-MM-dd"</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"')"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">sentencia</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">                </span><span class="n">dao</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="linenos" data-linenos="25 "></span><span class="w">            </span><span class="p">}</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span><span class="w">    </span><span class="c1">// update, delete, read, readAll, readAlumnosByApellidos...</span>
+<span class="linenos" data-linenos="30 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">El SQL de los DAOs: usa <code>PreparedStatement</code></p>
+<p>El ejemplo didáctico anterior <strong>concatena valores</strong> en el SQL. En un proyecto real hazlo siempre con <code>PreparedStatement</code> (con <code>?</code>), para evitar la inyección SQL y manejos de comillas (fechas, apóstrofes...):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">String</span><span class="w"> </span><span class="n">sentencia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"INSERT INTO alumnos (dni, nombre, apellidos) VALUES (?, ?, ?)"</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">open</span><span class="p">().</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sentencia</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getDni</span><span class="p">());</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getNombre</span><span class="p">());</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">alumno</span><span class="p">.</span><span class="na">getApellidos</span><span class="p">());</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">ps</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<h3 id="964-preparacion-previa">9.6.4 Preparación previa<a class="headerlink" href="#964-preparacion-previa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>No olvidar añadir el driver</strong> JDBC al proyecto (manual o Maven).</li>
+</ul>
+<figure>
+  <img src="imagenes/08/progt08-24.png" />
+  <figcaption>Añadir el conector JDBC al proyecto</figcaption>
+</figure>
+
+<ul>
+<li>Antes de comenzar, crear en phpMyAdmin las tablas <code>alumnos</code> y <code>profesores</code>, relacionándolas con las clases <code>Alumno</code> y <code>Profesor</code> del tema anterior.</li>
+</ul>
+<figure>
+  <img src="imagenes/08/progt08-26.png" />
+  <figcaption>Crear las tablas en phpMyAdmin</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/08/progt08-27.png" />
+  <figcaption>Tablas alumnos y profesores creadas</figcaption>
+</figure>
+
+<h2 id="97-buenas-practicas">9.7 Buenas prácticas<a class="headerlink" href="#97-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Conecta una sola vez</strong> y reutiliza la conexión (patrón singleton en el <code>DAOManager</code>).</li>
+<li><strong>Cierra siempre</strong> conexiones, statements y resultsets. Con <code>try-with-resources</code> es automático.</li>
+<li>Usa <strong><code>PreparedStatement</code></strong> para cualquier sentencia con valores variables.</li>
+<li>Separa las <strong>capas</strong>: modelo, acceso a datos (DAO) y presentación.</li>
+<li>La <strong>configuración</strong> (URL, usuario, contraseña) idealmente en un fichero <code>properties</code> externo, no "horneado" en el código.</li>
+<li>Para proyectos grandes, plantéate un <strong>ORM</strong> (Hibernate/JPA) sobre el patrón DAO.</li>
+<li>Trabaja con <strong>MySQL/phpMyAdmin en Docker</strong> para tener tu entorno de BDD reproducible en cualquier equipo.</li>
+</ul>
+<h2 id="98-referencias">9.8 Referencias<a class="headerlink" href="#98-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.javatpoint.com/java-jdbc">JavaTpoint: JDBC API</a></li>
+<li><a href="https://www.w3schools.com/sql/">w3schools: SQL</a></li>
+<li><a href="https://www.arquitecturajava.com/jdbc-preparedstatement-ejemplo/">arquitecturajava: PreparedStatement</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">Oracle: try-with-resources</a></li>
+<li><a href="https://dev.mysql.com/doc/connector-j/en/">MySQL Connector/J developer guide</a></li>
+</ul>
+<h2 id="99-actividades">9.9 Actividades<a class="headerlink" href="#99-actividades" title="Permanent link">&para;</a></h2>
+<ol start="901">
+<li>
+<p>Levanta con Docker los contenedores <strong>MySQL</strong> y <strong>phpMyAdmin</strong>, crea la base de datos <code>pruebabdd</code> y la tabla <code>usuarios</code> (id, nombre, edad). Verifica el acceso desde phpMyAdmin.</p>
+</li>
+<li>
+<p>Escribe un programa que se conecte a <code>pruebabdd</code> y <strong>inserte</strong> tres usuarios nuevos. Comprueba el número de filas afectadas.</p>
+</li>
+<li>
+<p>Amplía el programa anterior para <strong>actualizar</strong> la edad de un usuario y <strong>borrar</strong> otro, mostrando las filas afectadas en cada operación.</p>
+</li>
+<li>
+<p>Crea un programa que lea la tabla <code>usuarios</code> con <code>SELECT *</code> y la muestre por consola con <code>while (rs.next())</code>.</p>
+</li>
+<li>
+<p>Reescribe el programa de inserción usando <strong><code>PreparedStatement</code></strong> con parámetros leídos por teclado (pide datos hasta escribir "fin"). Prueba a introducir el valor <code>Ana'; DROP TABLE usuarios;--</code> y comprueba que el <code>PreparedStatement</code> no deja "rota" la tabla.</p>
+</li>
+<li>
+<p>Implementa el <strong>DAO Manager</strong> como singleton (constructor privado, <code>getSingletonInstance</code>, <code>open</code> y <code>close</code>). Comprueba en el <code>main</code> que si obtienes dos veces la instancia es la misma.</p>
+</li>
+<li>
+<p>Crea las tablas <code>alumnos</code> y <code>profesores</code> en phpMyAdmin y las clases <code>Alumno</code> y <code>Profesor</code> del tema anterior (ambas con DNI, nombre, apellidos y fecha de nacimiento).</p>
+</li>
+<li>
+<p>Implementa el <strong>DAO de Alumno</strong> (<code>DaoAlumnoSQL</code>) con los métodos <code>insert</code>, <code>delete</code>, <code>read</code> y <code>update</code> (este último lo implementas tú a partir del ejemplo). Usa <code>PreparedStatement</code>.</p>
+</li>
+<li>
+<p>Implementa los siguientes métodos en los DAOs de Profesor y Alumno: <code>readAll()</code> y <code>readAlumnosByApellidos(String apellidos)</code>, y añade su correspondiente <code>DaoProfesorSQL</code>.</p>
+</li>
+<li>
+<p>Crea un menú en consola que, usando los DAOs, permita: insertar un alumno, listar todos, buscar por apellidos, actualizar y borrar. Toda la lógica de acceso a datos debe vivir dentro de los DAOs (ningún SQL fuera de ellos).</p>
+</li>
+<li>
+<p>Reto: cambia la configuración de conexión (URL, usuario y contraseña) a un fichero <code>properties</code> externo que lea el <code>DAOManager</code>.</p>
+</li>
+<li>
+<p>Investiga un ORM (Hibernate o JPA) y explica públicamente cómo resolvería el <em>desfase objeto-relacional</em> puesto en contexto en este tema.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

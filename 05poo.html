@@ -1,0 +1,1265 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/prog2526apuntes/05poo.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 5: Introducción a la Programación Orientada a Objetos (POO) - Programación</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-5-introduccion-a-la-programacion-orientada-a-objetos-poo" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Programación" class="md-header__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 5: Introducción a la Programación Orientada a Objetos (POO)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Programación" class="md-nav__button md-logo" aria-label="Programación" data-md-component="logo">
+      
+  <img src="imagenes/isotipo-marino@3x.png" alt="logo">
+
+    </a>
+    Programación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-5-introduccion-a-la-programacion-orientada-a-objetos-poo">Tema 5: Introducción a la Programación Orientada a Objetos (POO)<a class="headerlink" href="#tema-5-introduccion-a-la-programacion-orientada-a-objetos-poo" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 10 sesiones</p>
+<hr />
+<p><strong>Resultados de aprendizaje</strong></p>
+<ol>
+<li>Comprender el paradigma de la Programación Orientada a Objetos y sus fundamentos.</li>
+<li>Identificar los elementos de una clase: atributos, métodos y constructores.</li>
+<li>Aplicar la encapsulación mediante modificadores de acceso, getters y setters.</li>
+<li>Conocer el empaquetado de clases y los arrays de objetos.</li>
+<li>Utilizar enumeraciones (<code>enum</code>) como tipos especiales.</li>
+</ol>
+<p><strong>Criterios de evaluación</strong></p>
+<ol>
+<li>Se identifica la estructura general de una clase y los modificadores de acceso y de contenido.</li>
+<li>Se definen atributos con el tipo y la visibilidad adecuados.</li>
+<li>Se implementan métodos con parámetros, retorno, sobrecarga, <code>this</code>, <code>toString</code> y <code>equals</code>.</li>
+<li>Se construyen constructores (por defecto, con parámetros y copia) y se comprende la destrucción de objetos.</li>
+<li>Se organizan las clases en paquetes y se usan arrays de objetos.</li>
+<li>Se definen y utilizan tipos enumerados con atributos y métodos.</li>
+</ol>
+</details>
+<h2 id="51-introduccion">5.1 Introducción<a class="headerlink" href="#51-introduccion" title="Permanent link">&para;</a></h2>
+<p>Hasta ahora has programado de forma <strong>estructurada</strong>: variables, condicionales, bucles y funciones. Este enfoque funciona bien para programas pequeños, pero <strong>cuando el software crece y es necesario reutilizar código</strong> surgen problemas: código duplicado, dificultad de mantenimiento, funciones interminables...</p>
+<p>Para solucionarlo surge la <strong>Programación Orientada a Objetos (POO)</strong>: una técnica para los programas <strong>basándose en objetos</strong> del mundo real. La POO organiza el código en torno a <strong>objetos</strong>, que combinan datos y comportamiento.</p>
+<div class="admonition tip">
+<p class="admonition-title">Idea clave</p>
+<p>En lugar de pensar en "pasos a ejecutar", la POO piensa en <strong>qué entidades existen y cómo interactúan</strong>.</p>
+</div>
+<h2 id="52-fundamentos-de-la-poo">5.2 Fundamentos de la POO<a class="headerlink" href="#52-fundamentos-de-la-poo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>La <strong>Programación Estructurada</strong> crea funciones y procedimientos que definen las acciones a realizar, y que posteriormente forman los programas.</li>
+<li>La <strong>Programación Orientada a Objetos</strong> considera los programas en términos de <strong>objetos</strong> y todo gira alrededor de ellos.</li>
+</ul>
+<figure>
+  <img src="imagenes/03/progt03-01.png" />
+  <figcaption>La POO considera los programas en términos de objetos</figcaption>
+</figure>
+
+<h3 id="conceptos">Conceptos<a class="headerlink" href="#conceptos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se descompone la aplicación en <strong>objetos</strong> que son representaciones del mundo real.</li>
+<li>Está más cerca de la <strong>forma humana de pensar</strong> que el modelo imperativo puro.</li>
+<li>Los <strong>datos</strong> y <strong>funciones</strong> que operan sobre ellos quedan <strong>agrupados</strong> en el objeto.</li>
+</ul>
+<h3 id="beneficios">Beneficios<a class="headerlink" href="#beneficios" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprensión</strong>: modelos que reflejan entidades reales.</li>
+<li><strong>Modularidad</strong>: el programa se organiza en módulos independientes.</li>
+<li><strong>Mantenimiento</strong>: modificar una clase afecta solo a esa clase.</li>
+<li><strong>Seguridad</strong>: ocultación de los datos internos.</li>
+<li><strong>Reusabilidad</strong>: las clases se reutilizan en otros proyectos.</li>
+</ul>
+<h3 id="caracteristicas-de-la-poo">Características de la POO<a class="headerlink" href="#caracteristicas-de-la-poo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Abstracción</strong></td>
+<td>Centrarse en las características y operaciones del objeto sin preocuparnos de qué ocurre en el interior.</td>
+</tr>
+<tr>
+<td><strong>Modularidad</strong></td>
+<td>El programa se descompone en clases en archivos independientes. Favorece la modificación y reutilización del código.</td>
+</tr>
+<tr>
+<td><strong>Encapsulación</strong></td>
+<td>Ocultamiento de la información. El programador decide qué partes (atributos y métodos) pueden accederse desde fuera.</td>
+</tr>
+<tr>
+<td><strong>Jerarquía</strong></td>
+<td>Relaciones entre clases. Generalización o especialización (herencia): crear una clase nueva a partir de otra. Relación "es un" (se estudia en el Tema 6).</td>
+</tr>
+<tr>
+<td><strong>Polimorfismo</strong></td>
+<td>Capacidad de que varias clases, creadas a partir de una clase ancestra común, realicen una misma acción de forma diferente (se estudia en el Tema 6).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lenguajes-poo">Lenguajes POO<a class="headerlink" href="#lenguajes-poo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Lenguaje</th>
+<th>Año</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simula</td>
+<td>1962</td>
+</tr>
+<tr>
+<td>SmallTalk</td>
+<td>1972</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>1985</td>
+</tr>
+<tr>
+<td>Eiffel</td>
+<td>1986</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>1995</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>2000</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Ranking de lenguajes</p>
+<p>Puedes consultar el <a href="https://www.tiobe.com/tiobe-index/">índice TIOBE</a> para ver cuáles son actualmente los lenguajes más populares y dónde se posiciona Java y otros lenguajes orientados a objetos.</p>
+</div>
+<h2 id="53-clases-y-objetos">5.3 Clases y objetos<a class="headerlink" href="#53-clases-y-objetos" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Una <strong>clase</strong> es un <strong>molde o plantilla</strong> que define:</li>
+<li><strong>Atributos</strong> (campos o propiedades): qué datos tiene el objeto.</li>
+<li><strong>Métodos</strong> (funciones): qué puede hacer el objeto.</li>
+<li>Un <strong>objeto</strong> es una <strong>instancia</strong> de una clase: una materialización concreta con sus propios valores.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">class</span> <span class="nc">Coche</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">marca</span><span class="p">;</span><span class="w">     </span><span class="c1">// atributo</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">velocidad</span><span class="p">;</span><span class="w">    </span><span class="c1">// atributo</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">acelerar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// método</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">        </span><span class="n">velocidad</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Coche</span><span class="w"> </span><span class="n">miCoche</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Coche</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">miCoche</span><span class="p">.</span><span class="na">marca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Toyota"</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">miCoche</span><span class="p">.</span><span class="na">acelerar</span><span class="p">();</span>
+</code></pre></div>
+<p>Un objeto tiene:</p>
+<ul>
+<li><strong>Estado</strong> → valores de sus atributos.</li>
+<li><strong>Comportamiento</strong> → métodos que puede ejecutar.</li>
+</ul>
+<figure>
+  <img src="imagenes/03/progt03-02.png" />
+  <figcaption>Estructura general de una clase</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/03/progt03-03.png" />
+  <figcaption>La clase como plantilla y los objetos como instancias</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Clase = definición, Objeto = instancia real</p>
+<p>Durante la ejecución de la aplicación se <strong>instanciarán (crearán) objetos reales</strong> con sus propios atributos. La clase contiene la definición; los objetos contienen los datos.</p>
+</div>
+<h2 id="54-estructura-de-una-clase">5.4 Estructura de una clase<a class="headerlink" href="#54-estructura-de-una-clase" title="Permanent link">&para;</a></h2>
+<p>Toda clase consta de <strong>cabecera</strong> y <strong>cuerpo</strong>.</p>
+<h3 id="cabecera-de-la-clase">Cabecera de la clase<a class="headerlink" href="#cabecera-de-la-clase" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Cabecera de la clase</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">[</span><span class="n">modificadores</span><span class="o">]</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NombreClase</span><span class="w"> </span><span class="o">[</span><span class="n">herencia</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">interfaces</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="c1">// Cuerpo de la clase</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="c1">// Declaración de los atributos</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="c1">// Declaración de los métodos</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Modificadores</strong>: <code>public</code>, <code>abstract</code>, <code>final</code>...</li>
+<li><strong>Nombre</strong>: primera letra en mayúsculas (<code>Punto</code>); si está formada por varias palabras, el inicio de cada una en mayúsculas (<code>PuntoCartesiano</code>). Sigue la convención <em>UpperCamelCase</em>.</li>
+<li><strong>Herencia</strong> (opcional): <code>extends NombreClaseBase</code>.</li>
+<li><strong>Interfaces</strong> (opcional): <code>implements Interface1, Interface2</code>.</li>
+</ul>
+<h3 id="cuerpo-de-la-clase">Cuerpo de la clase<a class="headerlink" href="#cuerpo-de-la-clase" title="Permanent link">&para;</a></h3>
+<p>Contiene los <strong>atributos</strong> y los <strong>métodos</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="c1">// Atributos</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="c1">// Métodos</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">reintegro</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cantidad</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">saldo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">            </span><span class="n">saldo</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">saldo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Saldo: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">saldo</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="miembros-estaticos">Miembros estáticos<a class="headerlink" href="#miembros-estaticos" title="Permanent link">&para;</a></h3>
+<p>Los atributos o métodos <strong><code>static</code></strong> son elementos de la <strong>clase</strong> y no de cada objeto que instancie de ella. Todos los objetos comparten el mismo valor.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="c1">// Atributos de instancia</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="c1">// Atributo estático (de clase)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">banco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"BBVA"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="c1">// Método estático (de clase)</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">cambioEuroDolar</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">euros</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">euros</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.06f</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Se llaman desde la propia clase y no desde instancias de la misma:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Cuenta</span><span class="p">.</span><span class="na">banco</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Cuenta</span><span class="p">.</span><span class="na">cambioEuroDolar</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">El ejemplo clásico: App Banco</p>
+<p>A lo largo del tema iremos completando la clase <code>Cuenta</code> de un pequeño banco. Todo el ejemplo está inspirado en la práctica <em>Cliente Banco</em> que se resuelve al final del tema.</p>
+</div>
+<h2 id="55-atributos">5.5 Atributos<a class="headerlink" href="#55-atributos" title="Permanent link">&para;</a></h2>
+<h3 id="declaracion">Declaración<a class="headerlink" href="#declaracion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">[</span><span class="n">modificadores</span><span class="o">]</span><span class="w"> </span><span class="n">tipo</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><strong>Modificadores</strong>: de acceso, de contenido y otros. Configuran el comportamiento del atributo.</li>
+<li><strong>Tipo</strong>: primitivo, otro objeto, array, estructuras de datos...</li>
+</ul>
+<h3 id="modificadores-de-acceso">Modificadores de acceso<a class="headerlink" href="#modificadores-de-acceso" title="Permanent link">&para;</a></h3>
+<p>Indican la forma de acceso al atributo desde el código. Permiten implementar la <strong>encapsulación</strong> ocultando los atributos de la clase fuera de ella.</p>
+<figure>
+  <img src="imagenes/03/progt03-05.png" />
+  <figcaption>Modificadores de acceso en Java</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Modificador</th>
+<th>Acceso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public</code></td>
+<td>Desde cualquier clase</td>
+</tr>
+<tr>
+<td><code>protected</code></td>
+<td>Desde la propia clase, las subclases y el mismo paquete</td>
+</tr>
+<tr>
+<td>(sin modificar, <em>package</em>)</td>
+<td>Solo dentro del mismo paquete</td>
+</tr>
+<tr>
+<td><code>private</code></td>
+<td>Solo dentro de la propia clase</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="c1">// Atributos privados</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="c1">// Métodos públicos</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si intentamos acceder a un atributo <code>private</code> desde fuera de la clase, el compilador dará un <strong>error de visibilidad</strong>.</p>
+<figure>
+  <img src="imagenes/03/progt03-07.png" />
+  <figcaption>Error al acceder a un atributo privado desde fuera</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/03/progt03-06.png" />
+  <figcaption>Representación de la visibilidad en un diagrama UML</figcaption>
+</figure>
+
+<h3 id="modificadores-de-contenido">Modificadores de contenido<a class="headerlink" href="#modificadores-de-contenido" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>static</code>: atributo de <strong>clase</strong>, no del objeto instanciado (como se vio en <em>Miembros estáticos</em>).</li>
+<li><code>final</code>: define el atributo como <strong>constante</strong> (no puede cambiarse después de su inicialización).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">banco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"BBVA"</span><span class="p">;</span><span class="w"> </span><span class="c1">// estático</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">COMISION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05f</span><span class="p">;</span><span class="w"> </span><span class="c1">// constante</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contadorCuentas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// lleva la cuenta total de cuentas creadas</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="56-metodos">5.6 Métodos<a class="headerlink" href="#56-metodos" title="Permanent link">&para;</a></h2>
+<p>Definen el <strong>comportamiento</strong> de un objeto. Se declaran después de los atributos y constan de <strong>cabecera</strong> (modificadores, nombre, tipo de dato devuelto...) y <strong>cuerpo</strong> (sentencias que implementan el comportamiento).</p>
+<h3 id="cabecera-del-metodo">Cabecera del método<a class="headerlink" href="#cabecera-del-metodo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">[</span><span class="kd">private</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kd">protected</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kd">public</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="kd">static</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="kd">abstract</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="kd">final</span><span class="o">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">tipo</span><span class="w"> </span><span class="nf">nombreMétodo</span><span class="p">(</span><span class="o">[</span><span class="n">lista_parametros</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">[</span><span class="kd">throws</span><span class="w"> </span><span class="n">lista_excepciones</span><span class="o">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// cabecera</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span><span class="w">                </span><span class="c1">// cuerpo</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="cuerpo-del-metodo">Cuerpo del método<a class="headerlink" href="#cuerpo-del-metodo" title="Permanent link">&para;</a></h3>
+<p>El cuerpo está encerrado entre llaves. <strong>Si devuelve un tipo de dato, obligatoriamente debe llevar una instrucción <code>return</code></strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">esMorosa</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">saldo</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">consultarSaldo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="parametros">Parámetros<a class="headerlink" href="#parametros" title="Permanent link">&para;</a></h3>
+<p>Se pueden incluir los que necesitemos <strong>separados por comas</strong> y pueden ser de <strong>cualquier tipo</strong>. Dentro del método <strong>no se pueden declarar variables con el mismo nombre que los parámetros</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">urgente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="c1">// Si es urgente, se le aplica una comisión del 1%</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">urgente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">cantidad</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">cantidad</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.01F</span><span class="p">));</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="sobrecarga-de-metodos">Sobrecarga de métodos<a class="headerlink" href="#sobrecarga-de-metodos" title="Permanent link">&para;</a></h3>
+<p>Java permite <strong>definir varios métodos con el mismo nombre</strong> pero <strong>diferentes parámetros</strong> (número o tipo). El compilador distingue la versión a llamar según los argumentos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ingreso</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">urgente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">urgente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">cantidad</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.01F</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Sobrecarga ≠ sobrescritura</p>
+<p>La <strong>sobrecarga</strong> es dentro de la misma clase (mismo nombre, distintos parámetros). La <strong>sobrescritura</strong> (con <code>@Override</code>) ocurre entre una clase y su subclase (mismo nombre y parámetros) — se verá en el Tema 6.</p>
+</div>
+<h3 id="la-palabra-clave-this">La palabra clave <code>this</code><a class="headerlink" href="#la-palabra-clave-this" title="Permanent link">&para;</a></h3>
+<p><code>this</code> hace referencia al <strong>objeto actual</strong>. Se puede utilizar para hacer referencia a atributos mediante <code>this.atributo</code>. Se usa principalmente para <strong>distinguir</strong> el atributo de un parámetro con el mismo nombre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setTitular</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">titular</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span><span class="w"> </span><span class="c1">// this.titular = atributo; titular = parámetro</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="el-metodo-tostring">El método <code>toString</code><a class="headerlink" href="#el-metodo-tostring" title="Permanent link">&para;</a></h3>
+<p>Redefiniendo el método <code>toString</code> —que viene <strong>heredado de <code>Object</code></strong>— podemos personalizar cómo queremos que se muestre el objeto en un contexto donde se espere una cadena:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="2 "></span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"Nº cuenta: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">", Titular: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">titular</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">", Saldo: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<p>De esta forma, ya es posible hacer un <code>sout</code> directamente de un objeto sin obtener la típica referencia como <code>Cuenta@23fc625e</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cuenta</span><span class="p">);</span><span class="w"> </span><span class="c1">// Nº cuenta: 123456789, Titular: Eladio Blanco, Saldo: 100.0</span>
+</code></pre></div>
+<h3 id="el-metodo-equals">El método <code>equals</code><a class="headerlink" href="#el-metodo-equals" title="Permanent link">&para;</a></h3>
+<p>Es útil redefinir el método <code>equals</code>, que cualquier clase hereda de <code>Object</code>, para determinar si <strong>dos objetos de la misma clase son iguales</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nd">@Override</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="n">Cuenta</span><span class="w"> </span><span class="n">otra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Cuenta</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">otra</span><span class="p">.</span><span class="na">numero</span><span class="p">;</span><span class="w"> </span><span class="c1">// dos cuentas iguales si mismo número</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Para comparar objetos (igual que con las cadenas) se utiliza el método <code>equals</code> y <strong>no</strong> el operador <code>==</code>, que solo compara las <strong>referencias</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Cuenta</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="s">"Eladio"</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="n">f</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">Cuenta</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="s">"Eladio"</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="n">f</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c2</span><span class="p">);</span><span class="w">        </span><span class="c1">// false (referencias distintas)</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">c2</span><span class="p">));</span><span class="w">   </span><span class="c1">// true (mismo número de cuenta)</span>
+</code></pre></div>
+<p>Aparte del uso de <code>equals</code> de forma explícita, es usado de forma implícita por otros métodos como <code>contains</code>, <code>indexOf</code>, <code>remove</code>... de las colecciones (se verá en el Tema 7).</p>
+<h2 id="57-encapsulacion-y-visibilidad">5.7 Encapsulación y visibilidad<a class="headerlink" href="#57-encapsulacion-y-visibilidad" title="Permanent link">&para;</a></h2>
+<p>La <strong>encapsulación</strong> es una característica muy importante en POO. Consiste en <strong>no tener los atributos públicos</strong> (modificador <code>public</code>). Para <strong>leer</strong> su valor se utilizan los <strong>getters</strong> y para <strong>modificarlo</strong> los <strong>setters</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="c1">// Atributos privados</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">interesAnual</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">banco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"BBVA"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Cuenta</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">titular</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">interesAnual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="w">    </span><span class="c1">// SETTERS</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNumero</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setTitular</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">titular</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSaldo</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="26 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos="27 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span><span class="w">    </span><span class="c1">// GETTERS</span>
+<span class="linenos" data-linenos="30 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getNumero</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos="32 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getTitular</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="35 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos="36 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">getSaldo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="39 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos="40 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="41 "></span>
+<span class="linenos" data-linenos="42 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">getInteresAnual</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="43 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">interesAnual</span><span class="p">;</span>
+<span class="linenos" data-linenos="44 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="45 "></span>
+<span class="linenos" data-linenos="46 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getBanco</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="47 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">banco</span><span class="p">;</span>
+<span class="linenos" data-linenos="48 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="49 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">        </span><span class="n">Cuenta</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Cuenta creada"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Nº cuenta: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="na">getNumero</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Titular: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="na">getTitular</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Saldo: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="na">getSaldo</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Banco: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">.</span><span class="na">getBanco</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<figure>
+  <img src="imagenes/03/progt03-08.png" />
+  <figcaption>IntelliJ crea automáticamente los setters y getters</figcaption>
+</figure>
+
+<figure>
+  <img src="imagenes/03/progt03-09.png" />
+  <figcaption>Generación de setters y getters desde Code → Generate</figcaption>
+</figure>
+
+<div class="admonition example">
+<p class="admonition-title">Generación automática en IntelliJ</p>
+<p>IntelliJ crea automáticamente los setters y getters al comenzar a escribirlos o directamente desde el menú <strong>Code → Generate</strong> (o <code>Alt + Insert</code>). ¡Nunca los escribas a mano!</p>
+</div>
+<h3 id="metodos-auxiliares-privados">Métodos auxiliares privados<a class="headerlink" href="#metodos-auxiliares-privados" title="Permanent link">&para;</a></h3>
+<p>Hay métodos que <strong>solo se utilizan dentro de la propia clase</strong> para operaciones internas. En esos casos es recomendable <strong>ocultarlos</strong> marcándolos como <code>private</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="c1">// Método privado: solo lo usa la propia clase</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">saldoSuficiente</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">saldo</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reintegro</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">cantidad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">saldoSuficiente</span><span class="p">(</span><span class="n">cantidad</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">            </span><span class="n">saldo</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">cantidad</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Saldo insuficiente"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Actividad (ejercicio del DNI)</p>
+<p>Utiliza la encapsulación para implementar una clase que calcule la <strong>letra del NIF</strong> a partir del número de DNI (se publicará en PDF de la relación de ejercicios):
+- Atributo <code>int numero</code> privado.
+- Método público que devuelva la letra.
+- Método privado con la tabla de letras como array de <code>String</code> o <code>char</code>.</p>
+</div>
+<h2 id="58-constructores">5.8 Constructores<a class="headerlink" href="#58-constructores" title="Permanent link">&para;</a></h2>
+<p>Los <strong>constructores</strong> son métodos con el <strong>mismo nombre que su clase</strong> encargados de <strong>inicializar los atributos del objeto</strong>.</p>
+<ul>
+<li>Al crear un objeto con el operador <code>new</code> hemos utilizado el <strong>constructor por defecto</strong>.</li>
+<li>A partir de ahora crearemos nuestros <strong>propios constructores</strong>.</li>
+</ul>
+<p>Para crear constructores hay que indicar:</p>
+<ol>
+<li>El <strong>tipo de acceso</strong> (también pueden ser <code>private</code>).</li>
+<li>El <strong>nombre del constructor</strong> (igual que la clase).</li>
+<li>La <strong>lista de parámetros</strong> (opcional).</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">interesAnual</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contadorCuentas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="c1">// Constructor por defecto (inicializa valores)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Cuenta</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="n">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">titular</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="n">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="n">interesAnual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="n">contadorCuentas</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="c1">// Constructor con datos básicos</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Cuenta</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">numero</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titular</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">interesAnual</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numero</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">titular</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">titular</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">interesAnual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">interesAnual</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">        </span><span class="n">contadorCuentas</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Si defines un constructor propio, el por defecto desaparece</p>
+<p>Si creamos un constructor con parámetros y queremos poder usar también <code>new Cuenta()</code> (sin parámetros), <strong>debemos definir explícitamente el constructor por defecto</strong>.</p>
+</div>
+<h3 id="constructor-copia">Constructor copia<a class="headerlink" href="#constructor-copia" title="Permanent link">&para;</a></h3>
+<p>Son constructores a los que se les pasa un <strong>objeto de la misma clase</strong> y crean uno <strong>nuevo a partir de sus atributos</strong>. Útil para <strong>clonar objetos</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Constructor copia</span>
+<span class="linenos" data-linenos="2 "></span><span class="kd">public</span><span class="w"> </span><span class="nf">Cuenta</span><span class="p">(</span><span class="n">Cuenta</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">interesAnual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getInteresAnual</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getSaldo</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">titular</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getTitular</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getNumero</span><span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Cuenta</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="s">"Eladio Blanco"</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5f</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">Cuenta</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cuenta</span><span class="p">(</span><span class="n">c1</span><span class="p">);</span><span class="w"> </span><span class="c1">// copia de c1</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c1</span><span class="p">);</span><span class="w">     </span><span class="c1">// Nº cuenta: 123456789, Titular: Eladio Blanco, Saldo: 0.0</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c2</span><span class="p">);</span><span class="w">     </span><span class="c1">// Nº cuenta: 123456789, Titular: Eladio Blanco, Saldo: 0.0</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Salida del constructor copia</p>
+<p>Al hacer <code>System.out.println</code> de un objeto se imprime la salida de su <strong><code>toString</code></strong>. Si la clase no redefine <code>toString</code>, se imprime la dirección de memoria.</p>
+</div>
+<h3 id="destruccion-de-objetos">Destrucción de objetos<a class="headerlink" href="#destruccion-de-objetos" title="Permanent link">&para;</a></h3>
+<p>Cuando los objetos no son necesarios, hay que <strong>destruirlos para liberar memoria</strong>. El <strong>recolector de basura</strong> de Java los destruye automáticamente cuando ya no hay referencias a ellos.</p>
+<p>Podemos declarar nuestro <strong>propio método <code>finalize</code></strong> para realizar operaciones antes de la destrucción:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="2 "></span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finalize</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="c1">// operaciones de cierre (guardado, cierre de recursos...)</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">finalize</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">No sabemos cuándo se ejecuta exactamente</p>
+<p>El <strong>problema</strong>: no sabemos cuándo se va a ejecutar el recolector de basura. La recomendación es implementar las <strong>"operaciones finales" en métodos a los que podamos llamar nosotros manualmente</strong> (por ejemplo <code>salvar()</code>), en lugar de depender de <code>finalize()</code> (que además está deprecado en versiones modernas y se eliminará).</p>
+</div>
+<p>En el ejemplo del Banco vamos a crear un método <code>salvar()</code> para <strong>guardar el estado</strong> de las cuentas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">salvar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="c1">// Simula guardar el estado de la cuenta en disco</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Guardando cuenta "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" en disco..."</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">cargar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Recuperando cuenta "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" de disco..."</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Guardar cuenta a disco</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="n">c1</span><span class="p">.</span><span class="na">salvar</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error al guardar la cuenta en disco"</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">// Recuperar cuenta de disco</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">c1</span><span class="p">.</span><span class="na">cargar</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Completa la clase Cuenta</p>
+<p>Completa la clase <code>Cuenta</code> de este tema (atributos, constructores, getters, setters, <code>toString</code>, <code>equals</code>) y <strong>genera el Javadoc</strong> (menú Tools → Generate Javadoc...). Ten en cuenta que <code>banco</code> y <code>contadorCuentas</code> son <strong>atributos estáticos</strong>, al igual que el método <code>cambioEuroDolar</code>.</p>
+</div>
+<h2 id="59-empaquetado-de-clases">5.9 Empaquetado de clases<a class="headerlink" href="#59-empaquetado-de-clases" title="Permanent link">&para;</a></h2>
+<p>La encapsulación dentro de las clases nos permite realizar el proceso de ocultación. Cuando las aplicaciones crecen, es necesario utilizar un <strong>nivel superior de organización</strong>: los <strong>paquetes</strong> (<code>package</code>).</p>
+<h3 id="jerarquia-de-paquetes">Jerarquía de paquetes<a class="headerlink" href="#jerarquia-de-paquetes" title="Permanent link">&para;</a></h3>
+<p>Los paquetes se organizan <strong>jerárquicamente como el sistema de archivos</strong>:</p>
+<ul>
+<li><strong>Clases</strong> son los archivos.</li>
+<li><strong>Paquete</strong> es la <strong>carpeta</strong> que aloja otras clases y otros paquetes (subpaquetes).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>es/
+<span class="linenos" data-linenos="2 "></span>└── educativo/
+<span class="linenos" data-linenos="3 "></span>    └── daw/
+<span class="linenos" data-linenos="4 "></span>        ├── Main.java
+<span class="linenos" data-linenos="5 "></span>        └── modelo/
+<span class="linenos" data-linenos="6 "></span>            ├── Cuenta.java
+<span class="linenos" data-linenos="7 "></span>            └── Cliente.java
+</code></pre></div>
+<h3 id="uso-de-paquetes">Uso de paquetes<a class="headerlink" href="#uso-de-paquetes" title="Permanent link">&para;</a></h3>
+<p>Cada vez que usemos una clase tendríamos que utilizar <strong>toda su trayectoria</strong> (nombre cualificado completo). La sentencia <strong><code>import</code></strong> simplifica su uso:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">es.educativo.daw.modelo.Cuenta</span><span class="p">;</span><span class="w"> </span><span class="c1">// importa una clase concreta</span>
+<span class="linenos" data-linenos="2 "></span><span class="kn">import</span><span class="w"> </span><span class="nn">es.educativo.daw.modelo.*</span><span class="p">;</span><span class="w">      </span><span class="c1">// importa todo el paquete</span>
+</code></pre></div>
+<p>Al inicio de nuestro archivo <code>.java</code> se indica mediante <strong><code>package</code></strong> a qué paquete pertenece la clase. <strong>Si no se especifica</strong>, formará parte del paquete por defecto:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">package</span><span class="w"> </span><span class="nn">es.educativo.daw.modelo</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cuenta</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">    </span><span class="p">...</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Convención de nombres de paquete</p>
+<p>Los paquetes se nombran en minúsculas y suelen invertir el dominio de la organización: <code>com.tuempresa.app</code> o <code>es.centro.daw</code>.</p>
+</div>
+<h2 id="510-arrays-estaticos-de-objetos">5.10 Arrays estáticos de objetos<a class="headerlink" href="#510-arrays-estaticos-de-objetos" title="Permanent link">&para;</a></h2>
+<p>Un array también puede <strong>almacenar objetos</strong>, igual que hace con tipos primitivos. Va a permitir <strong>alojar grandes cantidades de objetos y recorrerlos</strong> fácilmente.</p>
+<p>Ejemplo de <strong>array de objetos en la App Banco</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">String</span><span class="w"> </span><span class="n">espera</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">Scanner</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// Crear array de 3 clientes. Ahora mismo todos apuntan a null</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">Cliente</span><span class="o">[]</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cliente</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// Creamos cada cliente y lo guardamos en su posición</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">clientes</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Cliente "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Nombre: "</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Apellidos: "</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">apellidos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="n">clientes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cliente</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">apellidos</span><span class="p">);</span><span class="w"> </span><span class="c1">// new obligatorio</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="c1">// Recorrer el array e imprimir cada cliente</span>
+<span class="linenos" data-linenos="19 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Cliente</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">clientes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Array de objetos = array de referencias</p>
+<p>Al crear <code>new Cliente[3]</code> <strong>no se crean 3 clientes</strong>: se crea un array de 3 referencias <code>null</code>. Cada objeto hay que crearlo con <code>new</code> antes de usarlo; si recorremos el array y hay un <code>null</code>, obtendremos <code>NullPointerException</code>.</p>
+</div>
+<figure>
+  <img src="imagenes/05/progt05-23.png" />
+  <figcaption>Ejercicio: App Colección de discos con arrays de objetos</figcaption>
+</figure>
+
+<h2 id="511-tipos-enumerados-enum">5.11 Tipos enumerados (<code>enum</code>)<a class="headerlink" href="#511-tipos-enumerados-enum" title="Permanent link">&para;</a></h2>
+<p>Los tipos enumerados (<code>enum</code>) en Java son una característica que permite definir un <strong>conjunto fijo de constantes</strong> con nombres significativos. Se utilizan cuando una variable puede tomar <strong>un número limitado de valores conocidos</strong>.</p>
+<h3 id="definicion">Definición<a class="headerlink" href="#definicion" title="Permanent link">&para;</a></h3>
+<p>Se define usando la palabra clave <code>enum</code>, seguida del <strong>nombre</strong> y los <strong>valores constantes</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">DiaSemana</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">LUNES</span><span class="p">,</span><span class="w"> </span><span class="n">MARTES</span><span class="p">,</span><span class="w"> </span><span class="n">MIERCOLES</span><span class="p">,</span><span class="w"> </span><span class="n">JUEVES</span><span class="p">,</span><span class="w"> </span><span class="n">VIERNES</span><span class="p">,</span><span class="w"> </span><span class="n">SABADO</span><span class="p">,</span><span class="w"> </span><span class="n">DOMINGO</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="uso-basico">Uso básico<a class="headerlink" href="#uso-basico" title="Permanent link">&para;</a></h3>
+<p>Los <code>enum</code> pueden usarse de manera <strong>similar a los tipos primitivos</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestDiaSemana</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">dia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">MIERCOLES</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dia</span><span class="p">);</span><span class="w"> </span><span class="c1">// MIERCOLES</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="uso-en-un-switch">Uso en un <code>switch</code><a class="headerlink" href="#uso-en-un-switch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">dia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">MIERCOLES</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">dia</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">LUNES</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Inicio de la semana"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">VIERNES</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Hoy es viernes"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">SABADO</span><span class="p">,</span><span class="w"> </span><span class="n">DOMINGO</span><span class="p">:</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Fin de semana"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Día laborable"</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="uso-en-una-clase">Uso en una clase<a class="headerlink" href="#uso-en-una-clase" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Persona</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">diaLibre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Persona</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">diaLibre</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">diaLibre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diaLibre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DiaSemana</span><span class="w"> </span><span class="nf">getDiaLibre</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">diaLibre</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="metodos-utiles">Métodos útiles<a class="headerlink" href="#metodos-utiles" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>values()</code></strong>: devuelve un <strong>array</strong> con todas las constantes de la enumeración.</li>
+<li><strong><code>valueOf(String)</code></strong>: devuelve la constante de la enumeración que <strong>coincide con el nombre</strong> indicado.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">values</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="c1">// LUNES, MARTES, ...</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">"VIERNES"</span><span class="p">);</span><span class="w"> </span><span class="c1">// si no existe -&gt; IllegalArgumentException</span>
+</code></pre></div>
+<h3 id="atributos-y-metodos-en-un-enum">Atributos y métodos en un <code>enum</code><a class="headerlink" href="#atributos-y-metodos-en-un-enum" title="Permanent link">&para;</a></h3>
+<p>Las enumeraciones <strong>pueden contener atributos y métodos</strong>, igual que las clases:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Nivel</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="n">BAJO</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="n">MEDIO</span><span class="p">(</span><span class="mi">2000</span><span class="p">),</span><span class="w"> </span><span class="n">ALTO</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">limite</span><span class="p">;</span><span class="w"> </span><span class="c1">// atributo</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="n">Nivel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">limite</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// constructor</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">limite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limite</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getLimite</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// método getter</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">limite</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Nivel</span><span class="w"> </span><span class="n">nivel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nivel</span><span class="p">.</span><span class="na">ALTO</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nivel</span><span class="p">.</span><span class="na">getLimite</span><span class="p">());</span><span class="w"> </span><span class="c1">// 5000</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Nivel</span><span class="p">.</span><span class="na">BAJO</span><span class="p">.</span><span class="na">getLimite</span><span class="p">());</span><span class="w"> </span><span class="c1">// 100</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio: Mes (con atributo días)</p>
+<ol>
+<li>Crea un <code>enum</code> <strong><code>Mes</code></strong> para representar los 12 meses del año. Cada uno tendrá un valor que serán los <strong>días del propio mes</strong> (sin tener en cuenta años bisiestos).</li>
+<li>Pruébalo en una clase <code>TestMes</code> haciendo lo siguiente:
+   - Mostrar <strong>todos los valores</strong> del enum junto a sus días (usando <code>values()</code>).
+   - Preguntar al usuario por un mes y devolver los días que tiene (usando <code>valueOf(String)</code>), comprobando que existe.</li>
+</ol>
+</div>
+<h3 id="conclusion">Conclusión<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
+<p>Los tipos enumerados en Java (y en cualquier lenguaje) son una <strong>herramienta poderosa</strong> para definir valores constantes con significado, evitar valores inválidos y hacer el código más legible y seguro.</p>
+<h2 id="512-buenas-practicas">5.12 Buenas prácticas<a class="headerlink" href="#512-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Atributos privados</strong> siempre: accede mediante getters/setters (encapsulación).</li>
+<li><strong>Nombres de clase</strong> en <code>UpperCamelCase</code> y <strong>nombres de método</strong> en <code>lowerCamelCase</code>.</li>
+<li><strong>Un constructor correcto</strong> que inicialice todos los atributos, y constructor copia cuando se necesite clonar.</li>
+<li>Redefine <strong><code>toString</code></strong> para ver el contenido del objeto al imprimirlo.</li>
+<li>Usa <strong><code>enum</code></strong> cuando una variable pueda tomar un número limitado de valores conocidos.</li>
+<li><strong>Genera Javadoc</strong> en las clases y métodos públicos.</li>
+<li>Evita depender de <code>finalize()</code>: cierra recursos en métodos explícitos.</li>
+</ul>
+<h2 id="513-referencias">5.13 Referencias<a class="headerlink" href="#513-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html">Documentación de la clase Object (Oracle)</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/index.html">Java Tutorial — Classes and Objects (Oracle)</a></li>
+<li><a href="https://www.w3schools.com/java/java_classes.asp">Clases y objetos (W3Schools)</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html">Enumeraciones en Java (Oracle Docs)</a></li>
+<li><a href="https://www.tiobe.com/tiobe-index/">Índice TIOBE</a></li>
+<li><a href="https://java.es/">Apuntes de POO de Java.Es</a></li>
+</ul>
+<h2 id="514-actividades">5.14 Actividades<a class="headerlink" href="#514-actividades" title="Permanent link">&para;</a></h2>
+<ol start="501">
+<li>Crea una clase <code>Persona</code> con atributos (nombre, apellidos, edad) y que sobreescriba <code>toString</code> para mostrar esos datos. Prueba a crear un par de instancias en un <code>main</code>.</li>
+</ol>
+<details class="info">
+<summary>Solución ejercicio 501</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Persona</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apellidos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Persona</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apellidos</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">edad</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">apellidos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">apellidos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">edad</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">apellidos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" ("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">edad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" años)"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestPersona</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">        </span><span class="n">Persona</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Persona</span><span class="p">(</span><span class="s">"Luisa"</span><span class="p">,</span><span class="w"> </span><span class="s">"García"</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span><span class="w">        </span><span class="n">Persona</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Persona</span><span class="p">(</span><span class="s">"Manuel"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fernández"</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">);</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="502">
+<li>
+<p>Aplica <strong>encapsulación</strong> con getters/setters y un constructor: crea una clase <code>Cuenta</code> como la del banco y valida en el setter de saldo que nunca sea negativo.</p>
+</li>
+<li>
+<p>Crea una jerarquía simple con <strong>herencia</strong> (<code>Animal</code> → <code>Perro</code>, <code>Gato</code>) con un método común y sobrescrituras.</p>
+</li>
+</ol>
+<details class="info">
+<summary>Solución ejercicio 503</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sonido</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Sonido genérico"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Gato</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sonido</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Miau"</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Perro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="nd">@Override</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sonido</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Guau"</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="504">
+<li>
+<p>Implementa <strong>polimorfismo</strong> con un método sobrescrito: crea un array de <code>Animal</code> con un <code>Gato</code> y un <code>Perro</code> y recórrelo llamando a <code>sonido()</code>.</p>
+</li>
+<li>
+<p>Crea y usa un <code>enum</code>, por ejemplo <code>DiaSemana</code>, con su uso en <code>switch</code> y recorriendo <code>values()</code>.</p>
+</li>
+</ol>
+<details class="info">
+<summary>Solución ejercicio 505</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">DiaSemana</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="n">LUNES</span><span class="p">,</span><span class="w"> </span><span class="n">MARTES</span><span class="p">,</span><span class="w"> </span><span class="n">MIERCOLES</span><span class="p">,</span><span class="w"> </span><span class="n">JUEVES</span><span class="p">,</span><span class="w"> </span><span class="n">VIERNES</span><span class="p">,</span><span class="w"> </span><span class="n">SABADO</span><span class="p">,</span><span class="w"> </span><span class="n">DOMINGO</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestDia</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">values</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" -&gt; "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">esLaborable</span><span class="p">(</span><span class="n">d</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">esLaborable</span><span class="p">(</span><span class="n">DiaSemana</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">SABADO</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DiaSemana</span><span class="p">.</span><span class="na">DOMINGO</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="506">
+<li>
+<p>Implementa los constructores (por defecto, con datos y <strong>copia</strong>) de la clase <code>Cuenta</code> y muestra cómo un constructor copia clona el objeto (verificando que se imprimen ambos y que son instancias distintas).</p>
+</li>
+<li>
+<p>Redefine <code>equals</code> en la clase <code>Persona</code> para que dos personas sean iguales si tienen el mismo nombre y apellidos. Compara con <code>==</code> y con <code>equals</code>. (La jerarquía <code>Animal/Perro/Gato</code> y los <code>enum</code> se ampliarán en los temas 6 y 7.)</p>
+</li>
+<li>
+<p>Reto: <strong>app Colección de discos</strong> con arrays de objetos: clase <code>Disco</code> (título, grupo, año, etc.) y menú con <code>switch</code> para añadir, listar, modificar y borrar discos de un array. Reutiliza la estructura del menú del Tema 2.</p>
+</li>
+<li>
+<p>Reto: implementa el <strong><code>enum Mes</code></strong> del banco del tema (días por mes), con <code>values()</code> y <code>valueOf(String)</code>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
