@@ -41,7 +41,7 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  logo: "imagenes/isotipo-azul@3x.png"
+  logo: "imagenes/isotipo-marino@3x.png"
   features:
     - header.autohide
     - toc.integrate
